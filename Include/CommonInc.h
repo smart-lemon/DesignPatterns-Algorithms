@@ -13,4 +13,12 @@ void testChainOfResponsibility();
 
 // Command
 void testCommandPattern();
+
+// Interpreter
+void testInterpreterPattern();
+
+// Iterator 
+void testIteratorPattern();
+
+
     

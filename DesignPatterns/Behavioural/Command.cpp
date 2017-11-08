@@ -147,7 +147,7 @@ class InvokerRemoteButton {
         cmd->execute();
     }   
 
-    void undo(Command *cmd){
+    void undoPress(Command *cmd){
         cmd->undo();
     }   
 };  
@@ -174,8 +174,8 @@ void testCommandPattern(){
     
     button->comboPress();
 
-    button->undo(changeChannel);
-    button->undo(changeChannel);  
+    button->undoPress(changeChannel);
+    button->undoPress(changeChannel);  
     
     button->clear();
     

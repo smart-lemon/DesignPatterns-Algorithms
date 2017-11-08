@@ -4,17 +4,17 @@ ODIR = Out
 
 # input and output
 FILES = ./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
-        ./DesignPatterns/Behavioural/Command.cpp main.cpp
+        ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
+		./DesignPatterns/Behavioural/Interpreter.cpp main.cpp
+
 OUT_EXE = out_exec
 
 
 # define any directories containing header files other than /usr/include
 INCLUDES = -I../Include
 
-
 # define any compile-time flags
 CFLAGS = -g
-
 
 # Most makefiles have at least two basic components: macros and target definitions
 
@@ -63,4 +63,4 @@ build_and_run: $(FILES)
 	./$(ODIR)/$(OUT_EXE)
 
 clean:
-	rm -f $(ODIR)/*.* *~ core $(INCDIR)/*~ 
+	rm -rf $(ODIR)/*.* *~ core $(INCDIR)/*~

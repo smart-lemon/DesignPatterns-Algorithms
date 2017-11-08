@@ -5,12 +5,20 @@ using namespace std;
 #include <list>
 #include <iterator>
 
-// Interface
+/* 
+
+Command pattern : 
+
+
+*/
+
+// 
 class ElectronicDevice {
     public:
         virtual void on()  = 0;
         virtual void off() = 0;
-        virtual void changeChannel() = 0;
+        virtual void changeChannelPlus() = 0;
+        virtual void changeChannelMinus() = 0;
 };
 
 
@@ -28,8 +36,12 @@ class Television : public ElectronicDevice {
             cout << "TV : is OFF" << endl;   
         }
 
-        void changeChannel(){
+        void changeChannelPlus(){
             cout << "TV : Channel number is " << ++channelNumber << endl;   
+        }
+
+        void changeChannelMinus(){
+            cout << "TV : Channel number is " << --channelNumber << endl;   
         }
 };
 
@@ -38,6 +50,7 @@ class Television : public ElectronicDevice {
 class Command {
     public:
         virtual void execute() = 0;
+        virtual void undo() = 0;
 };  
 
 
@@ -54,6 +67,11 @@ class TurnTvOn : public Command {
         cout << "Executing Turn On Command" << endl;
         targetDevice->on();
     }
+   
+    void undo() {
+        cout << "Undo - Turn Off" << endl;
+        targetDevice->off();
+    }
 };
 
 class TurnTvOff : public Command {
@@ -69,6 +87,11 @@ class TurnTvOff : public Command {
         cout << "Executing Turn Off Command" << endl;
         targetDevice->off();
     }
+
+    void undo() {
+        cout << "Undo - Turn On" << endl;
+        targetDevice->on();
+    }
 };
 
 
@@ -83,7 +106,12 @@ class ChangeTheChannel : public Command {
 
     void execute() {
         cout << "Changing the channel" << endl;
-        targetDevice->changeChannel();
+        targetDevice->changeChannelPlus();
+    }
+
+    void undo() {
+        cout << "Undo - Changed channel" << endl;
+        targetDevice->changeChannelMinus();
     }
 };
 
@@ -109,7 +137,7 @@ class InvokerRemoteButton {
     void comboPress(){
         for(std::list<Command *>::iterator listIter = cmdList->begin(); 
             listIter != cmdList->end(); listIter++) {
-                
+
             Command *cmd = *listIter;
             cmd->execute();
         }
@@ -117,6 +145,10 @@ class InvokerRemoteButton {
     
     void press(Command *cmd){
         cmd->execute();
+    }   
+
+    void undo(Command *cmd){
+        cmd->undo();
     }   
 };  
 
@@ -139,8 +171,14 @@ void testCommandPattern(){
     button->store(changeChannel);
     button->store(changeChannel);
     button->store(changeChannel);
-    button->store(turnOff);
     
     button->comboPress();
+
+    button->undo(changeChannel);
+    button->undo(changeChannel);  
+    
     button->clear();
+    
+    button->store(turnOff);
+    button->comboPress();
 }

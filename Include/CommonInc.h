@@ -6,7 +6,7 @@
 void workWithAnimals();
 
 
-/******* Behavioural Design Patterns *******/
+/* ####### Behavioural Design Patterns ####### */
 
 // Chain of Responsibility
 void testChainOfResponsibility();

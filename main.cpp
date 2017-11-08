@@ -10,7 +10,6 @@ int main()
 {
 	cout << "Hello World" << "\n";
 
-	testCommandPattern();
 	
 	// testProgram();
   	return 0; 
@@ -24,6 +23,8 @@ void testProgram()
 	cout << "1. Inheritance " << endl << endl;
 	cout << " ===== Behavioural Design Patterns =====" << endl;
 	cout << "2. Chain of Responsibility" << endl;
+	cout << "3. Command Pattern" << endl;
+	
 
 	cout << endl;
 	cin >> which;
@@ -35,5 +36,9 @@ void testProgram()
 		case 2: 
 			testChainOfResponsibility();		
 		break;
+		case 3: 
+			testCommandPattern();		
+		break;
+		
 	}
 }

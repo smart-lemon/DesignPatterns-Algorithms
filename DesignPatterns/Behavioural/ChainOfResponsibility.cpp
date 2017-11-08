@@ -2,8 +2,6 @@
 
 using namespace std;
 
-typedef bool boolean;
-
 class Numbers {
     
 private :

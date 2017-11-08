@@ -32,7 +32,7 @@ public:
 	}
 
 	void setSound(string inSound) {
-			sound = inSound;
+		sound = inSound;
 	}
 
 	void setWeight(int inWeight) {

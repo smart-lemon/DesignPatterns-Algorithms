@@ -43,5 +43,4 @@ Thumbs.db
 config.codekit
 
 #Compiler Output 
-*.out
-./Out/*.*
+Out

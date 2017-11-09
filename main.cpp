@@ -10,10 +10,12 @@ const int DESIGN_PATTERNS = 1;
 const int ALGORITHMS = 2; 
 const int DATA_STRUCTURES = 3; 
 
+// →  ⇨ ➡ ⇒ ⟹ ►
+// 	• ○  
+
 int main() 
 {
 	cout << "Hello World" << "\n";
-
 	
 	// testProgram();
   	return 0; 

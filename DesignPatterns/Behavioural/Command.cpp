@@ -6,10 +6,21 @@ using namespace std;
 #include <iterator>
 
 /* 
+    ######## Command pattern ########
+    
+    This pattern allows decoupling between the sender and the receiver 
+    i.e the Sender and the reciver dont know about each other. 
 
-Command pattern : 
+    1. Command:  An interface for a Command to execute 
 
+    2. ConcreteCommand: Defines a binding between Receiver and an Action
+     → e.g TurnTvOn, TurnTvOff
 
+    3. Client: Generates the Command object
+     → e.g testCommandPattern
+
+    4. Invoker : Decides which method should be called 
+     → e.g InvokerRemoteButton
 */
 
 // 

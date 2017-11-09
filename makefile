@@ -41,7 +41,7 @@ COMP = $(CC) $(OPT)
 
 # target: [dependencies]
 #        <command>
-#        <command 2>
+#        <command more>
 
 # Typing "make" alone should generally result in some kind of reasonable behavior. 
 # When you type "make" without specifying a target in the corresponding makefile, 
@@ -58,8 +58,7 @@ run:
 
 build_and_run: $(FILES)
 	$(CC) $(CFLAGS) -o $(ODIR)/$(OUT_EXE) $(FILES)
-	@echo  build is done
-	@echo  Running your program
+	@echo  Build is done ...  running your program
 	./$(ODIR)/$(OUT_EXE)
 
 clean:

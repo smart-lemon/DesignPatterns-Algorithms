@@ -6,12 +6,12 @@ using namespace std;
 #include <vector>
 #include <iterator>
 
-// declerations
+// Declerations
 std::vector<string> split(const string &s, char delim);
 
 
 /*  
-    ######## Interpreter pattern ########
+    ############################## Interpreter pattern ##############################
 
     ○→ Converts one representation of data into another. 
     ○→ It is used when you have multiple objectives that exist in a well defined, well understood domain.

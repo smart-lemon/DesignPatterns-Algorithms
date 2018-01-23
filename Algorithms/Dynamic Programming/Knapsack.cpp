@@ -7,18 +7,18 @@ using namespace std;
 static int max(int a, int b) { return (a > b)? a : b; }
 
 // data for knapsack
-static int values[]  = { 60, 100, 120, 70 }; 
-static int weights[] = { 10, 20, 30, 40 };
+static int values[]  = { 60, 100, 120 }; 
+static int weights[] = { 10, 20, 30 };
 
 // Size - N
-const static int N = 4;
+const static int N = 3;
 
-// Capacity - C
-const static int C = 150;
+// Capacity - C	
+const static int C = 50;
 
 
-// Bottom up
-void knapsack_1_0() 
+// Bottom up 
+int knapsack_1_0() 
 { 
     // DP array contains the best possible value -  having N + 1 rows and C + 1 columns
 	int DP[N + 1][C + 1];
@@ -48,10 +48,12 @@ void knapsack_1_0()
 			}
 		}
     }
+
+	return DP[N][C];
 }
 
 
 void testKnapsack() 
 {
-
+    cout << "Bottom up - Knapsack 1-0 " << knapsack_1_0() << endl;
 }

@@ -14,7 +14,7 @@ static int weights[] = { 10, 20, 30 };
 const static int N = 3;
 
 // Capacity - C	
-const static int C = 50;
+const static int C = 50	;
 
 
 // Bottom up 
@@ -23,7 +23,7 @@ int knapsack_1_0()
     // DP array contains the best possible value -  having N + 1 rows and C + 1 columns
 	int DP[N + 1][C + 1];
 
-	// Row i = 0 with value 0 - because for weight 0, Result is 0
+	// Row i = 0 with value 0 - because for capacity 0, Result is 0
 	for(int c = 0; c <= C; c++) {
 		DP[0][c] = 0;
 	}
@@ -53,7 +53,20 @@ int knapsack_1_0()
 }
 
 
+int recursiveKnapsack(int i, int c)
+{
+	// If 0 items or capacity, return 0 as value
+	if(i == 0 || c == 0)
+		return 0;
+
+	if(weights[i] > c)
+	 	return recursiveKnapsack(i - 1, c);
+
+	return max(recursiveKnapsack(i - 1, c), recursiveKnapsack(i - 1, c - 1) + values[i]);
+}
+
 void testKnapsack() 
 {
     cout << "Bottom up - Knapsack 1-0 " << knapsack_1_0() << endl;
+	cout << "Recursive - Knapsack 1-0 " << recursiveKnapsack(N, C) << endl;
 }

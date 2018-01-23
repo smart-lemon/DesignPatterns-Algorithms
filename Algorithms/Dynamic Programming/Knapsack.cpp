@@ -10,7 +10,7 @@ static int max(int a, int b) { return (a > b)? a : b; }
 static int values[]  = { 60, 100, 120 }; 
 static int weights[] = { 10, 20, 30 };
 
-// Size - N
+// Item count - N
 const static int N = 3;
 
 // Capacity - C	
@@ -52,7 +52,7 @@ int knapsack_1_0()
 	return DP[N][C];
 }
 
-
+// i items, and c capacity
 int recursiveKnapsack(int i, int c)
 {
 	// If 0 items or capacity, return 0 as value
@@ -62,7 +62,8 @@ int recursiveKnapsack(int i, int c)
 	if(weights[i] > c)
 	 	return recursiveKnapsack(i - 1, c);
 
-	return max(recursiveKnapsack(i - 1, c), recursiveKnapsack(i - 1, c - 1) + values[i]);
+	return max( recursiveKnapsack(i - 1, c),  // i-th item is not used, same capacity
+	            recursiveKnapsack(i - 1, c - weights[i]) + values[i] ); // i-th item is used
 }
 
 void testKnapsack() 

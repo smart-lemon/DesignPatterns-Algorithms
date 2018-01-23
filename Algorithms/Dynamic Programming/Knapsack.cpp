@@ -59,11 +59,14 @@ int recursiveKnapsack(int i, int c)
 	if(i == 0 || c == 0)
 		return 0;
 
+    // no point in going ahead, there is no space in c to keep weights[i]
 	if(weights[i] > c)
 	 	return recursiveKnapsack(i - 1, c);
 
-	return max( recursiveKnapsack(i - 1, c),  // i-th item is not used, same capacity
-	            recursiveKnapsack(i - 1, c - weights[i]) + values[i] ); // i-th item is used
+                // i-th item is not used, same capacity
+	return max( recursiveKnapsack(i - 1, c),  
+			    // i-th item is used, c - weights[i] remain
+	            recursiveKnapsack(i - 1, c - weights[i]) + values[i] ); 
 }
 
 void testKnapsack() 

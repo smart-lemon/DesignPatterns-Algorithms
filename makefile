@@ -5,7 +5,8 @@ ODIR = Out
 # input and output
 FILES = ./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
         ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
-		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
+		./Algorithms/Dynamic\ Programming/Knapsack.cpp ./Algorithms/Sorting/Quicksort.cpp \
+		./Helper/Helper.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp main.cpp
 
 OUT_EXE = out_exec

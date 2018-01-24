@@ -15,7 +15,7 @@ const int DATA_STRUCTURES = 3;
 
 int main() 
 {
-	cout << "Hello World" << "\n";
+	cout << "" << "\n";
 	
 	// testProgram();
   	return 0; 

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+// swap pos1 with pos2 
 static void swap(int *numbers, int pos1, int pos2){
 
     int temp = numbers[pos1];
@@ -10,7 +10,7 @@ static void swap(int *numbers, int pos1, int pos2){
     numbers[pos2] = temp;
 }
 
-
+// 
 static int partition(int *numbers, int low, int high) {
 
     int left,  right,  pivot = numbers[low];
@@ -55,8 +55,10 @@ void testQuicksort()
 {
     int dataset[] = {91, 62, -1, 89, 0, 45};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
+
     q_sort(dataset, low, high - 1);
 
+    cout << "Quicksort: ";
     print1DArray(dataset, high);
     
 }

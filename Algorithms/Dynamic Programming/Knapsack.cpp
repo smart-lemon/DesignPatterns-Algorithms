@@ -2,11 +2,11 @@
 
 using namespace std;
 
- 
+
 // A helper function that returns maximum of two integers
 static int max(int a, int b) { return (a > b)? a : b; }
 
-// data for knapsack
+// Data for knapsack
 static int values[]  = { 60, 100, 120 }; 
 static int weights[] = { 10, 20, 30 };
 

@@ -17,7 +17,6 @@ int main()
 {
 	cout << "Hello World" << "\n";
 	
-	testKnapsack();
 	// testProgram();
   	return 0; 
 }

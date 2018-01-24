@@ -20,6 +20,5 @@ void testInterpreterPattern();
 // Iterator 
 void testIteratorPattern();
 
-/* ####### Algorithms ####### */
-
+/*  Algorithms */
 void testKnapsack();

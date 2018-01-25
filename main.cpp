@@ -17,6 +17,7 @@ int main()
 {
 	cout << "" << "\n";
 	
+	testMergesort();
 	// testProgram();
   	return 0; 
 }

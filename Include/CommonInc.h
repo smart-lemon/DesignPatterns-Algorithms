@@ -24,5 +24,6 @@ void testIteratorPattern();
 void testKnapsack();
 
 void testQuicksort();
+void testMergesort();
 
 void print1DArray(int *arr, int n);

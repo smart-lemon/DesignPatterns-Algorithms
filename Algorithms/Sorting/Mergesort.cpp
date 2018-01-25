@@ -6,12 +6,26 @@ using namespace std;
 // Second subarray is arr[m + 1..r]
 void merge(int *numbers, int *temp, int left, int mid, int right)
 {
-    int l_start = left; 
+    int l_start = left; int l = left;
     int l_end = mid; 
-    int r_start = mid + 1; 
+    int r_start = mid + 1; int r = right;
     int r_end = right;
 
     int cnt = l_start;
+   
+    cout << endl << "{l: ";
+    for(int i = l_start; i <= l_end; i++)
+    {
+        cout << numbers[i] << " ";
+    }
+    cout << " --- " ;
+    for(int i = r_start; i <= r_end; i++)
+    {
+        cout << numbers[i] << " ";
+    }
+    cout << ":r} " << endl;
+   
+
     while((l_start <= l_end) && (r_start <= r_end))
     {
         if(numbers[l_start] < numbers[r_start])
@@ -25,6 +39,20 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
         }
         cnt++;
     }
+
+
+    cout << "{tl: ";
+    for(int i = l; i <= l_end; i++)
+    {
+        cout << temp[i] << " ";
+    }
+    cout << " --- " ;
+    for(int i = r; i <= r_end; i++)
+    {
+        cout << temp[i] << " ";
+    }
+    cout << ":rt} " << endl;
+   
 
     // copy the left overs
     while (l_start <= l_end)

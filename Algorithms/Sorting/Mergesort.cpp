@@ -13,17 +13,18 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
 
     int cnt = l_start;
    
-    cout << endl << "{l: ";
+    cout << endl << "{L: ";
     for(int i = l_start; i <= l_end; i++)
     {
         cout << numbers[i] << " ";
     }
     cout << " --- " ;
+
     for(int i = r_start; i <= r_end; i++)
     {
         cout << numbers[i] << " ";
     }
-    cout << ":r} " << endl;
+    cout << ":R} " << endl;
    
 
     while((l_start <= l_end) && (r_start <= r_end))
@@ -37,22 +38,9 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
             temp[cnt] = numbers[r_start];
             r_start++;
         }
+        cout << temp[cnt] << " ";
         cnt++;
     }
-
-
-    cout << "{tl: ";
-    for(int i = l; i <= l_end; i++)
-    {
-        cout << temp[i] << " ";
-    }
-    cout << " --- " ;
-    for(int i = r; i <= r_end; i++)
-    {
-        cout << temp[i] << " ";
-    }
-    cout << ":rt} " << endl;
-   
 
     // copy the left overs
     while (l_start <= l_end)
@@ -67,6 +55,26 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
         temp[cnt] = numbers[r_start];
         r_start++;
         cnt++;
+    }
+
+    cout << "  {tl: ";
+    for(int i = l; i <= l_end; i++)
+    {
+        cout << temp[i] << " ";
+    }
+    cout << " --- " ;
+    for(int i = r; i <= r_end; i++)
+    {
+        cout << temp[i] << " ";
+    }
+    cout << ":rt} " << endl;
+
+
+    cout << " Merge " << endl;
+
+    for(int i = l; i <= right; i++)
+    {
+        cout << temp[i] << " ";
     }
 }
 
@@ -88,7 +96,7 @@ void mergesort(int *numbers, int *temp, int left, int right){
 
 void testMergesort()
 {
-    int dataset[] = {102, 54, -19, 99, 0, 69, 23, 38};
+    int dataset[] = {4, 5, 7, 8, 6, 0, 1, 3, 2, 9};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
 
     cout << "Mergesort: ";

@@ -12,21 +12,7 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
     int r_end = right;
 
     int cnt = l_start;
-   
-    cout << endl << "{L: ";
-    for(int i = l_start; i <= l_end; i++)
-    {
-        cout << numbers[i] << " ";
-    }
-    cout << " --- " ;
-
-    for(int i = r_start; i <= r_end; i++)
-    {
-        cout << numbers[i] << " ";
-    }
-    cout << ":R} " << endl;
-   
-
+  
     while((l_start <= l_end) && (r_start <= r_end))
     {
         if(numbers[l_start] < numbers[r_start])
@@ -38,7 +24,6 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
             temp[cnt] = numbers[r_start];
             r_start++;
         }
-        cout << temp[cnt] << " ";
         cnt++;
     }
 
@@ -56,30 +41,12 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
         r_start++;
         cnt++;
     }
-
-    cout << "  {tl: ";
-    for(int i = l; i <= l_end; i++)
-    {
-        cout << temp[i] << " ";
-    }
-    cout << " --- " ;
-    for(int i = r; i <= r_end; i++)
-    {
-        cout << temp[i] << " ";
-    }
-    cout << ":rt} " << endl;
-
-    cout << " Merge " << endl;
-
+  
     for(int k = left; k <= right; k++) 
     {  
         numbers[k] = temp[k];
     }
 
-    for(int i = l; i <= right; i++)
-    {
-        cout << temp[i] << " ";
-    }
 }
 
 void mergesort(int *numbers, int *temp, int left, int right){
@@ -103,7 +70,7 @@ void testMergesort()
     int dataset[] = {4, 2, 8, 0, 6, 7, 1, 3, 5, 9};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
 
-    cout << "Mergesort: ";
+    cout << "Mergesort of : ";
     print1DArray(dataset, high);
 
     int *output = new int[high];

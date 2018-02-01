@@ -42,6 +42,7 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
         cnt++;
     }
   
+    // merging of sub array done, now put back the sub array in the original data set
     for(int k = left; k <= right; k++) 
     {  
         numbers[k] = temp[k];
@@ -63,7 +64,6 @@ void mergesort(int *numbers, int *temp, int left, int right){
         merge(numbers, temp, left, mid, right);
     }
 }
-
 
 void testMergesort()
 {

@@ -69,8 +69,12 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
     }
     cout << ":rt} " << endl;
 
-
     cout << " Merge " << endl;
+
+    for(int k = left; k <= right; k++) 
+    {  
+        numbers[k] = temp[k];
+    }
 
     for(int i = l; i <= right; i++)
     {
@@ -96,7 +100,7 @@ void mergesort(int *numbers, int *temp, int left, int right){
 
 void testMergesort()
 {
-    int dataset[] = {4, 5, 7, 8, 6, 0, 1, 3, 2, 9};
+    int dataset[] = {4, 2, 8, 0, 6, 7, 1, 3, 5, 9};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
 
     cout << "Mergesort: ";

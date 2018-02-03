@@ -2,15 +2,6 @@
 
 using namespace std;
 
-
-// swap position a with b 
-static void swap(int *numbers, int a, int b){
-    int temp = numbers[a];
-    numbers[a] = numbers[b];
-    numbers[b] = temp;
-}
-
-
 void bubblesort(int *data, int n){
 
    bool swapped = true;

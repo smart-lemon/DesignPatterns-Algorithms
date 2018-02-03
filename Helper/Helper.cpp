@@ -11,3 +11,11 @@ void print1DArray(int *arr, int n){
     }
     cout << endl;
 }
+
+
+// swap position a with b 
+void swap(int *numbers, int a, int b){
+    int temp = numbers[a];
+    numbers[a] = numbers[b];
+    numbers[b] = temp;
+}

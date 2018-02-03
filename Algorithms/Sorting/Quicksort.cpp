@@ -2,14 +2,6 @@
 
 using namespace std;
 
-// swap pos1 with pos2 
-static void swap(int *numbers, int pos1, int pos2){
-
-    int temp = numbers[pos1];
-    numbers[pos1] = numbers[pos2];
-    numbers[pos2] = temp;
-}
-
 // 
 static int partition(int *data, int low, int high) {
 

@@ -7,7 +7,7 @@ FILES = ./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfRes
         ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
 		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp\
-		./Helper/Helper.cpp ./Algorithms/Sorting/Bubble.cpp\
+		./Helper/Helper.cpp ./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp\
 		./DesignPatterns/Behavioural/Interpreter.cpp main.cpp
 
 OUT_EXE = out_exec

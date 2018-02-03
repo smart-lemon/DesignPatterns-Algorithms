@@ -17,7 +17,7 @@ int main()
 {
 	cout << "" << "\n";
 	
-	testBubbleSort();
+	testSelectionSort();
 	// testProgram();
   	return 0; 
 }

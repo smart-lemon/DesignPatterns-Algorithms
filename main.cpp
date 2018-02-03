@@ -17,7 +17,7 @@ int main()
 {
 	cout << "" << "\n";
 	
-	testMergesort();
+	testBubbleSort();
 	// testProgram();
   	return 0; 
 }

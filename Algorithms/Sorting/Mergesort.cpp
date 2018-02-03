@@ -4,7 +4,7 @@ using namespace std;
 
 // First subarray is arr[l..m]
 // Second subarray is arr[m + 1..r]
-void merge(int *numbers, int *temp, int left, int mid, int right)
+void merge(int *data, int *temp, int left, int mid, int right)
 {
     int l_start = left; int l = left;
     int l_end = mid; 
@@ -15,13 +15,13 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
   
     while((l_start <= l_end) && (r_start <= r_end))
     {
-        if(numbers[l_start] < numbers[r_start])
+        if(data[l_start] < data[r_start])
         {
-            temp[cnt] = numbers[l_start];
+            temp[cnt] = data[l_start];
             l_start++;
 
         } else {
-            temp[cnt] = numbers[r_start];
+            temp[cnt] = data[r_start];
             r_start++;
         }
         cnt++;
@@ -30,14 +30,14 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
     // copy the left overs
     while (l_start <= l_end)
     {
-        temp[cnt] = numbers[l_start];
+        temp[cnt] = data[l_start];
         l_start++;
         cnt++;
     }
 
     while (r_start <= r_end)
     {
-        temp[cnt] = numbers[r_start];
+        temp[cnt] = data[r_start];
         r_start++;
         cnt++;
     }
@@ -45,12 +45,12 @@ void merge(int *numbers, int *temp, int left, int mid, int right)
     // merging of sub array done, now put back the sub array in the original data set
     for(int k = left; k <= right; k++) 
     {  
-        numbers[k] = temp[k];
+        data[k] = temp[k];
     }
 
 }
 
-void mergesort(int *numbers, int *temp, int left, int right){
+void mergesort(int *data, int *temp, int left, int right){
 
     if(right > left)
     {
@@ -58,14 +58,14 @@ void mergesort(int *numbers, int *temp, int left, int right){
         int mid = (left + right)/2;
 
         // divide and conquer
-        mergesort(numbers, temp, left, mid);
-        mergesort(numbers, temp, mid + 1, right);
+        mergesort(data, temp, left, mid);
+        mergesort(data, temp, mid + 1, right);
 
-        merge(numbers, temp, left, mid, right);
+        merge(data, temp, left, mid, right);
     }
 }
 
-void testMergesort()
+void testMergeSort()
 {
     int dataset[] = {4, 2, 8, 0, 6, 7, 1, 3, 5, 9};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);

@@ -11,47 +11,47 @@ static void swap(int *numbers, int pos1, int pos2){
 }
 
 // 
-static int partition(int *numbers, int low, int high) {
+static int partition(int *data, int low, int high) {
 
-    int left,  right,  pivot = numbers[low];
+    int left,  right,  pivot = data[low];
     left = low; right = high; 
 
     while (left < right) {
 
         // everthing on the left of pivot is lower than the pivot 
-        while (numbers[left] <= pivot) // <= is because left is the pivot initially
+        while (data[left] <= pivot) // <= is because left is the pivot initially
         {
             left++;
         }
 
         // everything on the right of the pivot is greater than the pivot 
-        while (numbers[right] > pivot)
+        while (data[right] > pivot)
         {
             right--;
         }
 
         if (left < right)
-            swap(numbers, left, right);
+            swap(data, left, right);
     }
 
     // put the pivot in the 'rigthful' place
-    swap(numbers, low, right);
+    swap(data, low, right);
 
     return right;
 }
 
 // quicksort 
-static void q_sort(int *numbers, int low, int high)
+static void q_sort(int *data, int low, int high)
 {
     if (high > low) {
-        int p_index = partition(numbers, low, high);
+        int p_index = partition(data, low, high);
 
-        q_sort(numbers, low , p_index - 1);
-        q_sort(numbers, p_index + 1, high);
+        q_sort(data, low , p_index - 1);
+        q_sort(data, p_index + 1, high);
     }
 }
 
-void testQuicksort()
+void testQuickSort()
 {
     int dataset[] = {91, 62, -1, 89, 0, 45};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);

@@ -23,7 +23,8 @@ void testIteratorPattern();
 /*  Algorithms */
 void testKnapsack();
 
-void testQuicksort();
-void testMergesort();
+void testQuickSort();
+void testMergeSort();
+void testBubbleSort();
 
 void print1DArray(int *arr, int n);

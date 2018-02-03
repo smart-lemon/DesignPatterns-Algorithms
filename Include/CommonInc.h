@@ -6,7 +6,7 @@
 void workWithAnimals();
 
 
-/* ####### Behavioural Design Patterns ####### */
+/* ####### Design Patterns ####### */
 
 // Chain of Responsibility
 void testChainOfResponsibility();
@@ -20,7 +20,10 @@ void testInterpreterPattern();
 // Iterator 
 void testIteratorPattern();
 
-/*  Algorithms */
+
+/* ####### Algorithms ####### */
+
+// Dynamic programming
 void testKnapsack();
 
 // Sorting 
@@ -30,6 +33,7 @@ void testBubbleSort();
 void testSelectionSort();
 void testInsertionSort();
 
+/* ####### Misc ####### */
 
 // Helper 
 void print1DArray(int *arr, int n);

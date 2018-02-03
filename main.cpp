@@ -17,7 +17,7 @@ int main()
 {
 	cout << "" << "\n";
 	
-	testSelectionSort();
+	testInsertionSort();
 	// testProgram();
   	return 0; 
 }

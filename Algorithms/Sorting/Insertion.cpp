@@ -2,17 +2,33 @@
 
 using namespace std;
 
+// Insertion sort is a simple sorting algorithm that works the way 
+// we sort playing cards in our hands
+void insertionsort(int *data, int n){
+
+    for(int i = 1; i <= n; i++){
+        int j = i - 1;
+        int key = data[i];
+
+        while(j >= 0 && data[j] > key){
+            data[j + 1] = data[j];
+            j--;
+        }
+        data[j + 1] = key;
+    }
+}
+
 void testInsertionSort()
 {
     int dataset[] = {4, 2, 8, 0, 6, 7, 1, 3, 5, 9};
-    int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
+    int n = sizeof(dataset)  / sizeof(dataset[0]);
 
-    cout << "Bubble sort of : ";
-    print1DArray(dataset, high);
+    cout << "Insertion sort of : ";
+    print1DArray(dataset, n);
 
-    int *output = new int[high];
-    
+    insertionsort(dataset, n);
+
     cout << "Output : ";
 
-    print1DArray(output, high);
+    print1DArray(dataset, n);
 }

@@ -28,6 +28,8 @@ void testQuickSort();
 void testMergeSort();
 void testBubbleSort();
 void testSelectionSort();
+void testInsertionSort();
+
 
 // Helper 
 void print1DArray(int *arr, int n);

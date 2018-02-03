@@ -3,12 +3,16 @@
 ODIR = Out
 
 # input and output
-FILES = ./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
+
+FILES = ./Helper/Helper.cpp main.cpp \
+		./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
         ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
+		./DesignPatterns/Behavioural/Interpreter.cpp \
 		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp\
-		./Helper/Helper.cpp ./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp\
-		./DesignPatterns/Behavioural/Interpreter.cpp main.cpp
+		./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp \
+		./Algorithms/Sorting/Insertion.cpp
+		
 
 OUT_EXE = out_exec
 

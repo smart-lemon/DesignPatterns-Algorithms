@@ -6,10 +6,11 @@ using namespace std;
 // we sort playing cards in our hands
 void insertionsort(int *data, int n){
 
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i < n; i++){
         int j = i - 1;
         int key = data[i];
-
+        
+        //  Move elements of arr[0..i-1], that are greater than key, to one position ahead
         while(j >= 0 && data[j] > key){
             data[j + 1] = data[j];
             j--;

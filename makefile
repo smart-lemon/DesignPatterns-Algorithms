@@ -9,13 +9,12 @@ FILES = ./Helper/Helper.cpp main.cpp \
         ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp \
 		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
-		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp\
+		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp \
 		./Algorithms/Sorting/Insertion.cpp
 		
 
 OUT_EXE = out_exec
-
 
 # define any directories containing header files other than /usr/include
 INCLUDES = -I../Include

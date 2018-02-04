@@ -11,7 +11,8 @@ FILES = ./Helper/Helper.cpp main.cpp \
 		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp \
-		./Algorithms/Sorting/Insertion.cpp
+		./Algorithms/Sorting/Insertion.cpp \
+		./Algorithms/Sorting/Hashing.cpp
 		
 
 OUT_EXE = out_exec

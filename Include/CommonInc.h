@@ -38,3 +38,4 @@ void testInsertionSort();
 // Helper 
 void print1DArray(int *arr, int n);
 void swap(int *numbers, int a, int b);
+int  tmain();

@@ -67,7 +67,8 @@ class HashMap {
     int hashCode(Key key)
     {
         // Re interpret 'key' as int
-        return reinterpret_cast<int>(key) % tableSize;
+        // return reinterpret_cast<int>(key) % tableSize;
+        return key % tableSize;
     }
     
     HashMap(int size) {
@@ -86,11 +87,15 @@ class HashMap {
         // Apply hash function to find index for given key
         int hashIndex = hashCode(ikey);
 
+        // Add thekey value data
+        temp->key = ikey;
+        temp->value = ival;
+
         // Add the previous node as the next of the new node
         temp->next = table[hashIndex].next;
 
         // Attach the new node to the root of the bucket 
-        table[hashIndex].next = table->next;
+        table[hashIndex].next = temp;
 
         population++; // Current population 
 
@@ -102,11 +107,11 @@ class HashMap {
 
         int index = hashCode(ikey);
 
-        HashNode<Key, Val>  *next = table[index]->next;
+        HashNode<Key, Val>  *next = table[index].next;
 
         while(next){
             if(next->key == ikey)
-                return next->val;
+                return next->value;
             next = next->next;
         }
     }
@@ -149,7 +154,7 @@ class HashMap {
         table = createTable(tableSize);
 
         // For every bucket of the old table
-        for(int i = 0 ; i < oldTableSize ; i++)
+        for(int i = 0; i < oldTableSize ; i++)
         {
             if(oldTable[i].next != NULL)
             {   
@@ -170,16 +175,19 @@ class HashMap {
     ~HashMap() {
         deleteTable(table);
     }
-
 };  
 
 
 void testHashing(){
 
-    HashMap<int, int> *hashMap = new HashMap<int, int>(3);
+    HashMap<int, int> *hashMap = new HashMap<int, int>(30);
 
     hashMap->insert(1, 100);
     hashMap->insert(2, 200);
     hashMap->insert(3, 300);
+
+    int val = hashMap->search(3);
+
+    cout << val;
 
 }

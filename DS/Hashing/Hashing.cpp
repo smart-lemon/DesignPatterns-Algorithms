@@ -33,12 +33,41 @@ class HashMap {
     int loadFactor = 20;
     int population;
 
-    public:
+    private:
+
+    void deleteTable(HashNode<Key, Val> *toBeDeleted){
+        // Destroy all buckets one by one
+        for (int i = 0; i < tableSize; i++) {
+            HashNode<Key, Val> *entry = toBeDeleted[i].next;
+            while (entry != NULL) {
+                HashNode<Key, Val> *prev = entry;
+                entry = entry->next;
+                delete prev;
+            }
+        }
+        // Destroy the hash table
+        delete [] toBeDeleted;
+    }
+
+    HashNode<Key, Val> *createTable (int iTableSize){
+         // A table containing pointers to HashNodes
+        HashNode<Key, Val> *freshTable = new HashNode<Key, Val>[iTableSize];
+
+        // Initialise all buckets as NULL (Nothing in the root HashNode)
+        for(int i = 0 ; i < iTableSize ; i++){
+            freshTable[i].next = NULL;
+        }
+        return freshTable;
+    }
+
     HashNode<Key, Val> *table;
 
+    public:
+  
     int hashCode(Key key)
     {
-        return key % capacity;
+        // Re interpret 'key' as int
+        return reinterpret_cast<int>(key) % tableSize;
     }
     
     HashMap(int size) {
@@ -47,13 +76,7 @@ class HashMap {
         tableSize = size/loadFactor;
         population = 0;
 
-        // A table containing pointers to HashNodes
-        table = new HashNode<Key, Val>[tableSize];
-
-        // Initialise all buckets as NULL (Nothing in the root HashNode)
-        for(int i = 0 ; i < tableSize ; i++){
-            table[i].next = NULL;
-        }
+        table = createTable(tableSize);
     }
 
     void insert(Key ikey, Val ival){
@@ -65,10 +88,11 @@ class HashMap {
 
         // Add the previous node as the next of the new node
         temp->next = table[hashIndex].next;
+
         // Attach the new node to the root of the bucket 
         table[hashIndex].next = table->next;
 
-        population++;
+        population++; // Current population 
 
         if(population / tableSize > loadFactor)
             rehash();
@@ -88,13 +112,64 @@ class HashMap {
     }
 
     void remove(Key ikey) {
+        int hashValue = hashFunc(ikey);
+        HashNode<Key, Val> *prev = NULL;
+        HashNode<Key, Val> *entry = table[hashValue].next;
 
+        // Try to find the key
+        while (entry != NULL && entry->key != ikey) {
+            prev = entry;
+            entry = entry->next;
+        }
+
+        if (entry == NULL) {
+            // Key not found
+            return;
+        } else { 
+            // Key is found
+            if (prev == NULL) {
+                // Remove first bucket of the list
+                table[hashValue].next = entry->next;
+            } else {
+                prev->next = entry->next;
+            }
+            delete entry;
+
+            population--; // Reduce population
+        }
     }
 
     void rehash(){
+        HashNode<Key, Val> *oldTable;
 
+        oldTable = table;
+        int oldTableSize = tableSize;
+        tableSize = tableSize * 2;
+
+        table = createTable(tableSize);
+
+        // For every bucket of the old table
+        for(int i = 0 ; i < oldTableSize ; i++)
+        {
+            if(oldTable[i].next != NULL)
+            {   
+                for(auto temp = oldTable[i].next; temp; temp = temp->next)
+                {
+                    int newIndex = hashCode(temp->key);
+                    auto newTemp = temp;
+                    temp = temp->next;
+                    newTemp->next = table[newIndex].next;
+                    table[newIndex].next = newTemp;
+                }
+            }
+        }
+
+        deleteTable(oldTable);
     }
 
+    ~HashMap() {
+        deleteTable(table);
+    }
 
 };  
 

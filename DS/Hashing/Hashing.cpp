@@ -29,15 +29,15 @@ template<typename Key, typename Val>
 class HashMap {
 
     int capacity;
-    int tableSize; // # of buckets
-    int loadFactor = 20;
+    int noOfBuckets; // # of buckets
+    int loadFactor = 3;
     int population;
 
     private:
 
     void deleteTable(HashNode<Key, Val> **toBeDeleted){
         // Destroy all buckets one by one
-        for (int i = 0; i < tableSize; i++) {
+        for (int i = 0; i < noOfBuckets; i++) {
             HashNode<Key, Val> *entry = toBeDeleted[i]->next;
             while (entry != NULL) {
                 HashNode<Key, Val> *prev = entry;
@@ -49,12 +49,12 @@ class HashMap {
         delete [] toBeDeleted;
     }
 
-    HashNode<Key, Val> **createTable (int iTableSize){
+    HashNode<Key, Val> **createTable (int inoOfBuckets){
          // A table containing pointers to HashNodes
-        HashNode<Key, Val> **freshTable = new HashNode<Key, Val>*[iTableSize];
+        HashNode<Key, Val> **freshTable = new HashNode<Key, Val> *[inoOfBuckets];
 
         // Initialise all buckets as NULL (Nothing in the root HashNode)
-        for(int i = 0 ; i < iTableSize ; i++){
+        for(int i = 0 ; i < inoOfBuckets ; i++){
             freshTable[i] = new HashNode<Key, Val>;
             freshTable[i]->next = NULL;
         }
@@ -68,17 +68,18 @@ class HashMap {
     int hashCode(Key key)
     {
         // Re interpret 'key' as int
-        // return reinterpret_cast<int>(key) % tableSize;
-        return key % tableSize;
+
+        // cout << "Hash Func "<< key << " " << noOfBuckets << endl;
+        return reinterpret_cast<int>(key) % noOfBuckets;
     }
     
     HashMap(int size) {
 
         capacity = size;
-        tableSize = size/loadFactor;
+        noOfBuckets = size/loadFactor;
         population = 0;
 
-        table = createTable(tableSize);
+        table = createTable(noOfBuckets);
     }
 
     void insert(Key ikey, Val ival){
@@ -100,7 +101,7 @@ class HashMap {
 
         population++; // Current population 
 
-        if(population / tableSize > loadFactor)
+        if((population / noOfBuckets) > loadFactor)
             rehash();
     }
 
@@ -119,7 +120,7 @@ class HashMap {
     }
 
     void remove(Key ikey) {
-        int hashValue = hashFunc(ikey);
+        int hashValue = hashCode(ikey);
         HashNode<Key, Val> *prev = NULL;
         HashNode<Key, Val> *entry = table[hashValue]->next;
 
@@ -147,16 +148,20 @@ class HashMap {
     }
 
     void rehash(){
+
         HashNode<Key, Val> **oldTable;
-
         oldTable = table;
-        int oldTableSize = tableSize;
-        tableSize = tableSize * 2;
+        
+        int oldnoOfBuckets = noOfBuckets;
+        noOfBuckets = noOfBuckets * 2;
 
-        table = createTable(tableSize);
+        cout << "Rehashing : " << noOfBuckets << "Buckets" << endl;
+
+
+        table = createTable(noOfBuckets);
 
         // For every bucket of the old table
-        for(int i = 0; i < oldTableSize ; i++)
+        for(int i = 0; i < oldnoOfBuckets ; i++)
         {
             if(oldTable[i]->next != NULL)
             {   
@@ -177,6 +182,20 @@ class HashMap {
 
     void printHashMap(){
 
+        // For every bucket of the table
+        for(int i = 0; i < noOfBuckets ; i++)
+        {
+            if(table[i]->next != NULL)
+            {   
+                cout << "[" << i << "]: ";
+                for(auto temp = table[i]->next; temp; temp = temp->next)
+                {
+                    if(temp)
+                        cout << "(K: " << temp->key << " V: " << temp->value << ") -> " ;
+                }
+                cout <<  "NULL" << endl;
+            }
+        }
     }
 
     ~HashMap() {
@@ -190,11 +209,12 @@ void testHashing(){
 
     HashMap<int, int> *hashMap = new HashMap<int, int>(30);
 
-    hashMap->insert(1, 100);
-    hashMap->insert(2, 200);
-    hashMap->insert(3, 300);
+    for(int k = 0; k < 20; k++)
+        hashMap->insert(k + 1, (k + 1) * 100);
 
-    int val = hashMap->search(3);
+    hashMap->printHashMap();  
+  
+    int val = hashMap->search(9);
 
     cout << val;
 

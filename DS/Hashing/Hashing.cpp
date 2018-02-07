@@ -35,10 +35,10 @@ class HashMap {
 
     private:
 
-    void deleteTable(HashNode<Key, Val> *toBeDeleted){
+    void deleteTable(HashNode<Key, Val> **toBeDeleted){
         // Destroy all buckets one by one
         for (int i = 0; i < tableSize; i++) {
-            HashNode<Key, Val> *entry = toBeDeleted[i].next;
+            HashNode<Key, Val> *entry = toBeDeleted[i]->next;
             while (entry != NULL) {
                 HashNode<Key, Val> *prev = entry;
                 entry = entry->next;
@@ -49,18 +49,19 @@ class HashMap {
         delete [] toBeDeleted;
     }
 
-    HashNode<Key, Val> *createTable (int iTableSize){
+    HashNode<Key, Val> **createTable (int iTableSize){
          // A table containing pointers to HashNodes
-        HashNode<Key, Val> *freshTable = new HashNode<Key, Val>[iTableSize];
+        HashNode<Key, Val> **freshTable = new HashNode<Key, Val>*[iTableSize];
 
         // Initialise all buckets as NULL (Nothing in the root HashNode)
         for(int i = 0 ; i < iTableSize ; i++){
-            freshTable[i].next = NULL;
+            freshTable[i] = new HashNode<Key, Val>;
+            freshTable[i]->next = NULL;
         }
         return freshTable;
     }
 
-    HashNode<Key, Val> *table;
+    HashNode<Key, Val> **table;
 
     public:
   
@@ -92,10 +93,10 @@ class HashMap {
         temp->value = ival;
 
         // Add the previous node as the next of the new node
-        temp->next = table[hashIndex].next;
+        temp->next = table[hashIndex]->next;
 
         // Attach the new node to the root of the bucket 
-        table[hashIndex].next = temp;
+        table[hashIndex]->next = temp;
 
         population++; // Current population 
 
@@ -107,19 +108,20 @@ class HashMap {
 
         int index = hashCode(ikey);
 
-        HashNode<Key, Val>  *next = table[index].next;
+        HashNode<Key, Val> *next = table[index]->next;
 
         while(next){
             if(next->key == ikey)
                 return next->value;
             next = next->next;
         }
+        return NULL;
     }
 
     void remove(Key ikey) {
         int hashValue = hashFunc(ikey);
         HashNode<Key, Val> *prev = NULL;
-        HashNode<Key, Val> *entry = table[hashValue].next;
+        HashNode<Key, Val> *entry = table[hashValue]->next;
 
         // Try to find the key
         while (entry != NULL && entry->key != ikey) {
@@ -134,7 +136,7 @@ class HashMap {
             // Key is found
             if (prev == NULL) {
                 // Remove first bucket of the list
-                table[hashValue].next = entry->next;
+                table[hashValue]->next = entry->next;
             } else {
                 prev->next = entry->next;
             }
@@ -145,7 +147,7 @@ class HashMap {
     }
 
     void rehash(){
-        HashNode<Key, Val> *oldTable;
+        HashNode<Key, Val> **oldTable;
 
         oldTable = table;
         int oldTableSize = tableSize;
@@ -156,15 +158,15 @@ class HashMap {
         // For every bucket of the old table
         for(int i = 0; i < oldTableSize ; i++)
         {
-            if(oldTable[i].next != NULL)
+            if(oldTable[i]->next != NULL)
             {   
-                for(auto temp = oldTable[i].next; temp; temp = temp->next)
+                for(auto temp = oldTable[i]->next; temp; temp = temp->next)
                 {
                     int newIndex = hashCode(temp->key);
                     auto newTemp = temp;
                     temp = temp->next;
-                    newTemp->next = table[newIndex].next;
-                    table[newIndex].next = newTemp;
+                    newTemp->next = table[newIndex]->next;
+                    table[newIndex]->next = newTemp;
                 }
             }
         }
@@ -172,9 +174,15 @@ class HashMap {
         deleteTable(oldTable);
     }
 
+
+    void printHashMap(){
+
+    }
+
     ~HashMap() {
         deleteTable(table);
     }
+
 };  
 
 

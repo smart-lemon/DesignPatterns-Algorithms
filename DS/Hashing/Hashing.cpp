@@ -1,4 +1,5 @@
 #include "./../../Include/CommonInc.h"
+#include <cmath>
 
 using namespace std;
 
@@ -30,7 +31,7 @@ class HashMap {
 
     int capacity;
     int noOfBuckets; // # of buckets
-    int loadFactor = 3;
+    int loadFactor = 2;
     int population;
 
     private:
@@ -38,23 +39,25 @@ class HashMap {
     void deleteTable(HashNode<Key, Val> **toBeDeleted){
         // Destroy all buckets one by one
         for (int i = 0; i < noOfBuckets; i++) {
-            HashNode<Key, Val> *entry = toBeDeleted[i]->next;
-            while (entry != NULL) {
-                HashNode<Key, Val> *prev = entry;
-                entry = entry->next;
-                delete prev;
+            if(toBeDeleted[i]->next != NULL){
+                HashNode<Key, Val> *entry = toBeDeleted[i]->next;
+                while (entry != NULL) {
+                    HashNode<Key, Val> *prev = entry;
+                    entry = entry->next;
+                    delete prev;
+                }
             }
         }
         // Destroy the hash table
         delete [] toBeDeleted;
     }
 
-    HashNode<Key, Val> **createTable (int inoOfBuckets){
+    HashNode<Key, Val> **createTable (int iNoOfBuckets){
          // A table containing pointers to HashNodes
-        HashNode<Key, Val> **freshTable = new HashNode<Key, Val> *[inoOfBuckets];
+        HashNode<Key, Val> **freshTable = new HashNode<Key, Val> *[iNoOfBuckets];
 
         // Initialise all buckets as NULL (Nothing in the root HashNode)
-        for(int i = 0 ; i < inoOfBuckets ; i++){
+        for(int i = 0 ; i < iNoOfBuckets ; i++){
             freshTable[i] = new HashNode<Key, Val>;
             freshTable[i]->next = NULL;
         }
@@ -101,7 +104,7 @@ class HashMap {
 
         population++; // Current population 
 
-        if((population / noOfBuckets) > loadFactor)
+        if(ceil(float(population) / noOfBuckets) > loadFactor)
             rehash();
     }
 
@@ -149,19 +152,21 @@ class HashMap {
 
     void rehash(){
 
+
+        printHashMap(); 
+
         HashNode<Key, Val> **oldTable;
         oldTable = table;
         
-        int oldnoOfBuckets = noOfBuckets;
+        int oldNoOfBuckets = noOfBuckets;
         noOfBuckets = noOfBuckets * 2;
 
-        cout << "Rehashing : " << noOfBuckets << "Buckets" << endl;
-
+        cout << "Rehashing : " << noOfBuckets << " Buckets" << endl;
 
         table = createTable(noOfBuckets);
 
         // For every bucket of the old table
-        for(int i = 0; i < oldnoOfBuckets ; i++)
+        for(int i = 0; i < oldNoOfBuckets ; i++)
         {
             if(oldTable[i]->next != NULL)
             {   
@@ -169,21 +174,19 @@ class HashMap {
                 {
                     int newIndex = hashCode(temp->key);
                     auto newTemp = temp;
-                    temp = temp->next;
                     newTemp->next = table[newIndex]->next;
                     table[newIndex]->next = newTemp;
                 }
             }
         }
 
-        deleteTable(oldTable);
     }
 
 
     void printHashMap(){
 
         // For every bucket of the table
-        for(int i = 0; i < noOfBuckets ; i++)
+        for(int i = 0; i < noOfBuckets; i++)
         {
             if(table[i]->next != NULL)
             {   
@@ -209,12 +212,12 @@ void testHashing(){
 
     HashMap<int, int> *hashMap = new HashMap<int, int>(30);
 
-    for(int k = 0; k < 20; k++)
+    for(int k = 0; k < 35; k++)
         hashMap->insert(k + 1, (k + 1) * 100);
 
     hashMap->printHashMap();  
   
-    int val = hashMap->search(9);
+    int val = hashMap->search(29);
 
     cout << val;
 

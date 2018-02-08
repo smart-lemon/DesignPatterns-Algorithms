@@ -70,9 +70,8 @@ class HashMap {
   
     int hashCode(Key key)
     {
+        // cout << "Hash Func "<< key << " " << noOfBuckets << endl;      
         // Re interpret 'key' as int
-
-        // cout << "Hash Func "<< key << " " << noOfBuckets << endl;
         return reinterpret_cast<int>(key) % noOfBuckets;
     }
     
@@ -152,9 +151,6 @@ class HashMap {
 
     void rehash(){
 
-
-        printHashMap(); 
-
         HashNode<Key, Val> **oldTable;
         oldTable = table;
         
@@ -165,7 +161,6 @@ class HashMap {
 
         table = createTable(noOfBuckets);
 
-        // For every bucket of the old table
         for(int i = 0; i < oldNoOfBuckets ; i++)
         {
             if(oldTable[i]->next != NULL)
@@ -173,15 +168,16 @@ class HashMap {
                 for(auto temp = oldTable[i]->next; temp; temp = temp->next)
                 {
                     int newIndex = hashCode(temp->key);
-                    auto newTemp = temp;
+
+                    HashNode<Key, Val> *newTemp = new HashNode<Key, Val>(temp->key, temp->value);
                     newTemp->next = table[newIndex]->next;
                     table[newIndex]->next = newTemp;
                 }
             }
         }
 
+        // deleteTable(oldTable);
     }
-
 
     void printHashMap(){
 
@@ -204,7 +200,6 @@ class HashMap {
     ~HashMap() {
         deleteTable(table);
     }
-
 };  
 
 

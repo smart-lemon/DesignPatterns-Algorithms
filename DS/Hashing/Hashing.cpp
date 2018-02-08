@@ -11,17 +11,20 @@ class HashNode
     Key key;
     Val value;
 
+    // This constructor is only for the root node of each bucket
     HashNode()
     {
+        // Dont store any key-value
     }
 
-  //Constructor of hashnode 
+    // Actual constructor of hashnode 
     HashNode(Key k, Val v)
     {
         value = v;
         key = k;
     }   
     
+    // 
     HashNode<Key, Val> *next;
 };
 
@@ -30,13 +33,16 @@ template<typename Key, typename Val>
 class HashMap {
 
     int capacity;
-    int noOfBuckets; // # of buckets
+    
+    // # of buckets
+    int noOfBuckets; 
     int loadFactor = 2;
     int population;
 
     private:
 
     void deleteTable(HashNode<Key, Val> **toBeDeleted){
+        
         // Destroy all buckets one by one
         for (int i = 0; i < noOfBuckets; i++) {
             if(toBeDeleted[i]->next != NULL){
@@ -103,26 +109,32 @@ class HashMap {
 
         population++; // Current population 
 
+        if(population > capacity)
+            capacity = population;
+
         if(ceil(float(population) / noOfBuckets) > loadFactor)
             rehash();
     }
 
     Val search(Key ikey){
 
+        // Identify the bucket
         int index = hashCode(ikey);
 
         HashNode<Key, Val> *next = table[index]->next;
 
+        // Seach the bucket items for the key 
+        // and return the value if found
         while(next){
             if(next->key == ikey)
                 return next->value;
             next = next->next;
         }
-        return NULL;
     }
 
     void remove(Key ikey) {
         int hashValue = hashCode(ikey);
+
         HashNode<Key, Val> *prev = NULL;
         HashNode<Key, Val> *entry = table[hashValue]->next;
 
@@ -155,16 +167,20 @@ class HashMap {
         oldTable = table;
         
         int oldNoOfBuckets = noOfBuckets;
+
+        // Double the bucket size
         noOfBuckets = noOfBuckets * 2;
 
-        cout << "Rehashing : " << noOfBuckets << " Buckets" << endl;
+        cout << endl << "Rehashing to " << noOfBuckets << " Buckets" << endl;
 
+        // Create a new HashTable 
         table = createTable(noOfBuckets);
 
         for(int i = 0; i < oldNoOfBuckets ; i++)
         {
             if(oldTable[i]->next != NULL)
             {   
+                // For every item in the old hash table, recomput the new 
                 for(auto temp = oldTable[i]->next; temp; temp = temp->next)
                 {
                     int newIndex = hashCode(temp->key);
@@ -186,9 +202,10 @@ class HashMap {
         {
             if(table[i]->next != NULL)
             {   
-                cout << "[" << i << "]: ";
+                cout << "[" << i << "]: "; // Print the bucket number
                 for(auto temp = table[i]->next; temp; temp = temp->next)
                 {
+                    // And the key-values
                     if(temp)
                         cout << "(K: " << temp->key << " V: " << temp->value << ") -> " ;
                 }
@@ -200,6 +217,7 @@ class HashMap {
     ~HashMap() {
         deleteTable(table);
     }
+
 };  
 
 
@@ -207,11 +225,13 @@ void testHashing(){
 
     HashMap<int, int> *hashMap = new HashMap<int, int>(30);
 
+    // Insert k items in the hashmap with value k * 100
     for(int k = 0; k < 35; k++)
         hashMap->insert(k + 1, (k + 1) * 100);
 
     hashMap->printHashMap();  
   
+    // Search for 
     int val = hashMap->search(29);
 
     cout << val;

@@ -64,7 +64,7 @@ class PriorityQueue {
         if(isEmpty())
             return NULL;
         
-        Element *front = queue;
+        Element<Priority, Data> *front = queue;
         return front->data;
     }
 
@@ -102,5 +102,15 @@ class PriorityQueue {
 
 void testPriorityQueues() 
 {
-   
+   PriorityQueue<int, int> *queue = new PriorityQueue<int, int>();
+
+   queue->insert(1, 100);
+   queue->insert(2, 200);
+   queue->insert(3, 300);
+   queue->insert(4, 400);
+   queue->insert(5, 500);
+
+   int data = queue->deleteMax();
+
+   cout << "Priority Queue: deleted:  " << data << endl;
 }

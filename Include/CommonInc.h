@@ -35,6 +35,7 @@ void testInsertionSort();
 
 // Hashing
 void testHashing();
+void testPriorityQueues();
 
 /* ####### Misc ####### */
 

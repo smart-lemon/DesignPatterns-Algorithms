@@ -13,8 +13,8 @@ int main()
 {
 	cout << "" << "\n";
 	
-	testHashing();
 	// tmain();
+	testPriorityQueues();
 
   	return 0; 
 }

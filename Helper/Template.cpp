@@ -26,7 +26,7 @@ int main()
         hist['0' - str[i]][1]++;
     }
 
-     or(int i = 0; i <= 9; i++)
+     for(int i = 0; i <= 9; i++)
      {
          cout << hist[i][1] << endl;
      }

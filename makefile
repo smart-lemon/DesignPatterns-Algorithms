@@ -12,7 +12,7 @@ FILES = ./Helper/Helper.cpp ./Helper/HackerEarth.cpp main.cpp \
 		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp \
 		./Algorithms/Sorting/Insertion.cpp \
-		./DS/Hashing/Hashing.cpp
+		./DS/Hashing/Hashing.cpp ./DS/Queues/PriorityQueues.cpp
 
 OUT_EXE = out_exec
 

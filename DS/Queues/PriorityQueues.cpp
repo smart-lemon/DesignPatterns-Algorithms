@@ -96,6 +96,20 @@ class PriorityQueue {
         delete temp;
         return ret;
     }
+
+    void printQueue(){
+        if(isEmpty()){
+            return;
+        }
+
+        Element<Priority, Data> *temp = queue;
+     
+        while(temp) {
+            cout << "[P: " << temp->priority << " D: " << temp->data << "] -> "; 
+            temp = temp->next;
+        }
+        cout << " NULL" << endl;
+    }
 };
 
 
@@ -105,10 +119,16 @@ void testPriorityQueues()
    PriorityQueue<int, int> *queue = new PriorityQueue<int, int>();
 
    queue->insert(1, 100);
-   queue->insert(2, 200);
-   queue->insert(3, 300);
+   queue->printQueue();
    queue->insert(4, 400);
+   queue->printQueue();
+   queue->insert(2, 200);
+   queue->printQueue();
    queue->insert(5, 500);
+   queue->printQueue();
+   queue->insert(3, 300);
+
+   queue->printQueue();
 
    int data = queue->deleteMax();
 

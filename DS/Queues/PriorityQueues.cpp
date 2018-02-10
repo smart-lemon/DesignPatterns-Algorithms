@@ -1,117 +1,101 @@
 #include "./../../Include/CommonInc.h"
+#include "./../../Include/Helpers.h"
+
 
 #include <iostream> 
 
 using namespace std;
 
 template <typename Priority, typename Data>
-class Element {
-
-    public:
-    Element(Priority p, Data d){
-        priority = p;
-        data = d;
-        next = NULL;
-    }
-
-    Priority priority;
-    Data data;
-
-    // Next element in the linked list
-    Element<Priority, Data> *next;
-};
+PriorityQueue <Priority, Data> :: PriorityQueue() {
+    queue = NULL;
+} 
 
 template <typename Priority, typename Data>
-class PriorityQueue {
+bool PriorityQueue <Priority, Data> :: isEmpty(){
+    return queue == NULL;
+}
 
-    Element<Priority, Data> *queue;
+template <typename Priority, typename Data>
+void PriorityQueue <Priority, Data> :: insert(Priority incomingPriority, Data incomingData){
 
-    bool isEmpty(){
-        return queue == NULL;
-    }
-
-    public: 
-    PriorityQueue() {
-        queue = NULL;
-    }
-
-    void insert(Priority incomingPriority, Data incomingData){
-
-        Element<Priority, Data> *newElement = new Element<Priority, Data>(incomingPriority, incomingData);
-         
-        if(isEmpty()){
-            queue = newElement;
-            return;
-        }
-
-        // Traverse the list and find a position to insert new node
-        if(incomingPriority > queue->priority) { // If the incoming priority is greater than the head 
-            newElement->next = queue;
-            queue = newElement;
-
-        } else {
-            Element<Priority, Data> *temp = queue;
-            while(temp && (temp->priority > incomingPriority)) {
-                 temp = temp->next;
-            }
-
-            newElement->next = temp->next;
-            temp->next = newElement;
-        }
-    }
-
-    Data getMaximum(){
-        if(isEmpty())
-            return NULL;
+    Element<Priority, Data> *newElement = new Element<Priority, Data>(incomingPriority, incomingData);
         
-        Element<Priority, Data> *front = queue;
-        return front->data;
+    if(isEmpty()){
+        queue = newElement;
+        return;
     }
 
-    Data deleteMax(){
-        if(isEmpty())
-            return NULL;
+    // Traverse the list and find a position to insert new node
+    if(incomingPriority > queue->priority) { // If the incoming priority is greater than the head 
+        newElement->next = queue;
+        queue = newElement;
 
-        Element<Priority, Data> *front = queue;
-        queue = queue->next;
-
-        Data ret = front->data;
-        delete front;
-        return ret;
-    }
-
-    Data deleteMin()
-    {
+    } else {
         Element<Priority, Data> *temp = queue;
-        Element<Priority, Data> *prev = NULL;
-
-        while(temp && temp->next) {
-            prev = temp;
-            temp = temp->next;
+        while(temp && (temp->priority > incomingPriority)) {
+                temp = temp->next;
         }
 
-        Data ret = temp->data;
-        prev->next = NULL;
+        newElement->next = temp->next;
+        temp->next = newElement;
+    }
+}
 
-        delete temp;
-        return ret;
+template <typename Priority, typename Data>
+Data PriorityQueue <Priority, Data> :: getMaximum(){
+    if(isEmpty())
+        return NULL;
+    
+    Element<Priority, Data> *front = queue;
+    return front->data;
+}
+
+template <typename Priority, typename Data>
+Data PriorityQueue <Priority, Data> :: deleteMax(){
+    if(isEmpty())
+        return NULL;
+
+    Element<Priority, Data> *front = queue;
+    queue = queue->next;
+
+    Data ret = front->data;
+    delete front;
+    return ret;
+}
+
+template <typename Priority, typename Data>
+Data PriorityQueue <Priority, Data> :: deleteMin()
+{
+    Element<Priority, Data> *temp = queue;
+    Element<Priority, Data> *prev = NULL;
+
+    while(temp && temp->next) {
+        prev = temp;
+        temp = temp->next;
     }
 
-    void printQueue(){
-        if(isEmpty()){
-            return;
-        }
+    Data ret = temp->data;
+    prev->next = NULL;
 
-        Element<Priority, Data> *temp = queue;
-     
-        while(temp) {
-            cout << "[P: " << temp->priority << " D: " << temp->data << "] -> "; 
-            temp = temp->next;
-        }
-        cout << " NULL" << endl;
+    delete temp;
+    return ret;
+}
+
+template <typename Priority, typename Data>
+void PriorityQueue <Priority, Data> :: printQueue(){
+    if(isEmpty()){
+        return;
     }
-};
 
+    Element<Priority, Data> *temp = queue;
+    
+    while(temp) {
+        cout << "[P: " << temp->priority << " D: " << temp->data << "] -> "; 
+        temp = temp->next;
+    }
+    cout << " NULL" << endl;
+}
 
 
 void testPriorityQueues() 

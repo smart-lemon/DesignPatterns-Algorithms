@@ -2,9 +2,11 @@
 #include <iostream> 
 #include <string>
 
+
+// ################ TEST FUNCTIONS ################ //
+
 // Inheritance
 void workWithAnimals();
-
 
 /* ####### Design Patterns ####### */
 
@@ -35,6 +37,8 @@ void testInsertionSort();
 
 // Hashing
 void testHashing();
+
+
 void testPriorityQueues();
 
 /* ####### Misc ####### */

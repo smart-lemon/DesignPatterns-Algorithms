@@ -3,7 +3,6 @@
 
 
 #include <iostream> 
-
 using namespace std;
 
 template <typename Priority, typename Data>
@@ -17,7 +16,8 @@ bool PriorityQueue <Priority, Data> :: isEmpty(){
 }
 
 template <typename Priority, typename Data>
-void PriorityQueue <Priority, Data> :: insert(Priority incomingPriority, Data incomingData){
+void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority, 
+                                               Data incomingData ){
 
     Element<Priority, Data> *newElement = new Element<Priority, Data>(incomingPriority, incomingData);
         

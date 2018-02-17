@@ -46,4 +46,7 @@ void testPriorityQueues();
 // Helper 
 void print1DArray(int *arr, int n);
 void swap(int *numbers, int a, int b);
+
+
+// For the template 
 int  tmain();

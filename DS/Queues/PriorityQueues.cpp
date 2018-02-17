@@ -5,16 +5,28 @@
 #include <iostream> 
 using namespace std;
 
+
+/* 
+    The constructor 
+*/
 template <typename Priority, typename Data>
 PriorityQueue <Priority, Data> :: PriorityQueue() {
     queue = NULL;
 } 
 
+
+/* 
+    Helper to check if the queue is empty 
+*/
 template <typename Priority, typename Data>
 bool PriorityQueue <Priority, Data> :: isEmpty(){
     return queue == NULL;
 }
 
+
+/* 
+    Inserts an element in the Priority Queue with an incoming priority at an appropriate place 
+*/
 template <typename Priority, typename Data>
 void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority, 
                                                Data incomingData ){
@@ -42,6 +54,10 @@ void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority,
     }
 }
 
+
+/* 
+   Peeks at the element with the highest priority 
+*/
 template <typename Priority, typename Data>
 Data PriorityQueue <Priority, Data> :: getMaximum(){
     if(isEmpty())
@@ -51,6 +67,10 @@ Data PriorityQueue <Priority, Data> :: getMaximum(){
     return front->data;
 }
 
+
+/* 
+    Reads and deletes the element with the highest priority 
+*/
 template <typename Priority, typename Data>
 Data PriorityQueue <Priority, Data> :: deleteMax(){
     if(isEmpty())
@@ -64,6 +84,10 @@ Data PriorityQueue <Priority, Data> :: deleteMax(){
     return ret;
 }
 
+
+/* 
+    Reads and deletes the element with the lowest priority 
+*/
 template <typename Priority, typename Data>
 Data PriorityQueue <Priority, Data> :: deleteMin()
 {
@@ -82,6 +106,9 @@ Data PriorityQueue <Priority, Data> :: deleteMin()
     return ret;
 }
 
+/* 
+    Prints the Priority Queue 
+*/
 template <typename Priority, typename Data>
 void PriorityQueue <Priority, Data> :: printQueue(){
     if(isEmpty()){

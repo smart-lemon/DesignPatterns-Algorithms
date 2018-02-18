@@ -1,37 +1,10 @@
 #include "./../../Include/CommonInc.h"
+#include "./../../Include/Helpers.h"
 
 
 #include <iostream> 
 using namespace std;
 
-
-class Element {
-    int priority;
-    int data;
-
-    // Next element in the linked list
-    public:
-    Element(int iprio, int idata){
-        priority = p;
-        data = d;
-        next = NULL;
-    }
-};
-
-
-class PriorityQueue {
-    Element *queue;
-    bool isEmpty();
-    
-public: 
-    PriorityQueue();
-    void insert(Priority p, Data d);
-    Data getMaximum();
-    Data deleteMax();
-    Data deleteMin();
-    void printQueue();
-
-};
 
 /* 
     The constructor 
@@ -152,7 +125,7 @@ void PriorityQueue <Priority, Data> :: printQueue(){
 }
 
 
-void testPriorityQueues() 
+void testPriorityQueuesT() 
 {
    PriorityQueue<int, int> *queue = new PriorityQueue<int, int>();
 

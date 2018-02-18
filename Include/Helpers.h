@@ -24,12 +24,12 @@ class Element {
 };
 
 template <typename Priority, typename Data>
-class PriorityQueue {
+class PriorityQueueT {
     Element<Priority, Data> *queue;
     bool isEmpty();
     
 public: 
-    PriorityQueue();
+    PriorityQueueT();
     void insert(Priority p, Data d);
     Data getMaximum();
     Data deleteMax();

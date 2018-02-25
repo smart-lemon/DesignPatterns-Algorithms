@@ -25,10 +25,10 @@ class PriorityQueue {
     
 public: 
     PriorityQueue();
-    void insert(Priority p, Data d);
-    Data getMaximum();
-    Data deleteMax();
-    Data deleteMin();
+    void insert(int p, int d);
+    int getMaximum();
+    int deleteMax();
+    int deleteMin();
     void printQueue();
 
 };
@@ -36,8 +36,7 @@ public:
 /* 
     The constructor 
 */
-template <typename Priority, typename Data>
-PriorityQueue <Priority, Data> :: PriorityQueue() {
+PriorityQueue :: PriorityQueue() {
     queue = NULL;
 } 
 
@@ -45,8 +44,7 @@ PriorityQueue <Priority, Data> :: PriorityQueue() {
 /* 
     Helper to check if the queue is empty 
 */
-template <typename Priority, typename Data>
-bool PriorityQueue <Priority, Data> :: isEmpty(){
+bool PriorityQueue :: isEmpty(){
     return queue == NULL;
 }
 
@@ -54,11 +52,10 @@ bool PriorityQueue <Priority, Data> :: isEmpty(){
 /* 
     Inserts an element in the Priority Queue with an incoming priority at an appropriate place 
 */
-template <typename Priority, typename Data>
-void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority, 
-                                               Data incomingData ){
+void PriorityQueue :: insert( int incomingPriority, 
+                              int incomingData ){
 
-    Element<Priority, Data> *newElement = new Element<Priority, Data>(incomingPriority, incomingData);
+    Element *newElement = new Element(incomingPriority, incomingData);
         
     if(isEmpty()){
         queue = newElement;
@@ -71,7 +68,7 @@ void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority,
         queue = newElement;
 
     } else {
-        Element<Priority, Data> *temp = queue;
+        Element *temp = queue;
         while(temp && (temp->priority > incomingPriority)) {
                 temp = temp->next;
         }
@@ -85,12 +82,11 @@ void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority,
 /* 
    Peeks at the element with the highest priority 
 */
-template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: getMaximum(){
+int PriorityQueue :: getMaximum(){
     if(isEmpty())
         return NULL;
     
-    Element<Priority, Data> *front = queue;
+    Element *front = queue;
     return front->data;
 }
 
@@ -98,12 +94,11 @@ Data PriorityQueue <Priority, Data> :: getMaximum(){
 /* 
     Reads and deletes the element with the highest priority 
 */
-template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: deleteMax(){
+int PriorityQueue :: deleteMax(){
     if(isEmpty())
         return NULL;
 
-    Element<Priority, Data> *front = queue;
+    Element *front = queue;
     queue = queue->next;
 
     Data ret = front->data;
@@ -115,8 +110,7 @@ Data PriorityQueue <Priority, Data> :: deleteMax(){
 /* 
     Reads and deletes the element with the lowest priority 
 */
-template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: deleteMin()
+int PriorityQueue :: deleteMin()
 {
     Element<Priority, Data> *temp = queue;
     Element<Priority, Data> *prev = NULL;

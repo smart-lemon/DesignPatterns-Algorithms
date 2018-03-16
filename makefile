@@ -4,16 +4,24 @@ ODIR = Out
 
 # input and output
 
-FILES = ./Helper/Helper.cpp ./Helper/HackerEarth.cpp main.cpp \
-		./DesignPatterns/Inheritance.cpp ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
-        ./DesignPatterns/Behavioural/Command.cpp ./DesignPatterns/Behavioural/Iterator.cpp \
+FILES = ./Helper/Helper.cpp \
+        ./Helper/HackerEarth.cpp \
+		./DesignPatterns/Inheritance.cpp 
+		./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
+        ./DesignPatterns/Behavioural/Command.cpp \
+		./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp \
-		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
-		./Algorithms/Sorting/Quicksort.cpp ./Algorithms/Sorting/Mergesort.cpp \
-		./Algorithms/Sorting/Bubble.cpp ./Algorithms/Sorting/Selection.cpp \
+		./Algorithms/Dynamic \ 
+		./Programming/Knapsack.cpp \
+		./Algorithms/Sorting/Quicksort.cpp \
+		./Algorithms/Sorting/Mergesort.cpp \
+		./Algorithms/Sorting/Bubble.cpp \
+		./Algorithms/Sorting/Selection.cpp \
 		./Algorithms/Sorting/Insertion.cpp \
-		./DS/Hashing/Hashing.cpp ./DS/Queues/PriorityQueues.cpp \
-		./DS/LinkedList/SinglyLinkedList.cpp
+		./DS/Hashing/Hashing.cpp \
+		./DS/Queues/PriorityQueues.cpp \
+		./DS/LinkedList/SinglyLinkedList.cpp \
+		./main.cpp
 
 OUT_EXE = out_exec
 

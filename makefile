@@ -6,13 +6,12 @@ ODIR = Out
 
 FILES = ./Helper/Helper.cpp \
         ./Helper/HackerEarth.cpp \
-		./DesignPatterns/Inheritance.cpp 
+		./DesignPatterns/Inheritance.cpp \
 		./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
         ./DesignPatterns/Behavioural/Command.cpp \
 		./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp \
-		./Algorithms/Dynamic \ 
-		./Programming/Knapsack.cpp \
+		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp \

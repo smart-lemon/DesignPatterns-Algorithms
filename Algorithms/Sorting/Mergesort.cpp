@@ -55,7 +55,7 @@ void mergesort(int *data, int *temp, int left, int right){
     if(right > left)
     {
         // calculate mid 
-        int mid = (left + right)/2;
+        int mid = right + (left - right)/2;
 
         // divide and conquer
         mergesort(data, temp, left, mid);

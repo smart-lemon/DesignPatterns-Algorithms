@@ -6,14 +6,16 @@ using namespace std;
 
 
 class Element {
+    // Next element in the linked list
+    public:
+    Element *next;
     int priority;
     int data;
 
-    // Next element in the linked list
-    public:
+
     Element(int iprio, int idata){
-        priority = p;
-        data = d;
+        priority = iprio;
+        data = idata;
         next = NULL;
     }
 };
@@ -101,8 +103,10 @@ int PriorityQueue :: deleteMax(){
     Element *front = queue;
     queue = queue->next;
 
-    Data ret = front->data;
+    int ret = front->data;
     delete front;
+
+    // returns that data that was at the front
     return ret;
 }
 
@@ -112,15 +116,15 @@ int PriorityQueue :: deleteMax(){
 */
 int PriorityQueue :: deleteMin()
 {
-    Element<Priority, Data> *temp = queue;
-    Element<Priority, Data> *prev = NULL;
+    Element *temp = queue;
+    Element *prev = NULL;
 
     while(temp && temp->next) {
         prev = temp;
         temp = temp->next;
     }
 
-    Data ret = temp->data;
+    int ret = temp->data;
     prev->next = NULL;
 
     delete temp;
@@ -130,13 +134,12 @@ int PriorityQueue :: deleteMin()
 /* 
     Prints the Priority Queue 
 */
-template <typename Priority, typename Data>
-void PriorityQueue <Priority, Data> :: printQueue(){
+void PriorityQueue  :: printQueue(){
     if(isEmpty()){
         return;
     }
 
-    Element<Priority, Data> *temp = queue;
+    Element *temp = queue;
     
     while(temp) {
         cout << "[P: " << temp->priority << " D: " << temp->data << "] -> "; 
@@ -148,7 +151,7 @@ void PriorityQueue <Priority, Data> :: printQueue(){
 
 void testPriorityQueues() 
 {
-   PriorityQueue<int, int> *queue = new PriorityQueue<int, int>();
+   PriorityQueue *queue = new PriorityQueue();
 
    queue->insert(1, 100);
    queue->printQueue();

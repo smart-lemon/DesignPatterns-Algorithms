@@ -15,7 +15,7 @@ int main()
 	
 	// tmain();
 	testPriorityQueues();
-	testMergeSort()
+	testMergeSort();
 
 
   	return 0; 

@@ -18,7 +18,8 @@ FILES = ./Helper/Helper.cpp \
 		./Algorithms/Sorting/Selection.cpp \
 		./Algorithms/Sorting/Insertion.cpp \
 		./DS/Hashing/Hashing.cpp \
-		./DS/Queues/PriorityQueues.cpp \
+		./DS/Queues/T/PriorityQueuesT.cpp \
+        ./DS/Queues/PriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
 		./main.cpp
 

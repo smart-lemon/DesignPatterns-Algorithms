@@ -1,6 +1,12 @@
 #include "./../../Include/CommonInc.h"
 
 
+/* 
+    Priority Queue : 
+      -> Simple version (without Template programming)
+*/
+
+
 #include <iostream> 
 using namespace std;
 
@@ -149,6 +155,9 @@ void PriorityQueue  :: printQueue(){
 }
 
 
+/* 
+    Test function for Priority Queues
+*/
 void testPriorityQueues() 
 {
    PriorityQueue *queue = new PriorityQueue();

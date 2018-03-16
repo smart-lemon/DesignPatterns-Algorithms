@@ -10,12 +10,14 @@
 //////// Priority Queue
 template <typename Priority, typename Data>
 class Element {
+
+    public:
     Priority priority;
     Data data;
 
     // Next element in the linked list
     Element<Priority, Data> *next;
-    public:
+    
     Element(Priority p, Data d){
         priority = p;
         data = d;

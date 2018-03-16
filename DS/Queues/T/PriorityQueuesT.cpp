@@ -10,7 +10,7 @@ using namespace std;
     The constructor 
 */
 template <typename Priority, typename Data>
-PriorityQueue <Priority, Data> :: PriorityQueue() {
+PriorityQueueT <Priority, Data> :: PriorityQueueT() {
     queue = NULL;
 } 
 
@@ -19,7 +19,7 @@ PriorityQueue <Priority, Data> :: PriorityQueue() {
     Helper to check if the queue is empty 
 */
 template <typename Priority, typename Data>
-bool PriorityQueue <Priority, Data> :: isEmpty(){
+bool PriorityQueueT <Priority, Data> :: isEmpty(){
     return queue == NULL;
 }
 
@@ -28,7 +28,7 @@ bool PriorityQueue <Priority, Data> :: isEmpty(){
     Inserts an element in the Priority Queue with an incoming priority at an appropriate place 
 */
 template <typename Priority, typename Data>
-void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority, 
+void PriorityQueueT <Priority, Data> :: insert( Priority incomingPriority, 
                                                Data incomingData ){
 
     Element<Priority, Data> *newElement = new Element<Priority, Data>(incomingPriority, incomingData);
@@ -59,7 +59,7 @@ void PriorityQueue <Priority, Data> :: insert( Priority incomingPriority,
    Peeks at the element with the highest priority 
 */
 template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: getMaximum(){
+Data PriorityQueueT <Priority, Data> :: getMaximum(){
     if(isEmpty())
         return NULL;
     
@@ -72,7 +72,7 @@ Data PriorityQueue <Priority, Data> :: getMaximum(){
     Reads and deletes the element with the highest priority 
 */
 template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: deleteMax(){
+Data PriorityQueueT <Priority, Data> :: deleteMax(){
     if(isEmpty())
         return NULL;
 
@@ -89,7 +89,7 @@ Data PriorityQueue <Priority, Data> :: deleteMax(){
     Reads and deletes the element with the lowest priority 
 */
 template <typename Priority, typename Data>
-Data PriorityQueue <Priority, Data> :: deleteMin()
+Data PriorityQueueT <Priority, Data> :: deleteMin()
 {
     Element<Priority, Data> *temp = queue;
     Element<Priority, Data> *prev = NULL;
@@ -110,7 +110,7 @@ Data PriorityQueue <Priority, Data> :: deleteMin()
     Prints the Priority Queue 
 */
 template <typename Priority, typename Data>
-void PriorityQueue <Priority, Data> :: printQueue(){
+void PriorityQueueT <Priority, Data> :: printQueue(){
     if(isEmpty()){
         return;
     }
@@ -127,7 +127,7 @@ void PriorityQueue <Priority, Data> :: printQueue(){
 
 void testPriorityQueuesT() 
 {
-   PriorityQueue<int, int> *queue = new PriorityQueue<int, int>();
+   PriorityQueueT<int, int> *queue = new PriorityQueueT<int, int>();
 
    queue->insert(1, 100);
    queue->printQueue();

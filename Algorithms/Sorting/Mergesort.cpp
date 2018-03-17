@@ -2,8 +2,8 @@
 
 using namespace std;
 
-// First subarray is arr[l..m]
-// Second subarray is arr[m + 1..r]
+// First subarray is arr[l .. m]
+// Second subarray is arr[m + 1 .. r]
 void merge(int *data, int *temp, int left, int mid, int right)
 {
     int l_start = left; int l = left;

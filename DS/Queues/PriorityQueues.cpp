@@ -15,14 +15,13 @@ class Element {
     // Next element in the linked list
     public:
     Element *next;
-    int priority;
-    int data;
-
+    int     priority;
+    int     data;
 
     Element(int iprio, int idata){
         priority = iprio;
-        data = idata;
-        next = NULL;
+        data     = idata;
+        next     = NULL;
     }
 };
 

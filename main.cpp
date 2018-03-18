@@ -13,9 +13,9 @@ int main()
 {
 	cout << "" << "\n";
 	
-	// tmain();
-	testPriorityQueues();
-	testMergeSort();
+	tmain();
+	// testPriorityQueues();
+	// testMergeSort();
 
 
   	return 0; 

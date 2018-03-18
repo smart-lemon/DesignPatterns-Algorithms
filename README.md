@@ -1,9 +1,11 @@
-# DesignPatterns & Algorithms
+# Design Patterns & Algorithms
 
 Source code for  : 
 
--> Stanford Algorithms and Design 
+-> Stanford Algorithms and Design (Tim Roughgarden)
+
 -> Data Structures (Karumanchi and maybe Cracking the Coding Interview) 
+
 -> Design Patterns (Karumanchi) 
 
 This code was written by me (not copied from these sources) 

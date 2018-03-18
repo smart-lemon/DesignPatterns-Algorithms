@@ -139,7 +139,7 @@ int PriorityQueue :: deleteMin()
 /* 
     Prints the Priority Queue 
 */
-void PriorityQueue  :: printQueue(){
+void PriorityQueue :: printQueue(){
     if(isEmpty()){
         return;
     }

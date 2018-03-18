@@ -2,25 +2,29 @@
 # Otherwise it wont compile
 ODIR = Out
 
-# input and output
-
+# Input and output
 FILES = ./Helper/Helper.cpp \
-		./DesignPatterns/Inheritance.cpp \
-		./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
-        ./DesignPatterns/Behavioural/Command.cpp \
-		./DesignPatterns/Behavioural/Iterator.cpp \
-		./DesignPatterns/Behavioural/Interpreter.cpp \
-		./Algorithms/Dynamic\ Programming/Knapsack.cpp \
+		./main.cpp
+
+FILES += ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp \
 		./Algorithms/Sorting/Selection.cpp \
-		./Algorithms/Sorting/Insertion.cpp \
-		./DS/Hashing/Hashing.cpp \
+		./Algorithms/Sorting/Insertion.cpp
+
+# Data structures
+FILES += ./DS/Hashing/Hashing.cpp \
 		./DS/Queues/T/PriorityQueuesT.cpp \
         ./DS/Queues/PriorityQueues.cpp \
-		./DS/LinkedList/SinglyLinkedList.cpp \
-		./main.cpp
+		./DS/LinkedList/SinglyLinkedList.cpp
+
+# Design patterns
+# FILES += ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
+		./DesignPatterns/Inheritance.cpp \
+        ./DesignPatterns/Behavioural/Command.cpp \
+		./DesignPatterns/Behavioural/Iterator.cpp \
+		./DesignPatterns/Behavioural/Interpreter.cpp
 
 FILES += ./Helper/HackerRank.cpp \
         ./Helper/HackerEarth.cpp

@@ -5,7 +5,6 @@ ODIR = Out
 # input and output
 
 FILES = ./Helper/Helper.cpp \
-        ./Helper/HackerEarth.cpp \
 		./DesignPatterns/Inheritance.cpp \
 		./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
         ./DesignPatterns/Behavioural/Command.cpp \
@@ -22,6 +21,9 @@ FILES = ./Helper/Helper.cpp \
         ./DS/Queues/PriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
 		./main.cpp
+
+FILES += ./Helper/HackerRank.cpp \
+        ./Helper/HackerEarth.cpp
 
 OUT_EXE = out_exec
 

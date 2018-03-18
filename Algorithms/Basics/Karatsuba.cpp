@@ -35,7 +35,7 @@ long long karatsuba_multiply(long long x, long long y){
      int xLen = getLengthOf(x); 
      int yLen = getLengthOf(y);
 
-    if(xLen == 1 || yLen == 1)
+    if(xLen < 2  || yLen < 2)
         return x * y;
 
     int n = max(x, y);
@@ -52,6 +52,7 @@ long long karatsuba_multiply(long long x, long long y){
     long long ac = karatsuba_multiply(a, c);
     long long bd = karatsuba_multiply(b, d);
 
-    long long aplusb_x_cplusd = karatsuba_multiply(a + b, c + d);
+    long long aplusb_x_cplusd = karatsuba_multiply(a + b, c + d); 
 
+    return ac + ((aplusb_x_cplusd - ac - bd) * multiplier) + (bd * (long long)(power(10, 2 * n_by_2)));        
 }

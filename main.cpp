@@ -13,9 +13,10 @@ int main()
 {
 	cout << "" << "\n";
 	
-	tmain();
+	// tmain();
 	// testPriorityQueues();
 	// testMergeSort();
+	testKaratsuba();
 
 
   	return 0; 

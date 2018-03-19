@@ -35,10 +35,10 @@ long long karatsuba_multiply(long long x, long long y){
      int xLen = getLengthOf(x); 
      int yLen = getLengthOf(y);
 
-    if(xLen < 2  || yLen < 2)
+    if(xLen < 2 || yLen < 2)
         return x * y;
 
-    int n = max(x, y);
+    int n = max(xLen, yLen);
 
     int n_by_2 = (n / 2) + (n % 2);
 
@@ -54,5 +54,17 @@ long long karatsuba_multiply(long long x, long long y){
 
     long long aplusb_x_cplusd = karatsuba_multiply(a + b, c + d); 
 
-    return ac + ((aplusb_x_cplusd - ac - bd) * multiplier) + (bd * (long long)(power(10, 2 * n_by_2)));        
+    return ac + ((aplusb_x_cplusd - ac - bd) * multiplier) + 
+           (bd * (long long)(power(10, 2 * n_by_2)));        
+}
+
+void testKaratsuba() {
+    long x = 5678;
+    long y = 1234;
+
+    long long ret = karatsuba_multiply(x, y);
+
+    cout << "x times y = " << x << " x " << y << " = " << ret; 
+    cout << endl;
+
 }

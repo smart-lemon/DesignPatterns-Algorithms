@@ -7,6 +7,7 @@ FILES = ./Helper/Helper.cpp \
 		./main.cpp
 
 FILES += ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
+		./Algorithms/Basics/Karatsuba.cpp \
 		./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp \

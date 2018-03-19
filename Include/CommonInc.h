@@ -25,6 +25,9 @@ void testIteratorPattern();
 
 /* ####### Algorithms ####### */
 
+// Basics
+void testKaratsuba();
+
 // Dynamic programming
 void testKnapsack();
 

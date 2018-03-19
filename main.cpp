@@ -15,8 +15,8 @@ int main()
 	
 	// tmain();
 	// testPriorityQueues();
-	// testMergeSort();
-	testKaratsuba();
+	testMergeSort();
+	// testKaratsuba();
 
 
   	return 0; 

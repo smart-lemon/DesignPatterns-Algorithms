@@ -27,7 +27,7 @@ void merge(int *data, int *temp, int left, int mid, int right)
         cnt++;
     }
 
-    // copy the left overs
+    // Copy the left overs
     while (l_start <= l_end)
     {
         temp[cnt] = data[l_start];
@@ -80,3 +80,5 @@ void testMergeSort()
 
     print1DArray(output, high);
 }
+
+ // OK!! 

@@ -60,7 +60,7 @@ long long karatsuba_multiply(long long x, long long y){
 }
 
 void testKaratsuba() {
-    long x = 5678;
+    long x = 56789;
     long y = 1234;
 
     long long ret = karatsuba_multiply(x, y);

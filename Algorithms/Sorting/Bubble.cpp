@@ -6,7 +6,7 @@ void bubblesort(int *data, int n){
 
    bool swapped = true;
 
-   // no more passes required if swapped remains false
+   // No more passes required if swapped remains false
    for(int pass = n - 1; pass >= 0 && swapped; pass--){
 
        swapped = false;

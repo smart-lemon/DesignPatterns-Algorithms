@@ -15,11 +15,11 @@ int main()
 	
 	// tmain();
 	// testPriorityQueues();
-	testMergeSort();
-	// testKaratsuba();
-
+	
 
   	return 0; 
 }
 
 // testHashing();
+// testMergeSort();
+// testKaratsuba();

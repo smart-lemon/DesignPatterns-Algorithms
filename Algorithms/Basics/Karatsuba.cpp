@@ -44,18 +44,19 @@ long long karatsuba_multiply(long long x, long long y){
 
     long long multiplier = power(10, n_by_2);
    
-    long long b = x/multiplier; 
-    long long a = x - (b * multiplier); 
-    long long d = y/multiplier; 
-    long long c = y - (d * multiplier); 
+    long long a = x/multiplier; 
+    long long b = x - (a * multiplier); 
+
+    long long c = y/multiplier; 
+    long long d = y - (c * multiplier); 
 
     long long ac = karatsuba_multiply(a, c);
     long long bd = karatsuba_multiply(b, d);
 
     long long aplusb_x_cplusd = karatsuba_multiply(a + b, c + d); 
 
-    return ac + ((aplusb_x_cplusd - ac - bd) * multiplier) + 
-           (bd * (long long)(power(10, 2 * n_by_2)));        
+    return bd + ((aplusb_x_cplusd - ac - bd) * multiplier) + 
+           (ac * (long long)(power(10, 2 * n_by_2)));        
 }
 
 void testKaratsuba() {

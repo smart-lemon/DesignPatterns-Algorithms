@@ -1,4 +1,4 @@
-#include "./../../Include/CommonInc.h"
+#include "./../../Include/Common.h"
 #include "./T/Hashing.h"
 #include <cmath>
 

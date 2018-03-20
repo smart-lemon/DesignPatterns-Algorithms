@@ -1,4 +1,5 @@
 #include "./../../Include/CommonInc.h"
+#include "./T/PriorityQueues.h"
 
 
 /* 
@@ -160,6 +161,28 @@ void PriorityQueue :: printQueue(){
 void testPriorityQueues() 
 {
    PriorityQueue *queue = new PriorityQueue();
+
+   queue->insert(1, 100);
+   queue->printQueue();
+   queue->insert(4, 400);
+   queue->printQueue();
+   queue->insert(2, 200);
+   queue->printQueue();
+   queue->insert(5, 500);
+   queue->printQueue();
+   queue->insert(3, 300);
+
+   queue->printQueue();
+
+   int data = queue->deleteMax();
+
+   cout << "Priority Queue: deleted:  " << data << endl;
+}
+
+
+void testPriorityQueuesT() 
+{
+   PriorityQueueT<int, int> *queue = new PriorityQueueT<int, int>();
 
    queue->insert(1, 100);
    queue->printQueue();

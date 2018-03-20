@@ -16,7 +16,6 @@ FILES += ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 
 # Data structures
 FILES += ./DS/Hashing/Hashing.cpp \
-		./DS/Queues/T/PriorityQueuesT.cpp \
         ./DS/Queues/PriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp
 

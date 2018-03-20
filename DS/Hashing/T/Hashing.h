@@ -1,35 +1,34 @@
-#include "./../../Include/CommonInc.h"
-#include "./T/Hashing.h"
 #include <cmath>
-
 using namespace std;
 
 // Template for generic types
-class HashNode
+template<typename Key, typename Val>
+class HashNodeT
 {
     public:
-    int key;
-    int value;
+    Key key;
+    Val value;
 
     // This constructor is only for the root node of each bucket
-    HashNode()
+    HashNodeT()
     {
         // Dont store any key-value
     }
 
-    // Actual constructor of hashnode 
-    HashNode(int k, int v)
+    // Actual constructor of HashNodeT 
+    HashNodeT(Key k, Val v)
     {
         value = v;
         key = k;
     }   
     
     // 
-    HashNode *next;
+    HashNodeT<Key, Val> *next;
 };
 
 
-class HashMap {
+template<typename Key, typename Val>
+class HashMapT {
 
     int capacity;
     
@@ -40,14 +39,14 @@ class HashMap {
 
     private:
 
-    void deleteTable(HashNode **toBeDeleted){
+    void deleteTable(HashNodeT<Key, Val> **toBeDeleted){
         
         // Destroy all buckets one by one
         for (int i = 0; i < noOfBuckets; i++) {
             if(toBeDeleted[i]->next != NULL){
-                HashNode *entry = toBeDeleted[i]->next;
+                HashNodeT<Key, Val> *entry = toBeDeleted[i]->next;
                 while (entry != NULL) {
-                    HashNode *prev = entry;
+                    HashNodeT<Key, Val> *prev = entry;
                     entry = entry->next;
                     delete prev;
                 }
@@ -57,30 +56,30 @@ class HashMap {
         delete [] toBeDeleted;
     }
 
-    HashNode **createTable (int iNoOfBuckets){
-         // A table containing pointers to HashNodes
-        HashNode **freshTable = new HashNode *[iNoOfBuckets];
+    HashNodeT<Key, Val> **createTable (int iNoOfBuckets){
+         // A table containing pointers to HashNodeTs
+        HashNodeT<Key, Val> **freshTable = new HashNodeT<Key, Val> *[iNoOfBuckets];
 
-        // Initialise all buckets as NULL (Nothing in the root HashNode)
+        // Initialise all buckets as NULL (Nothing in the root HashNodeT)
         for(int i = 0 ; i < iNoOfBuckets ; i++){
-            freshTable[i] = new HashNode;
+            freshTable[i] = new HashNodeT<Key, Val>;
             freshTable[i]->next = NULL;
         }
         return freshTable;
     }
 
-    HashNode **table;
+    HashNodeT<Key, Val> **table;
 
     public:
   
-    int hashCode(int key)
+    int hashCode(Key key)
     {
         // cout << "Hash Func "<< key << " " << noOfBuckets << endl;      
         // Re interpret 'key' as int
         return reinterpret_cast<int>(key) % noOfBuckets;
     }
     
-    HashMap(int size) {
+    HashMapT(int size) {
 
         capacity = size;
         noOfBuckets = size/loadFactor;
@@ -89,9 +88,9 @@ class HashMap {
         table = createTable(noOfBuckets);
     }
 
-    void insert(int ikey, int ival){
+    void insert(Key ikey, Val ival){
 
-        HashNode *temp = new HashNode(ikey, ival);
+        HashNodeT<Key, Val> *temp = new HashNodeT<Key, Val>(ikey, ival);
          
         // Apply hash function to find index for given key
         int hashIndex = hashCode(ikey);
@@ -115,12 +114,12 @@ class HashMap {
             rehash();
     }
 
-    int search(int ikey){
+    Val search(Key ikey){
 
         // Identify the bucket
         int index = hashCode(ikey);
 
-        HashNode *next = table[index]->next;
+        HashNodeT<Key, Val> *next = table[index]->next;
 
         // Seach the bucket items for the key 
         // and return the value if found
@@ -131,11 +130,11 @@ class HashMap {
         }
     }
 
-    void remove(int ikey) {
+    void remove(Key ikey) {
         int hashValue = hashCode(ikey);
 
-        HashNode *prev = NULL;
-        HashNode *entry = table[hashValue]->next;
+        HashNodeT<Key, Val> *prev = NULL;
+        HashNodeT<Key, Val> *entry = table[hashValue]->next;
 
         // Try to find the key
         while (entry != NULL && entry->key != ikey) {
@@ -162,7 +161,7 @@ class HashMap {
 
     void rehash(){
 
-        HashNode **oldTable;
+        HashNodeT<Key, Val> **oldTable;
         oldTable = table;
         
         int oldNoOfBuckets = noOfBuckets;
@@ -184,7 +183,7 @@ class HashMap {
                 {
                     int newIndex = hashCode(temp->key);
 
-                    HashNode *newTemp = new HashNode(temp->key, temp->value);
+                    HashNodeT<Key, Val> *newTemp = new HashNodeT<Key, Val>(temp->key, temp->value);
                     newTemp->next = table[newIndex]->next;
                     table[newIndex]->next = newTemp;
                 }
@@ -213,45 +212,8 @@ class HashMap {
         }
     }
 
-    ~HashMap() {
+    ~HashMapT() {
         deleteTable(table);
     }
 
 };  
-
-
-void testHashing(){
-
-    HashMap *hashMap = new HashMap(30);
-
-    // Insert k items in the hashmap with value k * 100
-    for(int k = 0; k < 35; k++)
-        hashMap->insert(k + 1, (k + 1) * 100);
-
-    hashMap->printHashMap();  
-  
-    // Search for 
-    int val = hashMap->search(29);
-
-    cout << val;
-
-}
-
-
-
-void testHashingT(){
-
-    HashMapT<int, int> *hashMap = new HashMapT<int, int>(30);
-
-    // Insert k items in the hashmap with value k * 100
-    for(int k = 0; k < 35; k++)
-        hashMap->insert(k + 1, (k + 1) * 100);
-
-    hashMap->printHashMap();  
-  
-    // Search for 
-    int val = hashMap->search(29);
-
-    cout << val;
-
-}

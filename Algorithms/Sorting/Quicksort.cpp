@@ -5,34 +5,29 @@ using namespace std;
 // 
 static int partition(int *data, int low, int high) {
 
-    int left,  right,  pivot = data[low];
-    left = low; right = high; 
+    int left = low,  right = high,  pivot = data[low];
 
     while (left < right) {
 
-        // everthing on the left of pivot is lower than the pivot 
+        // Everthing on the left of pivot is lower than the pivot 
         while (data[left] <= pivot) // <= is because left is the pivot initially
-        {
             left++;
-        }
 
-        // everything on the right of the pivot is greater than the pivot 
+        // Everything on the right of the pivot is greater than the pivot 
         while (data[right] > pivot)
-        {
             right--;
-        }
 
         if (left < right)
             swap(data, left, right);
     }
 
-    // put the pivot in the 'rigthful' place
+    // Put the pivot in the 'rigthful' place
     swap(data, low, right);
 
     return right;
 }
 
-// quicksort 
+// Quicksort 
 static void q_sort(int *data, int low, int high)
 {
     if (high > low) {

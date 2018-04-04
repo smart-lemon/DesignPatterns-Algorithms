@@ -28,13 +28,13 @@ static int partition(int *data, int low, int high) {
 }
 
 // Quicksort 
-static void q_sort(int *data, int low, int high)
+static void quick_sort(int *data, int low, int high)
 {
     if (high > low) {
         int p_index = partition(data, low, high);
 
-        q_sort(data, low , p_index - 1);
-        q_sort(data, p_index + 1, high);
+        quick_sort(data, low , p_index - 1);
+        quick_sort(data, p_index + 1, high);
     }
 }
 
@@ -43,7 +43,7 @@ void testQuickSort()
     int dataset[] = {91, 62, -1, 89, 0, 45};
     int low = 0, high = sizeof(dataset)  / sizeof(dataset[0]);
 
-    q_sort(dataset, low, high - 1);
+    quick_sort(dataset, low, high - 1);
 
     cout << "Quicksort: ";
     print1DArray(dataset, high);

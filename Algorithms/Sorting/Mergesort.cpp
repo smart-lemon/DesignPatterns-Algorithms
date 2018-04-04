@@ -50,7 +50,7 @@ void merge(int *data, int *temp, int left, int mid, int right)
 
 }
 
-void mergesort(int *data, int *temp, int left, int right){
+void merge_sort(int *data, int *temp, int left, int right){
 
     if(right > left)
     {
@@ -58,8 +58,8 @@ void mergesort(int *data, int *temp, int left, int right){
         int mid = left + (right - left)/2;
 
         // divide and conquer
-        mergesort(data, temp, left, mid);
-        mergesort(data, temp, mid + 1, right);
+        merge_sort(data, temp, left, mid);
+        merge_sort(data, temp, mid + 1, right);
 
         merge(data, temp, left, mid, right);
     }
@@ -75,7 +75,7 @@ void testMergeSort()
 
     int *output = new int[high];
     
-    mergesort(dataset, output, 0, high - 1);
+    merge_sort(dataset, output, 0, high - 1);
     cout << "Output : ";
 
     print1DArray(output, high);

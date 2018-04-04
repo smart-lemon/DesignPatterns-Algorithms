@@ -4,7 +4,7 @@ using namespace std;
 
 // Insertion sort is a simple sorting algorithm that works the way 
 // we sort playing cards in our hands
-void insertionsort(int *data, int n){
+void insertion_sort(int *data, int n){
 
     for(int i = 1; i < n; i++){
         int j = i - 1;
@@ -27,7 +27,7 @@ void testInsertionSort()
     cout << "Insertion sort of : ";
     print1DArray(dataset, n);
 
-    insertionsort(dataset, n);
+    insertion_sort(dataset, n);
 
     cout << "Output : ";
 

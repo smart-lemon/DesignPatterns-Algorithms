@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void bubblesort(int *data, int n){
+void bubble_sort(int *data, int n){
 
    bool swapped = true;
 
@@ -28,7 +28,7 @@ void testBubbleSort()
     cout << "Bubble sort of : ";
     print1DArray(dataset, n);
 
-    bubblesort(dataset, n);
+    bubble_sort(dataset, n);
     cout << "Output : ";
 
     print1DArray(dataset, n);

@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void selectionsort(int *data, int n){
+void selection_sort(int *data, int n){
 
    int min;
    for(int i = 0; i < n - 1; i++){
@@ -29,7 +29,7 @@ void testSelectionSort()
     cout << "Selection sort of : ";
     print1DArray(dataset, n);
 
-    selectionsort(dataset, n);
+    selection_sort(dataset, n);
 
     cout << "Output : ";
 

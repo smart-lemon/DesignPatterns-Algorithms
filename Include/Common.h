@@ -48,6 +48,8 @@ void testPriorityQueues();
 
 // Helper 
 void print1DArray(int *arr, int n);
+void print1DArray(int *arr, int low, int high);
+
 void swap(int *numbers, int a, int b);
 
 

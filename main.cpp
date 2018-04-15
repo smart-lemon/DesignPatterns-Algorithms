@@ -14,8 +14,8 @@ int main()
 	cout << "" << "\n";
 	
 	// tmain();
-	// testPriorityQueues();
-	
+	testQuickSort();
+
 
   	return 0; 
 }
@@ -23,3 +23,5 @@ int main()
 // testHashing();
 // testMergeSort();
 // testKaratsuba();
+// testPriorityQueues();
+

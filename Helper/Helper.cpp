@@ -12,6 +12,14 @@ void print1DArray(int *arr, int n){
 }
 
 
+void print1DArray(int *arr, int low, int high){
+
+	for(int i = low; i <= high; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 // Swap position a with b in an array of integer numbers
 void swap(int *numbers, int a, int b){
     int temp = numbers[a];

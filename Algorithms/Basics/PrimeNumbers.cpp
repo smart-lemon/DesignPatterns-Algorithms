@@ -2,10 +2,18 @@
 
 using namespace std;
     
-// A prime number is a positive integer, which is divisible on 1 and itself. 
+/* 
+    Finds a prime number. A prime number is a positive integer, which is divisible on 1 and itself. 
+    Runtime: O(n)
+*/ 
+
 // Sieve of Eratosthenes
 void findPrimes(int N){
+    
+    for(int i = 3; i < N; i += 2)
+    {
 
+    }
 }
 
 // AKS 

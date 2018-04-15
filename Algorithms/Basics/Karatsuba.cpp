@@ -2,6 +2,11 @@
 
 using namespace std;
 
+/*
+    Karatsuba multiplication : recursively multiplies two numbers using a modified version of the Eulers method
+*/
+
+
 // Home grown helpers
 static long long max(long long a, long long b) { return (a > b)? a : b; }
 

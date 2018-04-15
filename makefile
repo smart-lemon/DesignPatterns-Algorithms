@@ -6,9 +6,10 @@ ODIR = Out
 FILES = ./Helper/Helper.cpp \
 		./main.cpp
 
-SORTING = ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
-		./Algorithms/Basics/Karatsuba.cpp \
-		./Algorithms/Sorting/Quicksort.cpp \
+BASICS =  ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
+		./Algorithms/Basics/Karatsuba.cpp
+
+SORTING = ./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \
 		./Algorithms/Sorting/Bubble.cpp \
 		./Algorithms/Sorting/Selection.cpp \
@@ -19,6 +20,10 @@ DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
         ./DS/Queues/PriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp
 
+# Searching 
+SEARCHING = ./Algorithms/Searching/BoyerMoore.cpp \
+			./Algorithms/Searching/RobinKarp.cpp
+
 # Design patterns
 DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Inheritance.cpp \
@@ -27,6 +32,7 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp
 
 FILES += $(DATA_STRUCTS)
+FILES += $(BASICS)
 FILES += $(SORTING)
 
 FILES += ./Helper/HackerRank.cpp \

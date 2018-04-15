@@ -21,10 +21,13 @@ static int partition(int *data, int low, int high) {
 
         if (left < right)
             swap(data, left, right);
+
+       //  cout << "P: " << pivot << "; ";  print1DArray(data, low, high);
     }
 
     // Put the pivot in the 'rigthful' place
     swap(data, low, right);
+    //  cout << "swap " << data[low] << "&" << data[right] << endl;
 
     return right;
 }

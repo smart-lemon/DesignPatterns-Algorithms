@@ -54,7 +54,7 @@ void testQuickSort()
 
     quick_sort(dataset, low, high - 1);
 
-    cout << "Quicksort: ";
+    cout << "Quick sort: ";
     print1DArray(dataset, high);
     
 }

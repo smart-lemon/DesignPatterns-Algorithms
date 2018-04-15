@@ -6,7 +6,7 @@ ODIR = Out
 FILES = ./Helper/Helper.cpp \
 		./main.cpp
 
-FILES += ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
+SORTING = ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Basics/Karatsuba.cpp \
 		./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \
@@ -15,16 +15,19 @@ FILES += ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Sorting/Insertion.cpp
 
 # Data structures
-FILES += ./DS/Hashing/Hashing.cpp \
+DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
         ./DS/Queues/PriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp
 
 # Design patterns
-# FILES += ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
+DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Inheritance.cpp \
         ./DesignPatterns/Behavioural/Command.cpp \
 		./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp
+
+FILES += $(DATA_STRUCTS)
+FILES += $(SORTING)
 
 FILES += ./Helper/HackerRank.cpp \
         ./Helper/HackerEarth.cpp

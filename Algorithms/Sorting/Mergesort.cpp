@@ -42,12 +42,11 @@ void merge(int *data, int *temp, int left, int mid, int right)
         cnt++;
     }
   
-    // merging of sub array done, now put back the sub array in the original data set
+    // Merging of sub array done, now put back the sub array in the original data set
     for(int k = left; k <= right; k++) 
     {  
         data[k] = temp[k];
     }
-
 }
 
 void merge_sort(int *data, int *temp, int left, int right){

@@ -1,13 +1,12 @@
 #include "./../../Include/Common.h"
-#include <stdlib.h>
+#include <stdlib.h> // for rand()
 
 using namespace std;
-
-static int n;
 
 
 static int partition(int *data, int low, int high) {
 
+    // Random has to lie between low and high : low + rand % (Number of elements in arr[l..h])
     int random = low + rand() % (high - low + 1);
 
     int left = low,  right = high,  pivot = data[random];
@@ -52,7 +51,6 @@ void testQuickSort()
     int dataset[] = {0, 5, 4, -1, 8, 2, 6, 4, 7, 1, 3, 9, -4};
 
     int low = 0, high = sizeof(dataset) / sizeof(dataset[0]);
-    n = high;
 
     quick_sort(dataset, low, high - 1);
 

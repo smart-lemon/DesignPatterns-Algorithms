@@ -1,4 +1,5 @@
 #include "./../../Include/Common.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -7,7 +8,9 @@ static int n;
 
 static int partition(int *data, int low, int high) {
 
-    int left = low,  right = high,  pivot = data[low];
+    int random = low + rand() % (high - low + 1);
+
+    int left = low,  right = high,  pivot = data[random];
 
     while (left < right) {
 
@@ -26,7 +29,7 @@ static int partition(int *data, int low, int high) {
     }
 
     // Put the pivot in the 'rigthful' place
-    swap(data, low, right);
+    swap(data, random, right);
     //  cout << "swap " << data[low] << "&" << data[right] << endl;
 
     return right;

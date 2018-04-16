@@ -1,4 +1,4 @@
-#include "./../../Include/CommonInc.h"
+#include "./../../Include/Common.h"
 
 using namespace std;
     
@@ -9,7 +9,7 @@ using namespace std;
 
 // Sieve of Eratosthenes
 void findPrimes(int N){
-    
+
     for(int i = 3; i < N; i += 2)
     {
 

@@ -18,7 +18,8 @@ SORTING = ./Algorithms/Sorting/Quicksort.cpp \
 # Data structures
 DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
         ./DS/Queues/PriorityQueues.cpp \
-		./DS/LinkedList/SinglyLinkedList.cpp
+		./DS/LinkedList/SinglyLinkedList.cpp \
+		./DS/Graphs/MinimumCuts.cpp
 
 # Searching 
 SEARCHING = ./Algorithms/Searching/BoyerMoore.cpp \
@@ -45,6 +46,7 @@ INCLUDES = -I../Include
 
 # define any compile-time flags
 CFLAGS = -g
+CFLAGS += -std=c++11
 
 # Most makefiles have at least two basic components: macros and target definitions
 

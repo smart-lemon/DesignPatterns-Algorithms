@@ -95,7 +95,7 @@ class HashMapT {
         // Apply hash function to find index for given key
         int hashIndex = hashCode(ikey);
 
-        // Add thekey value data
+        // Add the key value data
         temp->key = ikey;
         temp->value = ival;
 

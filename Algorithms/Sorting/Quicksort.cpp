@@ -1,5 +1,4 @@
 #include "./../../Include/Common.h"
-#include <stdlib.h> // for rand()
 
 using namespace std;
 

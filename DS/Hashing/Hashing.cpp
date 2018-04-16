@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/*
+    Hashing implementation with rehash
+*/
+
+
 // Template for generic types
 class HashNode
 {
@@ -226,7 +231,7 @@ void testHashing(){
 
     // Insert k items in the hashmap with value k * 100
     for(int k = 0; k < 35; k++)
-        hashMap->insert(k + 1, (k + 1) * 100);
+        hashMap->insert(k + 1, (k + rand() + 1) * 100);
 
     hashMap->printHashMap();  
   
@@ -236,7 +241,6 @@ void testHashing(){
     cout << val;
 
 }
-
 
 
 void testHashingT(){

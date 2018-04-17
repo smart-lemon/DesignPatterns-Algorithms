@@ -7,7 +7,8 @@ FILES = ./Helper/Helper.cpp \
 		./main.cpp
 
 BASICS =  ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
-		./Algorithms/Basics/Karatsuba.cpp
+		./Algorithms/Basics/Karatsuba.cpp \
+		./Algorithms/Basics/Quickselect.cpp
 
 SORTING = ./Algorithms/Sorting/Quicksort.cpp \
 		./Algorithms/Sorting/Mergesort.cpp \

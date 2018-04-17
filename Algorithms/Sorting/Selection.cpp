@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/*
+    Selection sort
+*/
 
 void selection_sort(int *data, int n){
 

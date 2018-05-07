@@ -13,7 +13,7 @@ int main()
 {
 	cout << "" << "\n";
 	
-	// tmain();
+	testQuickSelect();
 
   	return 0; 
 }

@@ -1,5 +1,5 @@
 #include "./../../Include/Common.h"
-
+#include <climits>
 using namespace std;
 
 /*
@@ -7,7 +7,7 @@ using namespace std;
     Runtime: O(n) on average. O(n²) in the worst case. 
 */
 
-
+// State : untested 
 static int partition(int *data, int low, int high) {
 
     // Random has to lie between low and high : low + rand % (Number of elements in arr[l..h])
@@ -18,7 +18,7 @@ static int partition(int *data, int low, int high) {
     while (left < right) {
 
         // Everthing on the left of pivot is lower than the pivot (as you are finding the smallest)
-        while ((left <= right) && data[left] <= pivot) // <= is because left is the pivot initially
+        while ((left <= right) && data[left] <= pivot)
             left++;
 
         if (left < right)
@@ -29,25 +29,39 @@ static int partition(int *data, int low, int high) {
     // Put the pivot in the 'rigthful' place
     swap(data, random, right);
 
+    cout << "P: " << pivot << " "; print1DArray(data, low, high);  
+
     return right;
 }
 
 
 int quick_select(int *data, int low, int high, int k){
     int split = 0;
-    while(low < high){
+    
+    if(k >= 0 && k < (high - low + 1))
+    {
         split = partition(data, low, high);
 
+        // How far is k from split - depending on this choose the search pool
+
         // Lucky, found the pivot
-        if(split - k == k - low)
-            return data[split];
-        
+        if((split - k) == (k - low))
+            return data[split]; 
         else if((split - k) > (k - low))
-            return quick_select(data, split, high, k);
-        
+            return quick_select(data, low, split - 1, k) ;
+
+        return quick_select(data, split + 1, high, k);
     }
+    return INT_MAX;
 }
 
 void testQuickSelect(){
+    int kth_smallest = 5;
+    int dataset[] = {0, 5, 4, -1, 8, 2, 6, 4, 7, 1, 3, 9, -4};
 
+    int low = 0, high = sizeof(dataset) / sizeof(dataset[0]);
+
+    int ret = quick_select(dataset, low, high - 1, kth_smallest);
+
+    cout << kth_smallest << " Kth smallest is " << ret << endl;
 }

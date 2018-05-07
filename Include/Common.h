@@ -38,6 +38,9 @@ void testBubbleSort();
 void testSelectionSort();
 void testInsertionSort();
 
+// Basic 
+void testQuickSelect();
+
 // Hashing
 void testHashing();
 

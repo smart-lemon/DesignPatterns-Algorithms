@@ -22,6 +22,10 @@ DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
 		./DS/Graphs/MinimumCuts.cpp
 
+GRAPS = ./DS/Graphs/BFS.cpp \
+        ./DS/Graphs/DFS.cpp \
+		./DS/Graphs/MinimumCuts.cpp
+
 # Searching 
 SEARCHING = ./Algorithms/Searching/BoyerMoore.cpp \
 			./Algorithms/Searching/RobinKarp.cpp

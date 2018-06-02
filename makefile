@@ -35,10 +35,11 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Inheritance.cpp \
         ./DesignPatterns/Behavioural/Command.cpp \
 		./DesignPatterns/Behavioural/Iterator.cpp \
-		./DesignPatterns/Behavioural/Interpreter.cpp
+		./DesignPatterns/Behavioural/Interpreter.cpp \
+		./DesignPatterns/Creational/Singleton.cpp
 
 FILES += $(DATA_STRUCTS)
-FILES += $(BASICS)
+FILES += $(DESIGN_PATTERNS)
 FILES += $(SORTING)
 
 FILES += ./Helper/HackerRank.cpp \

@@ -13,8 +13,6 @@ int main()
 {
 	cout << "" << "\n";
 	
-	testQuickSelect();
-
   	return 0; 
 }
 

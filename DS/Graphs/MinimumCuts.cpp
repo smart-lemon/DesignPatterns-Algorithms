@@ -3,9 +3,10 @@
 using namespace std;
 
 
+int minimum_cuts() {
 
-
-
+    return 0;
+}
 
 
 

@@ -1,4 +1,4 @@
-#include "./../../Include/CommonInc.h"
+#include "./../../Include/Common.h"
 
 using namespace std;
 
@@ -16,14 +16,8 @@ public:
         calculationWanted = calcWanted;
     }
 
-    int getNumA()
-    {
-        return numberA;
-    }
-
-    int getNumB(){
-        return numberB;
-    }
+    inline int getNumA(){ return numberA; }
+    inline int getNumB(){ return numberB; }
 
     string getCalculationWanted(){
         return calculationWanted;

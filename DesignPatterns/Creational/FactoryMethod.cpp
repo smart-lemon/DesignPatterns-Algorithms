@@ -20,14 +20,8 @@ class Knife {
         virtual void design() = 0;
 };
 
-// Concrete objects 
-class BudgetSteakKnife : public Knife {
-    public:
-    void design() {
-        cout << "Designing budget steak knife" << endl;
-    }
-};
-
+// Concrete products 
+// -----------------------------------------------
 class BudgetChefsKnife : public Knife {
     public:
     void design() {
@@ -35,10 +29,31 @@ class BudgetChefsKnife : public Knife {
     }
 };
 
+class BudgetSteakKnife : public Knife {
+    public:
+    void design() {
+        cout << "Designing budget steak knife" << endl;
+    }
+};
+
+
+class LuxuryChefsKnife : public Knife {
+    public:
+    void design() {
+        cout << "Designing celebrity chefs knife" << endl;
+    }
+};
+
+class LuxuryBreadKnife : public Knife {
+    public:
+    void design() {
+        cout << "Designing premium bread knife" << endl;
+    }
+};
 // -----------------------------------------------
 // Factories
 // -----------------------------------------------
-class KnifeStore {
+class KnifeFactory {
     public:
 
     Knife *orderKnife(string knifeType){
@@ -56,7 +71,9 @@ class KnifeStore {
     virtual Knife *createKnife(string knifeType) = 0;
 };
 
-class BudgetKnifeStore: public KnifeStore {
+// Concrete creators 
+// -----------------------------------------------
+class BudgetKnifeFactory: public KnifeFactory {
 
     Knife *createKnife(string knifeType) {
         if(knifeType.compare("steak"))
@@ -66,7 +83,17 @@ class BudgetKnifeStore: public KnifeStore {
     }
 };
 
+class LuxuryKnifeFactory: public KnifeFactory {
+
+    Knife *createKnife(string knifeType) {
+        if(knifeType.compare("bread"))
+            return new LuxuryBreadKnife();
+        else if(knifeType.compare("chefs"))
+            return new LuxuryChefsKnife();
+    }
+};
+
 // -----------------------------------------------
 void testFactoryMethod(){
-    
+
 }

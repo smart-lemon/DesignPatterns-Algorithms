@@ -36,7 +36,9 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
         ./DesignPatterns/Behavioural/Command.cpp \
 		./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp \
-		./DesignPatterns/Creational/Singleton.cpp
+		./DesignPatterns/Creational/Singleton.cpp \
+		./DesignPatterns/Creational/FactoryMethod.cpp
+
 
 FILES += $(DATA_STRUCTS)
 FILES += $(DESIGN_PATTERNS)
@@ -72,7 +74,7 @@ CC = g++
 #  CC, combined into a compile-command, COMP:
 COMP = $(CC) $(OPT)
 
-############# TARGEt ###################
+############# TARGET ###################
 
 # Targets are the heart of what a makefile does: they convert a command-line input
 # into a series of actions. For instance, the "make clean" command tells make to 

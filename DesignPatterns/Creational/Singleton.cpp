@@ -26,5 +26,5 @@ class Singleton {
 
 void testSingleton()
 {
-    Singleton *instance = Singleton::getInstance();
+    Singleton *instance = Singleton:: getInstance();
 }

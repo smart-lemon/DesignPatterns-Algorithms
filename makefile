@@ -60,6 +60,9 @@ CFLAGS += -std=c++11
 # Macros are written in a simple x=y form. For instance, to set your C compiler to g++
 CC = g++
 
+# For more verbose compilation
+# CC = g++ -v
+
 #  To actually convert a macro into its value in a target, you simply enclose it within $(): 
 # for instance, to convert CC into the name of the compiler
 # $(CC) main.cpp

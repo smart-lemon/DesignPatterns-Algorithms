@@ -16,7 +16,6 @@ class Knife {
         inline void package() {
              cout << "Packaging" << endl;
         }
-
         virtual void design() = 0;
 };
 
@@ -60,6 +59,7 @@ class KnifeFactory {
         Knife *knife;
         knife = createKnife(knifeType);
 
+        knife->design();
         knife->sharpen();
         knife->polish();
         knife->package();
@@ -75,21 +75,28 @@ class KnifeFactory {
 // -----------------------------------------------
 class BudgetKnifeFactory: public KnifeFactory {
 
+    // Factory method
     Knife *createKnife(string knifeType) {
+
         if(knifeType.compare("steak"))
             return new BudgetSteakKnife();
         else if(knifeType.compare("chefs"))
             return new BudgetChefsKnife();
+        else 
+            return nullptr;
     }
 };
 
 class LuxuryKnifeFactory: public KnifeFactory {
 
     Knife *createKnife(string knifeType) {
+
         if(knifeType.compare("bread"))
             return new LuxuryBreadKnife();
         else if(knifeType.compare("chefs"))
             return new LuxuryChefsKnife();
+        else 
+            return nullptr;
     }
 };
 

@@ -24,7 +24,9 @@ class Singleton {
 };
 
 
+Singleton* Singleton::uniqueInstance = 0;
+
 void testSingleton()
 {
-    Singleton *instance = Singleton:: getInstance();
+    Singleton *instance = Singleton :: getInstance();
 }

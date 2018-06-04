@@ -47,28 +47,30 @@ class Investments : public IAccount{
 
 // Step 3: Create the Facade class and wrat the classes that implement the Interface 
 class BankService {
-    unordered_map<int, unique_ptr<IAccount>> bankAccounts;
+    unordered_map<int, unique_ptr<IAccount>> *bankAccounts;
 
     public: 
     BankService() { 
-
+        bankAccounts = new unordered_map<int, unique_ptr<IAccount>>();
     }
 
-    int createNewAccount(string name, int amount, string type) {
-        IAccount *newAccount;
+    int createNewAccount(string name, int amount, string type, int accountNo) {
+         unique_ptr<IAccount> newAccount;
 
         if(type.compare("current")) {
-             newAccount = new Current(amount);
+            newAccount.reset(new Current(amount));
         }
         if(type.compare("savings")) {
-            newAccount = new Savings(amount);
+            newAccount.reset(new Savings(amount));
         }
         if(type.compare("investment")) {
-             newAccount = new Investments(amount);
+             newAccount.reset(new Investments(amount));
         }
 
         if(newAccount != nullptr){
             // Add to the unordered list
+            bankAccounts->insert(make_pair<int, IAccount>(accountNo, newAccount));
         }
+        return accountNo;
     }
 };

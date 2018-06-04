@@ -37,10 +37,10 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Behavioural/Iterator.cpp \
 		./DesignPatterns/Behavioural/Interpreter.cpp \
 		./DesignPatterns/Creational/Singleton.cpp \
-		./DesignPatterns/Creational/FactoryMethod.cpp
+		./DesignPatterns/Creational/FactoryMethod.cpp \
+		./DesignPatterns/Structural/Facade.cpp
 
-
-FILES += $(DATA_STRUCTS)
+# FILES += $(DATA_STRUCTS)
 FILES += $(DESIGN_PATTERNS)
 FILES += $(SORTING)
 

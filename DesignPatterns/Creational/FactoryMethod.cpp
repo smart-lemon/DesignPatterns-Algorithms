@@ -88,7 +88,8 @@ class BudgetKnifeFactory: public KnifeFactory {
 };
 
 class LuxuryKnifeFactory: public KnifeFactory {
-
+    
+    // Factory method
     Knife *createKnife(string knifeType) {
 
         if(knifeType.compare("bread"))
@@ -102,5 +103,5 @@ class LuxuryKnifeFactory: public KnifeFactory {
 
 // -----------------------------------------------
 void testFactoryMethod(){
-
+    // TODO 
 }

@@ -45,7 +45,7 @@ class Investments : public IAccount{
     }
 };
 
-// Step 3: Create the Facade class and wrat the classes that implement the Interface 
+// Step 3: Create the Facade class and wrap the classes that implement the Interface 
 class BankService {
     IAccount **bankAccounts;
     int index;

@@ -6,6 +6,7 @@
     Priority Queue : 
       -> Simple version (without Template programming)
       -> Does not use Heaps. Using Heaps is the right method
+      -> Uses Ordered list 
 */
 
 

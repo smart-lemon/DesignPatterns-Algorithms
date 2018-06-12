@@ -18,7 +18,9 @@ SORTING = ./Algorithms/Sorting/Quicksort.cpp \
 
 # Data structures
 DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
-        ./DS/Queues/PriorityQueues.cpp \
+        ./DS/Queues/PriorityQueuesList.cpp \
+		./DS/Heaps/Heap.cpp \
+		./DS/Heaps/HeapPriorityQueue.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
 		./DS/Graphs/MinimumCuts.cpp
 
@@ -42,7 +44,7 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 
 # FILES += $(DATA_STRUCTS)
 FILES += $(DESIGN_PATTERNS)
-FILES += $(SORTING)
+FILES += $(DATA_STRUCTS)
 
 FILES += ./Helper/HackerRank.cpp \
         ./Helper/HackerEarth.cpp

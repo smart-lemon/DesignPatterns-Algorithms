@@ -3,7 +3,7 @@
 using namespace std;
 
 
-//////// Priority Queue
+//////// Priority Queue without Heap
 template <typename Priority, typename Data>
 class ElementT {
 

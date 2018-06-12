@@ -5,6 +5,7 @@
 /* 
     Priority Queue : 
       -> Simple version (without Template programming)
+      -> Does not use Heaps. Using Heaps is the right method
 */
 
 
@@ -115,7 +116,6 @@ int PriorityQueue :: deleteMax(){
     // returns that data that was at the front
     return ret;
 }
-
 
 /* 
     Reads and deletes the element with the lowest priority 

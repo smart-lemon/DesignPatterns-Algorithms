@@ -28,15 +28,29 @@ class Heap {
     }
     public: 
 
+    // Constructor for Heap, takes in initial capacity
     Heap(int iCapacity) : heapType(MIN_HEAP), capacity(iCapacity) 
     {
         array = new int[capacity];
         int count = 0;
     }
 
-    int insert() {
 
-    }    
+    int insert(int data) {
+
+    }
+
+    int deleleMin() {
+
+    }
+
+    int percolateUp(int i) {
+
+    }
+    
+    int bubbleDown(int i) {
+
+    }
 }
 
 void testHeap() {

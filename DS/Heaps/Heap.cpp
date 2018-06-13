@@ -11,11 +11,32 @@ class Heap {
     int capacity;
     int heapType;
 
+    // Left child is at 2i + 1
+    inline int leftChild(int i) {
+        int left = 2 * i + 1;
+        if(left >= count)
+            return -1;
+        return left;
+    }
+
+    // Right child is at 2i + 2
+    inline int rightChild(int i){
+        int right = 2 * i + 2;
+        if(right >= count)
+            return -1;
+        return right;
+    }
     public: 
 
-    Heap():count(0), capacity(0), heapType(MIN_HEAP) {
-
+    Heap(int iCapacity) : heapType(MIN_HEAP), capacity(iCapacity) 
+    {
+        array = new int[capacity];
+        int count = 0;
     }
+
+    int insert() {
+
+    }    
 }
 
 void testHeap() {

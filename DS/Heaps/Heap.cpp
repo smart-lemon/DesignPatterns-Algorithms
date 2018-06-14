@@ -11,6 +11,15 @@ class Heap {
     int capacity;
     int heapType;
 
+
+    int compare(int data_a, int data_b){
+        if(heapType == MIN_HEAP)
+            return data_a < data_b;
+        if(heapType == MAX_HEAP)
+            return data_a > data_b;
+    }
+
+
     // Left child is at 2i + 1
     inline int leftChild(int i) {
         int left = 2 * i + 1;
@@ -35,23 +44,50 @@ class Heap {
         int count = 0;
     }
 
+    // Resize the heap by doubling its capacity
+    void resizeHeap(){
+        int *newArray = new int[2 * capacity];
 
+        for(int i = 0; i < capacity; i++){
+            newArray[i] =  array[i];
+        }
+
+        delete [] array;
+        array = newArray;
+
+        capacity = 2 * capacity;
+    }
+
+    // Inserts new data into the Heap and percolates it up
     int insert(int data) {
-
+        if(count == capacity){
+            resizeHeap();
+        }
+        int i = count - 1;
+        percolateUp(data, i);
     }
 
     int deleleMin() {
 
     }
 
-    int percolateUp(int i) {
-
+    // In a min heap, the node is sent upward till its childern are larger
+    // In a max heap, the node is sent upward till its childern are smaller 
+    int percolateUp(int data, int i) {
+        while(i >= 0 && compare(data, array[(i - 1)/2]))
+        {
+            array[i] = array[(i - 1)/2]; // trade places
+            i = (i - 1)/2;
+        }
+        array[i] = data;
     }
     
     int bubbleDown(int i) {
-
+        int l = leftChild(i);
+        int r = rightChild(i);
+        
     }
-}
+};
 
 void testHeap() {
 

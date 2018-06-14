@@ -1,4 +1,4 @@
-#include "./../Include/Common.h"
+#include "./../../../Include/Common.h"
 
 #include <iostream> 
 #include <string>
@@ -6,7 +6,10 @@
 
 using namespace std;
 
+// 
 // https://www.hackerrank.com/challenges/simple-array-sum
+//
+
 int simpleArraySum(int n, vector<int> ar) {
     int sum = 0;
 

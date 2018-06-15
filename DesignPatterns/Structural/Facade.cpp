@@ -58,7 +58,7 @@ class BankService {
     int createNewAccount(string name, int amount, string type, int accountNo) {
         IAccount *newAccount;
 
-        if(index == 2) return; // Allow only three types of accounts 
+        if(index == 2) return -1; // Allow only three types of accounts 
 
         if(type.compare("current")) {
             newAccount = new Current(amount);

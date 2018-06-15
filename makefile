@@ -1,3 +1,6 @@
+# Present working directory 
+MAKE_DIR = $(PWD)
+
 # This file should be called makefile
 # Otherwise it wont compile
 ODIR = Out
@@ -20,7 +23,7 @@ SORTING = ./Algorithms/Sorting/Quicksort.cpp \
 DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
         ./DS/Queues/PriorityQueuesList.cpp \
 		./DS/Heaps/Heap.cpp \
-		./DS/Heaps/HeapPriorityQueue.cpp \
+		./DS/Heaps/HeapPriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
 		./DS/Graphs/MinimumCuts.cpp
 
@@ -46,8 +49,7 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 FILES += $(DESIGN_PATTERNS)
 FILES += $(DATA_STRUCTS)
 
-FILES += ./Helper/HackerRank.cpp \
-        ./Helper/HackerEarth.cpp
+FILES += ./Helper/Hacker.cpp
 
 OUT_EXE = out_exec
 

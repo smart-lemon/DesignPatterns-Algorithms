@@ -9,6 +9,8 @@ ODIR = Out
 FILES = ./Helper/Helper.cpp \
 		./main.cpp
 
+CTCL = ./Hack/Ctcl/Arrays/Knapsack.cpp
+
 BASICS =  ./Algorithms/Dynamic\ Programming/Knapsack.cpp \
 		./Algorithms/Basics/Karatsuba.cpp \
 		./Algorithms/Basics/Quickselect.cpp

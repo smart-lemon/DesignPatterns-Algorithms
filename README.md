@@ -4,9 +4,9 @@ Source code for  :
 
 -> Stanford Algorithms and Design (Tim Roughgarden)
 
--> Data Structures (Karumanchi and maybe Cracking the Coding Interview) 
+-> Data Structures (LeetCode, Karumanchi and Cracking the Coding Interview) 
 
--> Design Patterns (Karumanchi) 
+-> Design Patterns (Karumanchi) and University of Alberta (C++)
 
 This code was written by me (not copied from these sources) 
 

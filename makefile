@@ -48,7 +48,7 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Structural/Facade.cpp
 
 # FILES += $(DATA_STRUCTS)
-FILES += $(DESIGN_PATTERNS)
+# FILES += $(DESIGN_PATTERNS)
 FILES += $(DATA_STRUCTS)
 
 FILES += ./Helper/Hacker.cpp

@@ -12,6 +12,7 @@ void testProgram();
 int main() 
 {
 	cout << "" << "\n";
+	tmain();
 	
   	return 0; 
 }

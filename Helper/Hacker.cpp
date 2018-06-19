@@ -1,10 +1,9 @@
 #include "./../Include/Common.h"
-
-using namespace std;
-
-// 
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <vector>
 
 int tmain() {
-
     return 0;
 }

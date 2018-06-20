@@ -4,6 +4,7 @@
         "*.tcc": "cpp",
         "limits": "cpp",
         "string": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "sstream": "cpp"
     }
 }

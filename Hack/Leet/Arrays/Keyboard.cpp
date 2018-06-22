@@ -19,7 +19,8 @@ public:
         string rowOne   = "qwertyuiop";
         string rowTwo   = "asdfghjkl";
         string rowThree = "zxcvbnm";
-
+        
+        // Create three hashsets for the three rows 
         int strLen = rowOne.size(); 
         for(int i = 0; i < strLen; i++){
             qweSet.push_back(rowOne[i]);
@@ -41,7 +42,7 @@ public:
         keyboard.push_back(asdSet);
         keyboard.push_back(zxcSet);
         
-
+        // Make a copy for output
         int number_of_words = words.size();
         vector<string> choice;
         for(int i = 0; i < number_of_words; i++){
@@ -51,8 +52,11 @@ public:
         for(int list = 0; list < number_of_words; list++){
             int word_len = words[list].size();
             int row_found = -1;
+            
+            // Make convert the input to lower case
             transform(words[list].begin(), words[list].end(), words[list].begin(), ::tolower);
 
+            // Identify the row 
             for(int row = 0; row < keyboard.size(); row++){
                 char search = words[list][0];
                 if(keyboard[row].find(search) != keyboard[row].end()){
@@ -60,6 +64,8 @@ public:
                     break;
                 }
             }
+
+            // Validate if it can really be typed in this row
             bool found = true;
             int characters = 0;
             for(characters = 1; characters < word_len; characters++){
@@ -68,6 +74,8 @@ public:
                     found = false;
                 }
             }
+
+            // If yes, then store it 
             if(found) {
                 output.push_back(choice[list]);
             }

@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-// https://leetcode.com/problems/palindrome-linked-list/description/
+// https://leetcode.com/problems/palindrome-linked-list/
 using namespace std;
 
 struct ListNode {
@@ -24,6 +24,7 @@ public:
     
     ListNode *reverseList(ListNode *head) {
         ListNode *tail = nullptr, *temp = nullptr, *runner = head;
+
         if(head == nullptr)
             return nullptr;
         

@@ -3,31 +3,38 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <unordered_set>
 
+// https://leetcode.com/problems/keyboard-row
 
 class Solution {
 public:
     
     vector<string> findWords(vector<string>& words) {
         
-        unordered_set<char> qweSet;
-        qweSet.insert('q'); qweSet.insert('w'); qweSet.insert('e');
-        qweSet.insert('r'); qweSet.insert('t'); qweSet.insert('y'); 
-        qweSet.insert('u'); qweSet.insert('i'); qweSet.insert('o');
-        qweSet.insert('p');
-        
-        unordered_set<char> asdSet;
-        asdSet.insert('a'); asdSet.insert('g'); asdSet.insert('k');
-        asdSet.insert('s'); asdSet.insert('h'); asdSet.insert('l'); 
-        asdSet.insert('d'); asdSet.insert('j'); 
-        asdSet.insert('f');
-        
+        unordered_set<char> qweSet;        
+        unordered_set<char> asdSet;        
         unordered_set<char> zxcSet;
-        zxcSet.insert('z'); zxcSet.insert('b'); zxcSet.insert('k');
-        zxcSet.insert('x'); zxcSet.insert('n');
-        zxcSet.insert('c'); zxcSet.insert('m'); 
-        zxcSet.insert('v');
         
+        string rowOne   = "qwertyuiop";
+        string rowTwo   = "asdfghjkl";
+        string rowThree = "zxcvbnm";
+
+        int strLen = rowOne.size(); 
+        for(int i = 0; i < strLen; i++){
+            qweSet.push_back(rowOne[i]);
+        }
+
+        strLen = rowTwo.size();
+        for(int i = 0; i < strLen; i++){
+            asdSet.push_back(rowTwo[i]);
+        }
+
+        strLen = rowThree.size();
+        for(int i = 0; i < strLen; i++){
+            zxcSet.push_back(rowOne[i]);
+        }
+
         vector<string> output;
         vector<unordered_set<char>> keyboard; 
         keyboard.push_back(qweSet);
@@ -65,7 +72,6 @@ public:
                 output.push_back(choice[list]);
             }
         }
-        
         return output;
     }
 };

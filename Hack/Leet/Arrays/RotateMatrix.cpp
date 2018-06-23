@@ -13,6 +13,8 @@ public:
         for(int layer = 0; layer < n / 2; layer++) {
             int first = layer;
             int last = n - 1 - layer; 
+
+            // Rotate the matrix in place 
             for(int i = first; i < last; i++){
                 int offset = i - first; 
                 int temp = matrix[first][i];

@@ -8,7 +8,7 @@
  * };
  */
 
-// https://leetcode.com/problems/binary-tree-postorder-traversal 
+// https://leetcode.com/problems/binary-tree-postorder-traversal/
 
 class Solution {
 public:
@@ -31,21 +31,19 @@ public:
         }
         vector<int> left, right;
         
-     
         // Left 
-        left = preorderTraversal(root->left);
+        left = postorderTraversal(root->left);
         if(left.size() > 0)
             out = contatenate(out, left);
 
         // Right 
-        right = preorderTraversal(root->right);
+        right = postorderTraversal(root->right);
         if(right.size() > 0)
             out = contatenate(out, right);
         
         // Middle
         out.push_back(root->val);
         
-
         return out;
     }
 };

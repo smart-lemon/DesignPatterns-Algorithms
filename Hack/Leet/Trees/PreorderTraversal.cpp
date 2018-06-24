@@ -8,7 +8,7 @@
  * };
  */
 
-// https://leetcode.com/problems/binary-tree-postorder-traversal 
+// https://leetcode.com/problems/binary-tree-preorder-traversal 
 
 class Solution {
 public:
@@ -21,7 +21,7 @@ public:
         return ab; 
     }
     
-    vector<int> postorderTraversal(TreeNode* root) {
+    vector<int> preorderTraversal(TreeNode* root) {
         // Output
         vector<int> out;
 
@@ -31,7 +31,9 @@ public:
         }
         vector<int> left, right;
         
-     
+        // Middle 
+        out.push_back(root->val);
+        
         // Left 
         left = preorderTraversal(root->left);
         if(left.size() > 0)
@@ -41,10 +43,6 @@ public:
         right = preorderTraversal(root->right);
         if(right.size() > 0)
             out = contatenate(out, right);
-        
-        // Middle
-        out.push_back(root->val);
-        
 
         return out;
     }

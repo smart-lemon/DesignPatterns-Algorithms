@@ -28,20 +28,28 @@ public:
     }
     
     vector<int> inorderTraversal(TreeNode* root) {
+        
+        // Output
         vector<int> out;
+
         if(root == nullptr)
         {
             return out;
         }
         vector<int> left, right;
 
+        // Left 
         left = inorderTraversal(root->left);
+        
+        // Middle 
         if(left.size() >= 0)
             left.push_back(root->val);
+
+        // Right 
         right = inorderTraversal(root->right);
-        
         if(right.size() >= 0)
             out = contatenate(left, right);
+
         return out;
     }
 };

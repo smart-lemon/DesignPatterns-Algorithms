@@ -1,3 +1,7 @@
+
+
+using namespace std;
+
 bool comparator (int i,int j) { return (i < j); }
 
 // https://leetcode.com/problems/missing-number/

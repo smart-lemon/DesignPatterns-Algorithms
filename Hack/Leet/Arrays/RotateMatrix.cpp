@@ -4,6 +4,8 @@
 #include <sstream>
 #include <iostream>
 
+using namespace std;
+
 // https://leetcode.com/problems/rotate-image/
 
 class Solution {

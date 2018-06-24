@@ -5,6 +5,8 @@
 #include <iostream>
 #include <unordered_set>
 
+using namespace std;
+
 // https://leetcode.com/problems/keyboard-row
 
 class Solution {

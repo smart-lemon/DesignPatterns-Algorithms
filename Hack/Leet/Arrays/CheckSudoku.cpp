@@ -5,6 +5,8 @@
 #include <sstream>
 #include <iostream>
 
+using namespace std;
+
 // https://leetcode.com/problems/valid-sudoku
 
 class Solution {
@@ -24,11 +26,11 @@ class Solution {
         
         return true;    
     }
+
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
         vector<char> search; 
 
-        cout << "Check rows";
         // Check rows
         for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[i].size(); j++){
@@ -41,7 +43,6 @@ public:
             search.clear();
         }
         
-       cout << "Check cols";
 
        // Check cols
        for(int i = 0; i < board.size(); i++){
@@ -55,8 +56,6 @@ public:
             search.clear();
         }
         
-        cout << "Check boxes";
-
         for(int l = 0; l < board.size(); l += 3){
             for(int k = 0; k < board.size(); k += 3){
                 search.clear();

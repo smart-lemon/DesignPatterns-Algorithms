@@ -63,7 +63,6 @@ public:
                     for(int j = 0 + l; j < board[i].size()/3 + l; j++){
                         if(board[i][j] != '.'){
                             search.push_back(board[i][j]);
-                         
                         }
                     }
                 }

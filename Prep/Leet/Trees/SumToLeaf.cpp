@@ -22,10 +22,10 @@ struct TreeNode {
 class Solution {
     
     int sumRecursive(TreeNode *root, int parent) {
-         // Leaf 
+        
+        // Leaf - the answer is sum of all of the leafs 
         if(root && root->left == nullptr && root->right == nullptr) {             
             cout << "Leaf : " << root->val << " Parent:  " << parent << endl;
-
             return parent; 
         }
         cout << "Root : " << root->val << " Parent " << parent << endl;

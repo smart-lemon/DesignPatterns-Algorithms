@@ -22,6 +22,7 @@ public:
         return node;
     }
     
+    // Reverse the list O(n)
     ListNode *reverseList(ListNode *head) {
         ListNode *tail = nullptr, *temp = nullptr, *runner = head;
 
@@ -39,6 +40,7 @@ public:
         return tail;
     }
     
+    // Check if the given list is a palindrome by comparing it to its reversed form
     bool isPalindrome(ListNode* head) {
         if(head == nullptr)
             return true;

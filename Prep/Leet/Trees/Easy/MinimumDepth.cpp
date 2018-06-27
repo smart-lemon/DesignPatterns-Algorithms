@@ -13,20 +13,24 @@ class Solution {
         return a < b? a : b;
     }
     
-    int minDepthUtil(TreeNode *root, int depth){
-        int left = 0, right = 0;
-        if(root) {
-            left = minDepthUtil(root->left, depth + 1);
-            right = minDepthUtil(root->right, depth + 1);
-            return min(left, right);
-        } else {
-            return depth;
+    int minDepthUtil(TreeNode *root){
+        int left = INT_MAX, right = INT_MAX;
+        if(root == nullptr) {
+            return INT_MAX;
         }
+        
+        if(root->left == nullptr && root->right == nullptr){
+              return  1;
+        } else if(root->right || root->left) {
+            return min(minDepthUtil(root->left), minDepthUtil(root->right)) + 1;
+        } 
+        return 0;
     }
 public:
     int minDepth(TreeNode* root) {
         int left = 0; int right = 0;
-        
-        return minDepthUtil(root, 0);
+        if(root == nullptr)
+           return 0;
+        return minDepthUtil(root);
     }
 };

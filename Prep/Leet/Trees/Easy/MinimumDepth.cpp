@@ -1,12 +1,19 @@
+#include "./../../../../Include/Common.h"
+#include <iostream>
+
+using namespace std;
+
 /**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
+ * Find minimum depth of a subtree
  */
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 class Solution {
     
     int min(int a, int b){
@@ -14,7 +21,6 @@ class Solution {
     }
     
     int minDepthUtil(TreeNode *root){
-        int left = INT_MAX, right = INT_MAX;
         if(root == nullptr) {
             return INT_MAX;
         }

@@ -21,16 +21,21 @@ class Solution {
     }
     
     int minDepthUtil(TreeNode *root){
+        // Corner case which should not be called ever
         if(root == nullptr) {
-            return INT_MAX;
+            return 0;
         }
         
         if(root->left == nullptr && root->right == nullptr){
               return  1;
-        } else if(root->right || root->left) {
-            return min(minDepthUtil(root->left), minDepthUtil(root->right)) + 1;
         } 
-        return 0;
+        if(root->right && root->left == nullptr) {
+            return minDepthUtil(root->right) + 1;
+        } 
+        if(root->left && root->right == nullptr) {
+            return minDepthUtil(root->left) + 1;
+        } 
+        return  min(minDepthUtil(root->left), minDepthUtil(root->right)) + 1;
     }
 public:
     int minDepth(TreeNode* root) {

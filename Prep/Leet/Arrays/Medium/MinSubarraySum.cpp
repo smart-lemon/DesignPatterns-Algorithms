@@ -1,10 +1,6 @@
 
 #include "./../../../../Include/Common.h"
-#include <vector>
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <limits.h>
+
 
 using namespace std;
 
@@ -22,6 +18,7 @@ public:
         int min_length = INT_MAX;
         int end_index = 0;
         int sum = 0; 
+        
         for(int i = 0; i < nums.size(); i++){
             
             while(sum < s && end_index < nums.size()){

@@ -14,14 +14,15 @@ OUT_EXE = out_exec
 INCLUDES = -I../Include
 
 # define any compile-time flags
-CFLAGS = -g
+# CFLAGS = -g
 CFLAGS += -std=c++11
 
 # Most makefiles have at least two basic components: macros and target definitions
 
 ############# MACROS ###################
 # Macros are written in a simple x=y form. For instance, to set your C compiler to g++
-CC = g++
+# CC = g++
+CC = clang++
 
 # For more verbose compilation
 # CC = g++ -v
@@ -52,7 +53,7 @@ COMP = $(CC) $(OPT)
 # 	it will simply execute the first target in the makefile
 
 build: $(FILES)
-	$(CC) $(CFLAGS) -o $(ODIR)/$(OUT_EXE) $(FILES)
+	$(CC) $(FILES) $(CFLAGS) -o $(ODIR)/$(OUT_EXE)
 	@echo  build is done
 
 run:

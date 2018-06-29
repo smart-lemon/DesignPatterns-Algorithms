@@ -14,10 +14,16 @@ public:
     
     int maxSubArray(vector<int>& nums) {
         int max_current, max_overall;
+
+        // 1. Define max_current and max_overall as the first element
         max_current = max_overall = nums[0];
         
         for(int i = 1; i < nums.size(); i++) {
+            // 2. The current local maximum can be the current element or 
+            // the current local maximum including the current element
             max_current = max(nums[i], max_current + nums[i]); 
+
+            // 3. Update the overall maximum with the best local maximum so far 
             if(max_current > max_overall)
                 max_overall = max_current;
         }

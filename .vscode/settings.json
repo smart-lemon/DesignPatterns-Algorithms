@@ -6,6 +6,7 @@
         "string": "cpp",
         "cmath": "cpp",
         "sstream": "cpp",
-        "hashtable": "cpp"
+        "hashtable": "cpp",
+        "unordered_map": "cpp"
     }
 }

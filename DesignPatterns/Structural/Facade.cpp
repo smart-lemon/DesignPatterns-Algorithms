@@ -1,6 +1,8 @@
 #include "./../../Include/Common.h"
 #include <string>
 #include <unordered_map>
+#include <utility> 
+#include <functional>
 
 using namespace std;
 
@@ -47,37 +49,24 @@ class Investments : public IAccount{
 
 // Step 3: Create the Facade class and wrap the classes that implement the Interface 
 class BankService {
-    IAccount **bankAccounts;
+    unordered_map<int, unique_ptr<IAccount>> *bankAccounts;    
     int index;
 
     public: 
     BankService(): index(0){ 
-        bankAccounts = nullptr;
+        bankAccounts = new unordered_map<int, unique_ptr<IAccount>>();    
     }
 
     int createNewAccount(string name, int amount, string type, int accountNo) {
-        IAccount *newAccount;
-
-        if(index == 2) return -1; // Allow only three types of accounts 
-
-        if(type.compare("current")) {
-            newAccount = new Current(amount);
+        unique_ptr<IAccount> newAccount;	
+        if(type.compare("current")) {	       
+            newAccount.reset(new Current(amount));	
         }
-        if(type.compare("savings")) {
-            newAccount = new Savings(amount);
-        }
-        if(type.compare("investment")) {
-            newAccount = new Investments(amount);
-        }
-
-        if(bankAccounts == nullptr){
-            // Add to the unordered list
-            bankAccounts = new IAccount*[3];
-        }
-
-        bankAccounts[index] = newAccount;
-        index++;
-
+      
+        // Add to the unordered list
+        pair<int, unique_ptr<IAccount>> toBeInserted = make_pair(accountNo, newAccount);
+        bankAccounts->insert(toBeInserted);	
+   
         return accountNo;
     }
 };

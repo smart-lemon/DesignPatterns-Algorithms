@@ -62,7 +62,7 @@ run:
 
 
 build_and_run: $(FILES)
-	$(CC) $(CFLAGS) -o $(ODIR)/$(OUT_EXE) $(FILES)
+	$(CC) $(FILES) $(CFLAGS) -o $(ODIR)/$(OUT_EXE) 
 	@echo  Build is done ...  running your program
 	./$(ODIR)/$(OUT_EXE)
 

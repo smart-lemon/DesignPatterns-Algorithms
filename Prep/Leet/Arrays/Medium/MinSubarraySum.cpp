@@ -1,4 +1,12 @@
- // TBD 
+
+#include "./../../../../Include/Common.h"
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
+
+using namespace std;
+
 class Solution {
 public:
     
@@ -13,18 +21,38 @@ public:
         int sum = 0; 
         for(int i = 0; i < nums.size(); i++){
             
-             while(sum < s && end_index < nums.size()){
-                 sum += nums[end_index++];
+            while(sum < s && end_index < nums.size()){
+                 sum += nums[end_index];                 
+                 end_index++;
                  current_length++;
              }
             
-             if(current_length < min_length)
+             current_length = end_index - i;
+            
+            if(current_length < min_length && sum >= s)
                  min_length = current_length;
             
              sum -= nums[i];
-             current_length = current_length - 1;
+
         }
+
         // If there isn't a minimum length, return 0 instead.
         return min_length == INT_MAX ? 0 : min_length;
+    }
+
+    int minSubArrayLenAlternative(int s, vector<int>& nums)
+    {
+        int n = nums.size();
+        int ans = INT_MAX;
+        int left = 0;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+            while (sum >= s) {
+                ans = min(ans, i + 1 - left);
+                sum -= nums[left++];
+            }
+        }
+        return (ans != INT_MAX) ? ans : 0;
     }
 };

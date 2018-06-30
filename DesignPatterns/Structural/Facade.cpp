@@ -64,8 +64,8 @@ class BankService {
         }
       
         // Add to the unordered list
-        pair<int, unique_ptr<IAccount>> toBeInserted = make_pair(accountNo, newAccount);
-        bankAccounts->insert(toBeInserted);	
+        pair<int, unique_ptr<IAccount>> toBeInserted = make_pair(accountNo, move(newAccount));
+        bankAccounts->insert(move(toBeInserted));	
    
         return accountNo;
     }

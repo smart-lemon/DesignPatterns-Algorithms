@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <limits.h>
+#include <limits>
 
 
 // ################ TEST FUNCTIONS ################ //

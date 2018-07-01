@@ -3,6 +3,8 @@
 #include <sstream>
 #include <iostream>
 #include <limits>
+#include <unordered_map>
+#include <unordered_set>
 
 
 // ################ TEST FUNCTIONS ################ //

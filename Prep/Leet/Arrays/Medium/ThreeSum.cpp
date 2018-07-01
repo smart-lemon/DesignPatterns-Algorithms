@@ -3,11 +3,10 @@ using namespace std;
 
 // https://leetcode.com/problems/3sum/description/
 
-// TLE 312/313 
-
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
+    // TLE 312/313 -- HashMap solution which is based on a + b = -c
+    vector<vector<int>> threeSum_TLE(vector<int>& nums) {
         unordered_map<int, int> hashmap; 
         
         sort(nums.begin(), nums.end());
@@ -42,7 +41,6 @@ public:
         for( it = outputSet.begin(); it != outputSet.end(); ++it){
              output.push_back(*it);
         }
-
         return output;
     }
 };

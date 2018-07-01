@@ -1,5 +1,4 @@
 #include "./../../../../Include/Common.h"
-
 using namespace std;
 
 // https://leetcode.com/problems/3sum/description/
@@ -38,7 +37,8 @@ public:
         }
         
         vector<vector<int>> output;
-        set<vector<int>>:: iterator it;
+        set<vector<int>>::iterator it;
+
         for( it = outputSet.begin(); it != outputSet.end(); ++it){
              output.push_back(*it);
         }

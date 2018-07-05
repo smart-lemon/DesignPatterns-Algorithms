@@ -19,14 +19,18 @@ public:
     bool validateIpv4Block(string block) {
         int len = block.length();
         // 1. If first char is zero rest are not char. 
+        if(block[0] == '0' && len > 1)
+            return false;
+
         int num = 0, numberCnt = 0;
         for(int i = 0; i < len; i++){
             int it = block[i] - '0'; 
             num = (num * 10) + it;
             numberCnt++;
+            
             if(numberCnt > 3){
-                    cout << "More than 3 numbers " << endl;
-                    return false;
+                cout << "More than 3 numbers " << endl;
+                return false;
             }
         // if the 
         }
@@ -35,6 +39,7 @@ public:
             cout << "The number is more than 255 -> " << num << endl;
             return false; 
         }
+        return true;
     }
     
     bool validateIpv4(string arr){
@@ -44,7 +49,9 @@ public:
         int next = arr.find(".");
         while(next != string::npos){
             string block = arr.substr(start, next);
-            validateIpv4Block(block);
+            bool ret = validateIpv4Block(block);
+            if(ret == false)
+                return false;
             start = next + 1;
             next = arr.find(".");
         }
@@ -57,7 +64,7 @@ public:
     
     bool validateIpv6Block(string arr){
         int len = arr.length(); 
-        
+        string validIp6Str = "abcdefABCDEF";
         for(int i = 0; i < len; i++){
             
         }

@@ -2,7 +2,7 @@
 
 using namespace std;
 
- // https://leetcode.com/problems/spiral-matrix/description/
+ // https://leetcode.com/problems/spiral-matrix/
 
 class Solution {
     enum direction { 

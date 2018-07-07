@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// https://leetcode.com/problems/search-a-2d-matrix-ii/description/
+// https://leetcode.com/problems/search-a-2d-matrix-ii/
 
 class Solution {
 public:
@@ -16,17 +16,15 @@ public:
         if(m == 0 || n == 0)
             return false;
         
-        if(m == 1 && n == 1)
-            return target == matrix[0][0];
-          
-        
         for(int i = 0; i < m && target >= matrix[i][0]; i++) {
+            // Note : high should be the actual size (not n - 1)
             int low = 0, high = n; 
             int mid = 0;
+
             while(low < high) {
                 
                 mid = (low + high)/2; 
-            
+
                 if(target == matrix[i][mid]){
                     // found
                     return true;  

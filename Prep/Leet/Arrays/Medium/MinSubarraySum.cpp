@@ -1,7 +1,6 @@
 
 #include "./../../../../Include/Common.h"
 
-
 using namespace std;
 
 // https://leetcode.com/problems/minimum-size-subarray-sum

@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 using namespace std;
 
-// https://leetcode.com/problems/3sum/description/
+// https://leetcode.com/problems/3sum/
 
 class Solution {
 public:

@@ -36,9 +36,9 @@ class PriorityQueue {
 public: 
     PriorityQueue();
     void insert(int p, int d);
-    int getMaximum();
-    int deleteMax();
-    int deleteMin();
+    int  getMaximum();
+    int  deleteMax();
+    int  deleteMin();
     void printQueue();
 
 };
@@ -73,11 +73,13 @@ void PriorityQueue :: insert( int incomingPriority,
     }
 
     // Traverse the list and find a position to insert new node
-    if(incomingPriority > queue->priority) { // If the incoming priority is greater than the head 
+    if(incomingPriority > queue->priority) { 
+        // If the incoming priority is greater than the head 
         newElement->next = queue;
         queue = newElement;
 
     } else {
+        // Otherwise find an apt spot
         Element *temp = queue;
         while(temp && (temp->priority > incomingPriority)) {
                 temp = temp->next;

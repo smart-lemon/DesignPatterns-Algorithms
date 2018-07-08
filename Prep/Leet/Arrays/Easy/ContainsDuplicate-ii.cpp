@@ -15,4 +15,24 @@ public:
         }
         return false;
     }
+
+    bool containsNearbyDuplicateFaster(vector<int>& nums, int k)
+    {
+       unordered_set<int> s;
+       
+       if (k <= 0) return false;
+       if (k >= nums.size()) k = nums.size() - 1;
+       
+       // The basic idea is to maintain a set s which contain unique values 
+       // from nums[i - k] to nums[i - 1], and search in the set
+       // Update the set at you go by removing nums[i - k] and adding nums[i]
+       for (int i = 0; i < nums.size(); i++)
+       {
+           if (i > k) s.erase(nums[i - k - 1]);
+           if (s.find(nums[i]) != s.end()) return true;
+           s.insert(nums[i]);
+       }
+       
+       return false;
+    }
 };

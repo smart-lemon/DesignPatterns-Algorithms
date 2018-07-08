@@ -35,7 +35,7 @@ struct RandomListNode {
             }
         }
         
-        // Run
+        // They check the authenticity of the head and newHead too. Hence
         for (first = head; first != nullptr; first = first->next) {
             second = first->next;
             first->next = second->next;

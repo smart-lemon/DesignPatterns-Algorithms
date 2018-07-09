@@ -66,7 +66,7 @@ public:
         int len = arr.length(); 
         string validIp6Str = "abcdefABCDEF";
         for(int i = 0; i < len; i++){
-            
+            if(arr[i])
         }
         return true; 
     }

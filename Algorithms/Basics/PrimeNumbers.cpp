@@ -8,12 +8,16 @@ using namespace std;
 */ 
 
 // Sieve of Eratosthenes
-void findPrimes(int N){
+bool findPrimes(int N){
+    if(N < 2)
+        return false;
 
-    for(int i = 3; i < N; i += 2)
+    for(int i = 2; i * i <= N; i ++)
     {
-
+        if(i % N == 0)
+            return false;
     }
+    return true;
 }
 
 // AKS 

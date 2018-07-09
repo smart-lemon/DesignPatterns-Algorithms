@@ -9,7 +9,7 @@ class Solution {
         return a > b? (a - b) : (b - a);
     }
 public:
-    // 40/41 sets 
+    // 40/41 sets - then TLE 
     bool containsNearbyAlmostDuplicateTle(vector<int>& nums, int k, int t) {
         for(int i = 0; i < nums.size(); i++)
         {

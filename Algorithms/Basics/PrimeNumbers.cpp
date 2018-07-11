@@ -11,8 +11,10 @@ using namespace std;
 bool findPrimes(int N){
     if(N < 2)
         return false;
+    if (N <= 3)  
+        return true;
 
-    for(int i = 2; i * i <= N; i ++)
+    for(int i = 4; i * i <= N; i++)
     {
         if(i % N == 0)
             return false;

@@ -1,8 +1,4 @@
 #include "./../../../Include/Common.h"
-#include <vector>
-#include <string>
-#include <sstream>
-#include <iostream>
 
 
 // https://leetcode.com/problems/palindrome-linked-list/

@@ -30,6 +30,9 @@
         "type_traits": "cpp",
         "unordered_set": "cpp",
         "utility": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp"
     }
 }

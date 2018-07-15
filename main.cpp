@@ -12,7 +12,7 @@ void testProgram();
 int main() 
 {
 	cout << "" << "\n";
-	tmain();
+	testQuickSort();
 	
   	return 0; 
 }

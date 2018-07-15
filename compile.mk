@@ -42,6 +42,6 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 
 # FILES += $(DATA_STRUCTS)
 FILES += $(DESIGN_PATTERNS)
-FILES += $(DATA_STRUCTS)
+FILES += $(SORTING)
 
 FILES += ./Helper/Hacker.cpp

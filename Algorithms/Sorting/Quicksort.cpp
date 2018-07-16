@@ -24,7 +24,6 @@ static int partitionn(int *data, int low, int high) {
 
         if (left < right)
             swap(data, left, right);
-
     }
 
     cout << "Swap " << data[random] << " at " << random  << " with " << data[right] << " at " << right  << endl;
@@ -50,25 +49,25 @@ static void quick_sort(int *data, int low, int high)
 
 int partition(int *data, int left, int right, int pivot) {
    int leftPointer = left;
-   int rightPointer = right - 1 ;
+   int rightPointer = right - 1;
 
    while(true) {
 
-      cout << "P: " << pivot <<  "; ";  print1DArray(data, left, right);
+        cout << "P: " << pivot <<  "; ";  print1DArray(data, left, right);
 
-      while(data[leftPointer] < pivot) {
-        leftPointer++;
-      }
-		
-      while(rightPointer > 0 && data[rightPointer] > pivot) {
-         rightPointer--;
-      }
+        while(data[leftPointer] < pivot) {
+            leftPointer++;
+        }
+        
+        while(rightPointer > 0 && data[rightPointer] > pivot) {
+            rightPointer--;
+        }
 
-      if(leftPointer < rightPointer) {
-           swap(data, leftPointer, rightPointer);
-      } else {
-          break;
-      }
+        if(leftPointer < rightPointer) {
+            swap(data, leftPointer, rightPointer);
+        } else {
+            break;
+        }
    }
 	
    swap(data, leftPointer, right);
@@ -93,7 +92,7 @@ void testQuickSort()
 
     int low = 0, high = sizeof(dataset) / sizeof(dataset[0]);
 
-    quickSort(dataset, low, high - 1);
+    quick_sort(dataset, low, high - 1);
 
     cout << "Quick sort: ";
     print1DArray(dataset, high);

@@ -34,6 +34,9 @@
         "iterator": "cpp",
         "string_view": "cpp",
         "vector": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__bit_reference": "cpp",
+        "__functional_03": "cpp",
+        "__mutex_base": "cpp"
     }
 }

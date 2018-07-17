@@ -13,8 +13,8 @@ void bubble_sort(int *data, int n){
        for(int i = 0; i <= pass - 1 ; i++)
        {
            if(data[i] > data[i + 1]){
-              swap(data, i, i + 1);
-              swapped = true; 
+               swap(data, i, i + 1);
+               swapped = true; 
            }
        }
    }

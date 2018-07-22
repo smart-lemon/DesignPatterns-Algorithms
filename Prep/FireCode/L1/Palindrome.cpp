@@ -1,4 +1,6 @@
 // namespace std have been included for this problem.
+#include "./../../../Include/Common.h"
+using namespace std;
 
 // Add any helper functions(if needed) above.
 bool is_string_palindrome(string str)

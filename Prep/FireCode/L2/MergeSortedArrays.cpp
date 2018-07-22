@@ -11,7 +11,6 @@ int* merge(int arr_left[],int sz_left, int arr_right[], int sz_right){
     int k = 0, r = 0, l = 0;
     while(k < sz_left + sz_right){
         
-        
           if(arr_right[r] < arr_left[l] && r < sz_right)
           { 
               arr_merged[k] = arr_right[r];
@@ -47,6 +46,6 @@ int* merge(int arr_left[],int sz_left, int arr_right[], int sz_right){
     }
     
     // Add your code above this line. Do not modify any other code.
-    /* retun the merged array */
+    /* return the merged array */
     return arr_merged;
 }

@@ -4,8 +4,8 @@ using namespace std;
 
 bool permutation(string input1, string input2)
 {
-    char database1[100] = {0,};
-    char database2[100] = {0,};
+    char database1[256] = {0,};
+    char database2[256] = {0,};
     
     int n1 = input1.length();
     int n2 = input2.length();
@@ -20,7 +20,7 @@ bool permutation(string input1, string input2)
         database2[input2[i] - 'a']++;
     }
     
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < 256; i++){
         
         if(database1[i] != database2[i])
             return false;

@@ -2,7 +2,6 @@
 using namespace std;
 
 
-
 bool permutation(string input1, string input2)
 {
     char database1[100] = {0,};
@@ -21,7 +20,7 @@ bool permutation(string input1, string input2)
         database2[input2[i] - 'a']++;
     }
     
-    for(int i = 0; i < 26; i++){
+    for(int i = 0; i < 100; i++){
         
         if(database1[i] != database2[i])
             return false;

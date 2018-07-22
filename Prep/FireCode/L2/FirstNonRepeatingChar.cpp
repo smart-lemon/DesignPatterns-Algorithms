@@ -1,5 +1,7 @@
 // namespace std have been included for this problem.
-#include <unordered_map> 
+#include "./../../../Include/Common.h"
+using namespace std;
+
 
 // Add any helper functions(if needed) above.
 char first_non_repeating(string str)

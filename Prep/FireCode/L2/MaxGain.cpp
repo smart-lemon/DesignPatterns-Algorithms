@@ -1,3 +1,5 @@
+#include "./../../../Include/Common.h"
+using namespace std;
 
 // Swap position a with b in an array of integer numbers
 int max_gain(int arr[], int sz)

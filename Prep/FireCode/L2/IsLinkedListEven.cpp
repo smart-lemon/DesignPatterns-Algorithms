@@ -26,9 +26,7 @@ bool is_list_even(listNode* head)
     return ctr % 2 == 0;
 }
 
-// namespace std have been included for this problem.
-
-// Add any helper functions(if needed) above.
+// Move two nodes at a time
 bool is_list_even_faster(listNode* head)
 {
     if(head == nullptr)

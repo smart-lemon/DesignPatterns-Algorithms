@@ -17,11 +17,11 @@ bool do_validate_bst( treeNode* root,
         return true; // leaf
     }
     
-    if(right_ancestor && root->value > right_ancestor->value){
-           return false; 
+    if(right_ancestor && root->value >= right_ancestor->value){
+        return false; 
     }
     
-    if(left_ancestor && root->value < left_ancestor->value){
+    if(left_ancestor && root->value <= left_ancestor->value){
            return false; 
     }
     

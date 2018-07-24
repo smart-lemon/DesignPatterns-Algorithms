@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 
 /**
- * Definition for a binary tree node.
+ *  https://leetcode.com/problems/validate-binary-search-tree/description/
  */
 struct TreeNode {
     int val;
@@ -15,7 +15,7 @@ class Solution {
     
 bool do_validate_bst( TreeNode* root,
                       TreeNode *left_ancestor = nullptr, 
-                      TreeNode *right_ancestor = nullptr)
+                      TreeNode *right_ancestor = nullptr )
 {
     if(root == nullptr) {
         return true; // leaf

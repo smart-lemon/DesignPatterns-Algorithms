@@ -13,14 +13,14 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode *runner1 = l1, *runner2 = l2; 
-        ListNode *outputHead = nullptr, *outputRunner = nullptr;
+        ListNode *dummy = nullptr, *outputRunner = nullptr;
         ListNode *outputPrev = new ListNode(0); // dummy
         
         if(l1 == nullptr && l2 == nullptr)
             return nullptr;
         
         // The head is initially a dummy 
-        outputHead = outputPrev;
+        dummy = outputPrev;
         
         while(runner1 && runner2) {
             if(runner1->val < runner2->val) {
@@ -39,22 +39,21 @@ public:
                 outputRunner = new ListNode(runner2->val);
                 outputPrev->next = outputRunner;
                 runner2 = runner2->next;
-            }
-            
+            }            
             outputPrev = outputPrev->next;
         }       
         
         if(runner1) {
-            if(outputHead->next == nullptr)
+            if(dummy->next == nullptr)
                 return runner1;
            outputPrev->next = runner1;
         }
         if(runner2) {
-           if(outputHead->next == nullptr)
+           if(dummy->next == nullptr)
                 return runner2;
            outputPrev->next = runner2;
         }
         
-       return outputHead->next;
+       return dummy->next;
     }
 };

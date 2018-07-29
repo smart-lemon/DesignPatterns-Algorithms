@@ -40,6 +40,7 @@ DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
 		./DesignPatterns/Creational/FactoryMethod.cpp \
 		./DesignPatterns/Structural/Facade.cpp
 
+# Select what you want to compile here
 # FILES += $(DATA_STRUCTS)
 FILES += $(DESIGN_PATTERNS)
 FILES += $(SORTING)

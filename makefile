@@ -1,5 +1,5 @@
 # Include the make file which contains which files to pick
-include compile.mk 
+include compile_modules.mk 
 
 # Present working directory 
 MAKE_DIR = $(PWD)

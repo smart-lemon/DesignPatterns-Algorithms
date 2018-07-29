@@ -10,10 +10,11 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        ListNode* dummy = new ListNode(0);
-        dummy->next = head;
+        // Should be on stack to avoid memory lea;
+        ListNode dummy(0);
+        dummy.next = head;
         
-        ListNode* prev = dummy;
+        ListNode* prev = &dummy;
         for (int i = 0; i < m - 1; i++)
             prev = prev->next;
         
@@ -24,6 +25,6 @@ public:
             ahead->next = prev->next;
             prev->next = ahead;
         }
-        return dummy->next;
+        return dummy.next;
     }
 };

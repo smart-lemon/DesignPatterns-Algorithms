@@ -7,6 +7,7 @@ echo "$str"
 
 # Use the string as a commit message
 git add --all
+
 # Input argument (first)
 git commit -m "$str"
 git push 

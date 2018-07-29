@@ -1,6 +1,4 @@
-/**
- * Definition for singly-linked list with a random pointer.
- */ 
+#include "./../../../../Include/Common.h"
 
 
 // https://leetcode.com/problems/copy-list-with-random-pointer/
@@ -8,11 +6,9 @@
 struct RandomListNode {
      int label;
      RandomListNode *next, *random;
-     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+     RandomListNode(int x) : label(x), next(nullptr), random(nullptr) {}
  };
 
- 
- 
  class Solution {
   public:
     RandomListNode *copyRandomList(RandomListNode *head) {

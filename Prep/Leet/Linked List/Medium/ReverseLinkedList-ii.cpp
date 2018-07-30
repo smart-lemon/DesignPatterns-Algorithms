@@ -10,7 +10,7 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        // Should be on stack to avoid memory lea;
+        // Should be on stack to avoid memory leak
         ListNode dummy(0);
         dummy.next = head;
         

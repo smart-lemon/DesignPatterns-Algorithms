@@ -1,7 +1,5 @@
 #include "./../../../../Include/Common.h"
 
-using namespace std;
-
 // https://leetcode.com/problems/triangle 
 
 class Solution {

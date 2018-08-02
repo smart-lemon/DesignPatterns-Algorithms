@@ -1,57 +1,52 @@
 #include "./../../Include/Common.h"
 
-
-static int partition(int *data, int low, int high) {
-
-    // Random has to lie between low and high : low + rand % (Number of elements in arr[l..h])
-
-    int left = low + 1,  right = high,  pivot = data[low];
-
-    while (left < right) {
-
-        cout << "P: " << pivot <<  " at " << low << "; ";  print1DArray(data, low, high);
-
-        // Everthing on the left of pivot is lower than the pivot 
-        while ((left <= right) && data[left] <= pivot) 
+int partition(int arr[], int low, int high)
+{
+    int pivot = arr[low];
+    int left = low - 1, right = high + 1;
+ 
+    while (true) {
+ 
+        // Find leftmost element greater than
+        // or equal to pivot
+        do {
             left++;
-
-        // Everything on the right of the pivot is greater than the pivot 
-        while((left <= right) && data[right] > pivot)
+        } while (arr[left] < pivot);
+ 
+        // Find rightmost element smaller than
+        // or equal to pivot
+        do {
             right--;
-
-        if (left < right)
-            swap(data, left, right);
+        } while (arr[right] > pivot);
+ 
+        // If two pointers met.
+        if (left >= right)
+            return right;
+ 
+        swap(arr, left, right);
     }
-
-    cout << "Swap " << data[low] << " at " << low  << " with " << data[right] << " at " << right  << endl;
-    
-    swap(data, low, right);
-
-    return right;
 }
-
-int partition_random(int *data, int low, int high)
+ 
+// Generates Random Pivot
+int partition_r(int arr[], int low, int high)
 {
     // Generate a random number in between
     // low .. high
-    srand(time(nullptr));
+    srand(time(NULL));
     int random = low + rand() % (high - low);
  
     // Swap A[random] with A[high]
-    swap(data, random, low);
+    swap(arr, random, low);
  
-    return partition(data, low, high);
+    return partition(arr, low, high);
 }
-
-void quickSort(int arr[], int low, int high)
+ 
+void quickSort(int *arr, int low, int high)
 {
     if (low < high) {
-        /* pi is partitioning index, arr[p] is now
-           at right place */
-        int pi = partition_random(arr, low, high);
+
+        int pi = partition_r(arr, low, high);
  
-        // Separately sort elements before
-        // partition and after partition
         quickSort(arr, low, pi);
         quickSort(arr, pi + 1, high);
     }

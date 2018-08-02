@@ -1,18 +1,15 @@
 #include "./../../Include/Common.h"
 
-using namespace std;
 
-
-static int partitionn(int *data, int low, int high) {
+static int partition(int *data, int low, int high) {
 
     // Random has to lie between low and high : low + rand % (Number of elements in arr[l..h])
-    int random = low + rand() % (high - low + 1);
 
-    int left = low,  right = high,  pivot = data[random];
+    int left = low + 1,  right = high,  pivot = data[low];
 
     while (left < right) {
 
-        cout << "P: " << pivot <<  " at " << random << "; ";  print1DArray(data, low, high);
+        cout << "P: " << pivot <<  " at " << low << "; ";  print1DArray(data, low, high);
 
         // Everthing on the left of pivot is lower than the pivot 
         while ((left <= right) && data[left] <= pivot) 
@@ -26,73 +23,47 @@ static int partitionn(int *data, int low, int high) {
             swap(data, left, right);
     }
 
-    cout << "Swap " << data[random] << " at " << random  << " with " << data[right] << " at " << right  << endl;
+    cout << "Swap " << data[low] << " at " << low  << " with " << data[right] << " at " << right  << endl;
     
-    // Put the pivot in the 'rigthful' place
-    swap(data, random, right);
+    swap(data, low, right);
 
     return right;
 }
 
-
-// Quicksort 
-static void quick_sort(int *data, int low, int high)
+int partition_random(int *data, int low, int high)
 {
-    if (high > low) {
-        int p_index = partitionn(data, low, high);
+    // Generate a random number in between
+    // low .. high
+    srand(time(nullptr));
+    int random = low + rand() % (high - low);
+ 
+    // Swap A[random] with A[high]
+    swap(data, random, low);
+ 
+    return partition(data, low, high);
+}
 
-        quick_sort(data, low , p_index - 1);
-        quick_sort(data, p_index + 1, high);
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high) {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        int pi = partition_random(arr, low, high);
+ 
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
     }
 }
 
-
-int partition(int *data, int left, int right, int pivot) {
-   int leftPointer = left;
-   int rightPointer = right - 1;
-
-   while(true) {
-
-        cout << "P: " << pivot <<  "; ";  print1DArray(data, left, right);
-
-        while(data[leftPointer] < pivot) {
-            leftPointer++;
-        }
-        
-        while(rightPointer > 0 && data[rightPointer] > pivot) {
-            rightPointer--;
-        }
-
-        if(leftPointer < rightPointer) {
-            swap(data, leftPointer, rightPointer);
-        } else {
-            break;
-        }
-   }
-	
-   swap(data, leftPointer, right);
-
-   return leftPointer;
-}
-
-void quickSort(int *data, int left, int right) {
-
-   if(right > left) {
-      int pivot = data[right];
-      int partitionPoint = partition(data, left, right, pivot);
-      quickSort(data, left, partitionPoint - 1);
-      quickSort(data, partitionPoint + 1, right);
-   }        
-}
-
-
 void testQuickSort()
 {
-    int dataset[] = {-2, 0, 5, 4, -1, 8, -3, 2, 2, 6, -3,  4, 7, 1, 3, 9, -4};
+    int dataset[] =  {-2, 0, 5, 4, -1, 8, -3, 2, 2, 6, -3,  4, 7, 1, 3, 9, -4};
 
     int low = 0, high = sizeof(dataset) / sizeof(dataset[0]);
 
-    quick_sort(dataset, low, high - 1);
+    quickSort(dataset, low, high - 1);
 
     cout << "Quick sort: ";
     print1DArray(dataset, high);

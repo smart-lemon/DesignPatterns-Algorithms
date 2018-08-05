@@ -14,15 +14,10 @@ int partition(int arr[], int low, int high)
     int left = low - 1, right = high + 1;
  
     while (true) {
- 
-        // Find leftmost element greater than
-        // or equal to pivot
-        do {
+         do {
             left++;
         } while (arr[left] < pivot);
  
-        // Find rightmost element smaller than
-        // or equal to pivot
         do {
             right--;
         } while (arr[right] > pivot);
@@ -68,8 +63,8 @@ int* remove_dup(int A[], int sz)
     // Add your code below this line. Do not modify any other code.
     quickSort(A, 0, sz - 1);
     
-     int k = 0; 
-     output = new int[sz/2];
+    int k = 0; 
+    output = new int[sz];
     bool flag = false;
     for(int i = 1; i < sz; i++){
         while(A[i] == A[i-1]){

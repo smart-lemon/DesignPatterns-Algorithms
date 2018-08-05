@@ -1,4 +1,7 @@
 #include "./../../Include/Common.h"
+#include <stdlib.h>     /* srand, rand */
+#include <time.h> 
+
 
 int partition(int arr[], int low, int high)
 {

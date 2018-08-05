@@ -1,29 +1,64 @@
 // namespace std have been included for this problem.
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>
+
 void swap(int *numbers, int a, int b){
     int temp = numbers[a];
     numbers[a] = numbers[b];
     numbers[b] = temp;
 }
 
-
-void bubble_sort(int *data, int n){
-
-   bool swapped = true;
-
-   // No more passes required if swapped remains false
-   for(int pass = n - 1; pass >= 0 && swapped; pass--){
-
-       swapped = false;
-       for(int i = 0; i <= pass - 1 ; i++)
-       {
-           if(data[i] > data[i + 1]){
-               swap(data, i, i + 1);
-               swapped = true; 
-           }
-       }
-   }
+int partition(int arr[], int low, int high)
+{
+    int pivot = arr[low];
+    int left = low - 1, right = high + 1;
+ 
+    while (true) {
+ 
+        // Find leftmost element greater than
+        // or equal to pivot
+        do {
+            left++;
+        } while (arr[left] < pivot);
+ 
+        // Find rightmost element smaller than
+        // or equal to pivot
+        do {
+            right--;
+        } while (arr[right] > pivot);
+ 
+        // If two pointers met.
+        if (left >= right)
+            return right;
+ 
+        swap(arr, left, right);
+    }
 }
+ 
+// Generates Random Pivot
+int partition_r(int arr[], int low, int high)
+{
+    // Generate a random number in between
+    // low .. high
+    srand(time(NULL));
+    int random = low + rand() % (high - low);
+ 
+    // Swap A[random] with A[high]
+    swap(arr, random, low);
+ 
+    return partition(arr, low, high);
+}
+ 
+void quickSort(int *arr, int low, int high)
+{
+    if (low < high) {
 
+        int pi = partition_r(arr, low, high);
+ 
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
+    }
+}
 // Add any helper functions(if needed) above.
 int* remove_dup(int A[], int sz)
 {    /* Alocate the memory of Output array of maximum size n. 
@@ -31,18 +66,24 @@ int* remove_dup(int A[], int sz)
     Size of Output array will be less than n. */
     int *output = nullptr;
     // Add your code below this line. Do not modify any other code.
+    quickSort(A, 0, sz - 1);
     
-    bubble_sort(A, sz); 
-    
-    int k = 0; 
-    output = new int[sz/2]; 
-    
+     int k = 0; 
+     output = new int[sz/2];
+    bool flag = false;
     for(int i = 1; i < sz; i++){
-        if(A[i] == A[i-1] && output[k] != A[i - 1]){
+        while(A[i] == A[i-1]){
+            i++;
+            flag = true;
+        }
+        if(flag)
+        {
             output[k] = A[i - 1];
             k++;
+            flag = false;
         }
     }
+    
     
     for(int i = 0; i < k; i++){
         cout << output[i] << " "; 

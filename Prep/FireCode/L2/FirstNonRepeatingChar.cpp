@@ -1,8 +1,6 @@
 // namespace std have been included for this problem.
 #include "./../../../Include/Common.h"
 
-
-
 // Add any helper functions(if needed) above.
 char first_non_repeating(string str)
 {

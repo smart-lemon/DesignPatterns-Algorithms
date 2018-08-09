@@ -24,8 +24,9 @@ class Solution {
 
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
+       
         vector<char> search; 
-
+        
         // Check rows
         for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[i].size(); j++){

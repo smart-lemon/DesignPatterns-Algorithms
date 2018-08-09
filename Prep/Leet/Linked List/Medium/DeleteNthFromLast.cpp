@@ -23,7 +23,6 @@ public:
         {   
             fast = fast->next;
         }
-        cout << endl;
 
         ListNode *slow = dummy;
         

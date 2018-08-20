@@ -3,13 +3,12 @@
 
 struct treeNode{
     int value;              /* value of the node */
-    struct treeNode* left;  /* pointer to the left child node */
-    struct treeNode* right; /* pointer to the right child node */
+    struct treeNode *left;  /* pointer to the left child node */
+    struct treeNode *right; /* pointer to the right child node */
 };
 
-
 // Add any helper functions(if needed) above.
-vector<int> level_order(treeNode* root)
+vector<int> level_order(treeNode *root)
 {
     queue <treeNode*> q;
     vector<int> res; 

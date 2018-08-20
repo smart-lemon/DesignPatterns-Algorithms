@@ -6,9 +6,9 @@ typedef struct listNode{
 // Add any helper functions(if needed) above.
 listNode* delete_at_pos(listNode* head, int n)
 {   
-    
     if (n <= 0 || head == nullptr)
         return head;
+
     if(n == 1)
         return head->next;
     
@@ -22,6 +22,7 @@ listNode* delete_at_pos(listNode* head, int n)
         node = node->next; 
         k++; 
     }
+    
     if(node)
          prev->next = node->next; 
     else 

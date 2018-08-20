@@ -8,7 +8,7 @@ typedef struct listNode{
 
 listNode* find_n_node_from_end(listNode* head, int n)
 {
-    if(head == nullptr){
+     if(head == nullptr){
         return head; 
     }
     
@@ -20,6 +20,10 @@ listNode* find_n_node_from_end(listNode* head, int n)
     for(int i = 0; i < n;  i++ )
     {   
         fast = fast->next;
+        
+        // if the input n is purposely wrong  
+        if(fast == nullptr && i < n)
+            return nullptr;
     }
 
     listNode *slow = dummy;
@@ -30,4 +34,5 @@ listNode* find_n_node_from_end(listNode* head, int n)
     }
     
     return slow->next;
+
 }

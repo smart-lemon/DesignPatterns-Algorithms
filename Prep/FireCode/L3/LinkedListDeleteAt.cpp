@@ -4,7 +4,7 @@ typedef struct listNode{
       struct listNode* next;   /* points to the next linked-list node */
 };
 // Add any helper functions(if needed) above.
-listNode* delete_at_pos(listNode* head, int n)
+listNode* delete_at_pos(listNode *head, int n)
 {   
     if (n <= 0 || head == nullptr)
         return head;
@@ -23,6 +23,10 @@ listNode* delete_at_pos(listNode* head, int n)
         k++; 
     }
     
+    // Memory clean up
+    listNode *temp = prev->next;
+    if(temp) delete temp;
+
     if(node)
          prev->next = node->next; 
     else 

@@ -2,9 +2,9 @@
 
 Source code for  : 
 
--> Stanford Algorithms and Design (Tim Roughgarden)
+-> Algorithms and Design (Tim Roughgarden/Sedwick)
 
--> Data Structures (LeetCode, Karumanchi and Cracking the Coding Interview) 
+-> Data Structures (LeetCode, FireCode, Karumanchi and Cracking the Coding Interview) 
 
 -> Design Patterns (Karumanchi) and University of Alberta (C++)
 

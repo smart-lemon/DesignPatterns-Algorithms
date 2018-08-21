@@ -8,8 +8,7 @@ listNode* insert_at_position( listNode *head, int data, int pos)
 {   
     listNode *newNode = new listNode;
     newNode->value = data; 
-    
-    
+        
     if(pos == 1) {
         newNode->next = head;
         head = newNode;

@@ -17,8 +17,9 @@ public:
                 i++;
                 found_flag = true;
             }
-            if(found_flag)
-            {
+
+            // Duplicate is found
+            if(found_flag){
                 output = nums[i - 1];
                 return output;
             }
@@ -36,6 +37,7 @@ public:
             fast = nums[nums[fast]];
             if(slow == fast) break;
         }
+
         int find = 0;
         while(slow != find){
             slow = nums[slow];

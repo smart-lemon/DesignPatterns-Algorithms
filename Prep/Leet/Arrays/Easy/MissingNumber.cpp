@@ -1,8 +1,7 @@
+#include "./../../../../Include/Common.h"
 
-
-using namespace std;
-
-bool comparator (int i,int j) { return (i < j); }
+// Ascending order
+bool comparator (int i, int j) { return (i < j); }
 
 // https://leetcode.com/problems/missing-number/
 

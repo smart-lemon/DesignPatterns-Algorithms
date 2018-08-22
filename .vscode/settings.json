@@ -45,6 +45,11 @@
         "ratio": "cpp",
         "system_error": "cpp",
         "__config": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp"
     }
 }

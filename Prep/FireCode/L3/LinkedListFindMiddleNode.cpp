@@ -9,7 +9,7 @@ listNode* find_middle_node(listNode* head)
 {
     listNode *fast = head, *slow = head;
     
-    while(fast && fast->next) { 
+    while(fast && fast->next && fast->next->next) { 
         fast = fast->next->next;
         slow = slow->next; 
     }

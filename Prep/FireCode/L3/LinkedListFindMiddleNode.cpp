@@ -13,6 +13,5 @@ listNode* find_middle_node(listNode* head)
         fast = fast->next->next;
         slow = slow->next; 
     }
-
     return slow;
 }

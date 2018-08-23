@@ -11,7 +11,6 @@ class Interval {
         }
 };
 
-
 bool comparator(Interval a, Interval b){
     return a.start < b.start ? true : false;
 }
@@ -24,11 +23,6 @@ vector<Interval> merge_intervals(vector<Interval> intervals_list)
 
     if(n == 0)
         return output;
-
-    // Debugging code
-    for(int i = 0; i < n; i++){
-        cout << " [" << intervals_list[i].start << "," << intervals_list[i].end << "] ";
-    }
 
     // Sort by starting times
     sort (intervals_list.begin(), intervals_list.end(), comparator); 
@@ -48,3 +42,11 @@ vector<Interval> merge_intervals(vector<Interval> intervals_list)
     }
     return output;    
 }
+
+
+/*
+    // Debugging code
+    for(int i = 0; i < n; i++){
+        cout << " [" << intervals_list[i].start << "," << intervals_list[i].end << "] ";
+    }
+*/

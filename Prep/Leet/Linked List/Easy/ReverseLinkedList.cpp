@@ -2,7 +2,7 @@
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
  };
 
 /*
@@ -14,17 +14,27 @@ public:
     ListNode* reverseList(ListNode* head) {
         
         ListNode *previous, *current, *ahead; 
-
         previous = nullptr; 
         current = head; 
 
+        // [previous] -> [current] -> [ahead]
         while(current) {
-            ahead = current->next; 
-            current->next = previous; 
-            previous = current; 
+            ahead = current->next;    // [current]  -> [ahead]
+            current->next = previous; // [previous] <- [current]
+            previous = current;     
             current = ahead; 
         }
 
         return previous;
+    }
+
+    ListNode* reverseListRecursive(ListNode *head) {
+        if (!head || !(head -> next)) {
+            return head;
+        }
+        ListNode *node = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return node;
     }
 };

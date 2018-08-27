@@ -51,6 +51,7 @@
         "deque": "cpp",
         "initializer_list": "cpp",
         "list": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "queue": "cpp"
     }
 }

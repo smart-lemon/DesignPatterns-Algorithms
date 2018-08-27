@@ -1,3 +1,4 @@
+#include "./../../../../Include/Common.h"
 
 // https://leetcode.com/problems/zigzag-conversion/description/
 class Solution {
@@ -37,7 +38,6 @@ public:
             int incr = numRows - 2;
             column++;
             
-            colVol
             for(int i = incr; i >= 0; i--)
             {
                 matrix[i][column] = s[count];

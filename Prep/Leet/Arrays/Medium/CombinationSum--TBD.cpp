@@ -12,11 +12,13 @@ class Solution {
 
 public:
     void permute_combinationSum(vector<int>& result, int pos, int sum){
-
-        if(pos >= input.size())
+        if(pos >= input.size()) {
             return;
-
+        }
+        
         if(sum == targetSum){
+            cout << endl;
+
             for(int i = 0; i < result.size(); i++)
             {
                 cout << result[i] << " ";
@@ -25,30 +27,24 @@ public:
             output.push_back(result);
             return;
         } else if (sum > targetSum) {
-            cout << " Didnt work out" << endl;
             return;
         }
-
+        
+        //  Not including pos
+        permute_combinationSum(result, pos + 1 , sum);
+       
         // Including pos
-        cout << " Sel P   " << input[pos];
         result.push_back(input[pos]);
         permute_combinationSum(result, pos, sum + input[pos]);
         result.pop_back();
 
-        // Not including pos
-        cout << " Sel P + 1 " << input[pos + 1];
-
-        result.push_back(input[pos + 1]);
-        permute_combinationSum(result, pos + 1 , sum + input[pos + 1]);
-        result.pop_back();
+       
     }
 
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         input = candidates;
         targetSum = target;
         
-        cout << "Input " << input.size() << " " << targetSum;
-
         vector<int> result;
         permute_combinationSum(result, 0, 0);
         return output;

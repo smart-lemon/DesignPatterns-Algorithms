@@ -22,3 +22,5 @@ int count_paths(int rows, int cols)
     
     return dp[rows - 1][cols - 1];
 }
+
+

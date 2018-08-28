@@ -15,15 +15,9 @@ public:
         if(pos >= input.size()) {
             return;
         }
-        
+                
+        // Reached the desired sum
         if(sum == targetSum){
-            cout << endl;
-
-            for(int i = 0; i < result.size(); i++)
-            {
-                cout << result[i] << " ";
-            }
-            cout << endl;
             output.push_back(result);
             return;
         } else if (sum > targetSum) {
@@ -37,7 +31,6 @@ public:
         result.push_back(input[pos]);
         permute_combinationSum(result, pos, sum + input[pos]);
         result.pop_back();
-
        
     }
 

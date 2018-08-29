@@ -28,6 +28,7 @@ void do_permutations(string str, int i, int n)
 
 vector<string> get_permutations(string s) 
 {    
+    permutationOutput.clear();
     n = s.length();  
     do_permutations(s, 0, s.length());
     return permutationOutput;

@@ -32,9 +32,11 @@ void bubble_sort(int *data, int n){
 
 
 // Note to self: Not yet handled negative numbers 
-bool group_sum_with_num(int arr[], int sz, int must_have, int target_sum)
+bool group_sum_with_num_nonnegative(int arr[], int sz, int must_have, int target_sum)
 {
     int target = target_sum; 
+    if(sz == 0)
+        return false; 
     bubble_sort(arr, sz);
     bool **DP;
     DP = new bool*[sz];
@@ -50,7 +52,7 @@ bool group_sum_with_num(int arr[], int sz, int must_have, int target_sum)
                 if(DP[i - 1][j])
                     DP[i][j] = true;
             }
-            if( DP[i][j] && DP[i][j - arr[i]])
+            if( !DP[i][j] && DP[i][j - arr[i]])
                  DP[i][j] = true;
             else
                 DP[i][j] = false;
@@ -59,3 +61,6 @@ bool group_sum_with_num(int arr[], int sz, int must_have, int target_sum)
 
     return DP[sz - 1][target];
 }
+// Approach : Power set 
+// https://www.coderbyte.com/algorithm/subset-sum-problem-revised
+// O(2^n)

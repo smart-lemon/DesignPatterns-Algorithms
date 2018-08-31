@@ -32,13 +32,13 @@ SEARCHING = ./Algorithms/Searching/BoyerMoore.cpp \
 
 # Design patterns
 DESIGN_PATTERNS = ./DesignPatterns/Behavioural/ChainOfResponsibility.cpp \
-		./DesignPatterns/Inheritance.cpp \
-        ./DesignPatterns/Behavioural/Command.cpp \
-		./DesignPatterns/Behavioural/Iterator.cpp \
-		./DesignPatterns/Behavioural/Interpreter.cpp \
-		./DesignPatterns/Creational/Singleton.cpp \
-		./DesignPatterns/Creational/FactoryMethod.cpp \
-		./DesignPatterns/Structural/Facade.cpp
+		./Design\ Patterns/Inheritance.cpp \
+        ./Design\ Patterns/Behavioural/Command.cpp \
+		./Design\ Patterns/Behavioural/Iterator.cpp \
+		./Design\ Patterns/Behavioural/Interpreter.cpp \
+		./Design\ Patterns/Creational/Singleton.cpp \
+		./Design\ Patterns/Creational/FactoryMethod.cpp \
+		./Design\ Patterns/Structural/Facade.cpp
 
 # Select what you want to compile here
 # FILES += $(DATA_STRUCTS)

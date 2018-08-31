@@ -1,9 +1,6 @@
-
 #include "./../../../../Include/Common.h"
 
-
-using namespace std;
-
+// 
 // https://leetcode.com/problems/array-partition-i 
 
 

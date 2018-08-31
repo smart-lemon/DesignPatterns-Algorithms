@@ -20,7 +20,8 @@ DATA_STRUCTS = ./DS/Hashing/Hashing.cpp \
 		./DS/Heaps/Heap.cpp \
 		./DS/Heaps/HeapPriorityQueues.cpp \
 		./DS/LinkedList/SinglyLinkedList.cpp \
-		./DS/Graphs/MinimumCuts.cpp
+		./DS/Graphs/MinimumCuts.cpp \
+		./DS/Stacks/Stack.cpp
 
 GRAPS = ./DS/Graphs/BFS.cpp \
         ./DS/Graphs/DFS.cpp \

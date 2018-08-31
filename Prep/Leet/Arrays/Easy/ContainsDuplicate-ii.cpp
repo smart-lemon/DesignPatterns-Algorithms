@@ -1,7 +1,6 @@
 #include "./../../../../Include/Common.h"
-using namespace std;
 
-
+// Contains Duplicate - II
 // https://leetcode.com/problems/contains-duplicate-ii/
 
 class Solution {
@@ -20,7 +19,9 @@ public:
     {
        unordered_set<int> s;
        
-       if (k <= 0) return false;
+       if (k <= 0) return 
+            false;
+
        if (k >= nums.size()) k = nums.size() - 1;
        
        // The basic idea is to maintain a set s which contain unique values 

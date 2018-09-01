@@ -10,14 +10,16 @@ class Solution {
     }
 public:
     int arrayPairSum(vector<int>& nums) {
+        
+        // Sort the array
         sort(nums.begin(), nums.end());
+        
         int len = nums.size();
         int i = 0, sum = 0; 
         while (i < len){
             sum += min(nums[i], nums[i+1]);
             i += 2;
         }
-        
         return sum; 
     }
 };

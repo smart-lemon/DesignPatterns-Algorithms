@@ -38,11 +38,11 @@ public:
                     c++;
                 }
                 // Shift right or down
-                r++; c--;
-                (c < C-1) ? c++ : r++;
+                r++; // Compenstaion for r-- 
+                c--;
+                (c < C - 1) ? c++ : r++;
                 
             } else {
-                cout << "Direction down diag" << endl;
                 while(boundsCheck(r, c, R, C)){
                     // Slide down diagonally                   
                     ans.push_back(matrix[r][c]); 

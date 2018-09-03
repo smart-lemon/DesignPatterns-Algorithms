@@ -20,12 +20,14 @@ public:
 
             // Bottom half is sorted. Inculde l, as m is already checked
             if(nums[l] < nums[m]){
-                if(nums[l] <= key && key < nums[m])
+                if(nums[l] == key) return l;
+                if(nums[l] < key && key < nums[m])
                     r = m - 1;
                 else
                     l = m + 1;
             // Upper half is sorted. Inculde r, as m is already checked
             } else {
+                if(nums[r] == key) return r;
                 if(nums[m] < key && key <= nums[r])
                     l = m + 1;
                 else

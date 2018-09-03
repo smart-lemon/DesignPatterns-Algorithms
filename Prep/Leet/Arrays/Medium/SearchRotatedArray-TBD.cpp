@@ -28,7 +28,7 @@ public:
             // Upper half is sorted. Inculde r, as m is already checked
             } else {
                 if(nums[r] == key) return r;
-                if(nums[m] < key && key <= nums[r])
+                if(nums[m] < key && key < nums[r])
                     l = m + 1;
                 else
                     r = m - 1;

@@ -1,7 +1,5 @@
 #include "./../../../../Include/Common.h"
 
-using namespace std;
-
  // https://leetcode.com/problems/spiral-matrix/
 
 class Solution {
@@ -24,48 +22,50 @@ public:
         direction dir = RIGHT;
         int layer = 0; 
         
-        int R = matrix.size(); 
+        int R = matrix.size();
+        if(R == 0)
+            return output;
         int C = matrix[0].size();
         int len = R * C; 
         int i = 0, j = 0;
         
-        if(R == 0 && C == 0)
-            return output;
-        
         cout << R <<  " " << C << endl;
         
-        while(((i + 1)*(j + 1)) < len){
-            //cout << "Layer "<< layer << " i " << i << " j " << j << endl;
+        if(R == 1 && C == 1)
+            output.push_back(matrix[i][j]);
+        
+        while(output.size() < len){
+            cout << "Layer "<< layer << " i " << i << " j " << j << endl;
             
             dir = RIGHT; 
-            while(j < (C - layer - 1)) {
-               // cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
+            while(j < (C - layer - 1) && output.size() < len) {
+                cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
                 output.push_back(matrix[i][j]);
                 i = i + arrows[dir][0];
                 j = j + arrows[dir][1];
             }
             
             dir = DOWN;
-            while(i < R - layer - 1) {                
+            while(i < R - layer - 1 && output.size() < len) {                
                 
-               // cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
+                cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
                 output.push_back(matrix[i][j]);
                 i = i + arrows[dir][0];
                 j = j + arrows[dir][1];
             }
             dir = LEFT;
             
-            while(j > layer) {
+            while(j > layer && output.size() < len) {
                 output.push_back(matrix[i][j]);
-                //cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
+                cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
                 i = i + arrows[dir][0];
                 j = j + arrows[dir][1];
             }
             
             dir = UP;
-            while(i > layer) {
+            while(i > layer && output.size() < len) {
                 output.push_back(matrix[i][j]);
-               // cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
+                cout << i << ","<< j << " -> "<< matrix[i][j] << endl;
                 i = i + arrows[dir][0];
                 j = j + arrows[dir][1];
             }
@@ -75,6 +75,9 @@ public:
                 i++; 
                 j++;
                 layer++;
+                cout << "New layer"  << endl;
+                if(i >= 0 && i >= 0 && i < R && j < C)
+                    output.push_back(matrix[i][j]);
             }
         }
         return output;

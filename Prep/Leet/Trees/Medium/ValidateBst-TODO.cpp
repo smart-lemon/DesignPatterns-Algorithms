@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 
 /**
- *  https://leetcode.com/problems/validate-binary-search-tree/description/
+ *  https://leetcode.com/problems/validate-binary-search-tree
  */
 struct TreeNode {
     int val;
@@ -32,6 +32,8 @@ bool do_validate_bst( TreeNode* root,
     return do_validate_bst(root->left, left_ancestor, root) && 
            do_validate_bst(root->right, root, right_ancestor); 
 }
+
+// TODO -- Use other simpler implementation
 
 public:
     bool isValidBST(TreeNode* root) {

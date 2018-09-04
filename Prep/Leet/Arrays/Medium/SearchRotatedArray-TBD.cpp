@@ -5,6 +5,7 @@
    https://leetcode.com/problems/search-in-rotated-sorted-array
 */
 
+
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -13,22 +14,19 @@ public:
 
         while(l <= r) {
             m = (l + r) / 2;
-
             // Check if m is the solution
             if(nums[m] == target)
                 return m;
 
             // Bottom half is sorted. Inculde l, as m is already checked
-            if(nums[l] < nums[m]){
-                if(nums[l] == key) return l;
-                if(nums[l] < key && key < nums[m])
+            if(nums[l] <= nums[m]){
+                 if(nums[l] <= key && key < nums[m])
                     r = m - 1;
                 else
                     l = m + 1;
             // Upper half is sorted. Inculde r, as m is already checked
             } else {
-                if(nums[r] == key) return r;
-                if(nums[m] < key && key < nums[r])
+                if(nums[m] < key && key <= nums[r])
                     l = m + 1;
                 else
                     r = m - 1;

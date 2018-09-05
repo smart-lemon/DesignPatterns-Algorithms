@@ -6,7 +6,6 @@
 
 class Solution {
   
-
     int uniquePaths(int rows, int cols) {
         vector<vector<int>> dp; 
         vector<int> row(cols, 1); 

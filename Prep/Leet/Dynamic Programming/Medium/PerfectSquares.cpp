@@ -1,3 +1,4 @@
+#include "./../../../../Include/Common.h"
 
 // https://leetcode.com/problems/perfect-squares/description/
 

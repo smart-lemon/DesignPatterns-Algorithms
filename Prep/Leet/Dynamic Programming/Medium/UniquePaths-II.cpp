@@ -14,6 +14,7 @@ public:
         for(int i = 0; i < rows + 1; i++)
             dp.push_back(row);
 
+        // Creating a DP array. First row and cols is 0, the rest is !obstacleGrid[i][j]
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < cols; j++){
                 // Marking an obstacle, note: opposite notation as input 

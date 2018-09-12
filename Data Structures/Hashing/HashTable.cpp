@@ -2,8 +2,6 @@
 #include "./T/Hashing.h"
 #include <cmath>
 
-using namespace std;
-
 /*
     Hashing implementation with rehash
 */
@@ -13,6 +11,7 @@ using namespace std;
 class HashNode
 {
     public:
+  
     int key;
     int value;
 

@@ -53,6 +53,7 @@
         "list": "cpp",
         "__locale": "cpp",
         "queue": "cpp",
-        "__tuple": "cpp"
+        "__tuple": "cpp",
+        "locale": "cpp"
     }
 }

@@ -1,7 +1,8 @@
 
-
-// 876.
-// https://leetcode.com/problems/middle-of-the-linked-list/description/
+/*
+    876.
+    https://leetcode.com/problems/middle-of-the-linked-list/description/
+*/
 
 struct ListNode {
     int val;

@@ -10,7 +10,7 @@ class MyHashSet {
 
     public:
     bool *data;
-    /** Initialize your data structure here. */
+
     MyHashSet() {
         data = new bool[1000000];
     }

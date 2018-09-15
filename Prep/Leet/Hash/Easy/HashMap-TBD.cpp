@@ -6,22 +6,25 @@
 
 class MyHashMap {
 
-    public:
     vector<int> data;
 
+    public:
     MyHashMap() {
+        data = vector<int>(1000000, INT_MAX);
+    }
+
+    int hashFn(int key){
+        return key;
     }
     
-    void add(int key) {
-        data.pushback;
+    void put(int key, int value) {
+        data[key] = value;
     }
     
+    int get(int key) {
+        return data[key];
+    }
     void remove(int key) {
-        data[key] = false;
-    }
-    
-    /** Returns true if this set contains the specified element */
-    bool contains(int key) {
-        return data[key] == true;
+        data[key] = INT_MAX;
     }
 };

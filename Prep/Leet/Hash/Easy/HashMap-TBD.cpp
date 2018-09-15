@@ -1,22 +1,19 @@
 #include "./../../Include/Common.h"
 
 /*
-    705. Design HashSet
-    https://leetcode.com/problems/design-hashset/
+    . Design HashMap
 */
 
-// Notes : If you store values, 10 pow 6 x 32/8 = 4 MegaBytes. Hence use boolean
-class MyHashSet {
+class MyHashMap {
 
     public:
-    bool *data;
+    vector<int> data;
 
-    MyHashSet() {
-        data = new bool[1000000];
+    MyHashMap() {
     }
     
     void add(int key) {
-        data[key] = true;
+        data.pushback;
     }
     
     void remove(int key) {

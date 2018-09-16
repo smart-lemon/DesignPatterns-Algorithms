@@ -14,13 +14,13 @@ using namespace std;
     1. Command:  An interface for a Command to execute 
 
     2. ConcreteCommand: Defines a binding between Receiver and an Action
-     → e.g TurnTvOn, TurnTvOff
+       → e.g TurnTvOn, TurnTvOff
 
     3. Client: Generates the Command object
-     → e.g testCommandPattern
+       → e.g testCommandPattern
 
     4. Invoker : Decides which method should be called 
-     → e.g InvokerRemoteButton
+       → e.g InvokerRemoteButton
 */
 
 // 
@@ -173,7 +173,6 @@ void testCommandPattern(){
     Command *turnOn  = new TurnTvOn(telly);
     Command *turnOff = new TurnTvOff(telly);
     Command *changeChannel = new ChangeTheChannel(telly);
-    
     
     // Tell the remote to execute commands
     InvokerRemoteButton *button = new InvokerRemoteButton();

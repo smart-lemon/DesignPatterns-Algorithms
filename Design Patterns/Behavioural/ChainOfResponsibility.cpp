@@ -16,8 +16,13 @@ public:
         calculationWanted = calcWanted;
     }
 
-    inline int getNumA(){ return numberA; }
-    inline int getNumB(){ return numberB; }
+    inline int getNumA(){ 
+        return numberA; 
+    }
+    
+    inline int getNumB(){ 
+        return numberB; 
+    }
 
     string getCalculationWanted(){
         return calculationWanted;

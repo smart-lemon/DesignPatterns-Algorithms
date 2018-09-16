@@ -5,7 +5,7 @@
 */
 
 class MyHashMap {
-
+    private: 
     vector<int> data;
 
     public:
@@ -24,6 +24,7 @@ class MyHashMap {
     int get(int key) {
         return data[key];
     }
+    
     void remove(int key) {
         data[key] = INT_MAX;
     }

@@ -190,6 +190,4 @@ class HashSet {
 
         // deleteTable(oldTable);
     }
-
-
 };

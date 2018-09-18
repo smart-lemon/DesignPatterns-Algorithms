@@ -20,9 +20,10 @@ class Solution {
             swap(nums[left], nums[right]); 
         }
         swap(nums[p_index], nums[right]); 
-        if(p_index == k)
+        
+        if(right == k)
             ans = nums[k];
-        return p_index; 
+        return right; 
     }
     
     void kthSort(vector<int>& nums, int l, int h, int & ans, int k){

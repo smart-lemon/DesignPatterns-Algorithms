@@ -10,7 +10,7 @@ class MyHashMap {
 
     public:
     MyHashMap() {
-        data = vector<int>(1000000, INT_MAX);
+        data = vector<int>(1000000, -1);
     }
 
     int hashFn(int key){
@@ -26,6 +26,6 @@ class MyHashMap {
     }
     
     void remove(int key) {
-        data[key] = INT_MAX;
+        data[key] = -1;
     }
 };

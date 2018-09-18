@@ -1,8 +1,8 @@
 
 #include "./../../../../Include/Common.h"
-
-// https://leetcode.com/problems/minimum-size-subarray-sum
-
+/*
+    https://leetcode.com/problems/minimum-size-subarray-sum
+*/ 
 class Solution {
 public:
     

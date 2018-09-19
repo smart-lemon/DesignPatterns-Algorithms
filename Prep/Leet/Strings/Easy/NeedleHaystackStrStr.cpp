@@ -32,7 +32,7 @@ public:
 
 
     /*
-        KMP  
+        KMP - http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/1
     */
 
    public:
@@ -61,19 +61,20 @@ public:
         }
         return -1;
     }
-    private:
-        vector<int> kmpProcess(string& needle) {
-            int n = needle.length();
-            vector<int> lps(n, 0);
-            for (int i = 1, len = 0; i < n; ) {
-                if (needle[i] == needle[len]) {
-                    lps[i++] = ++len;
-                } else if (len) {
-                    len = lps[len - 1];
-                } else {
-                    lps[i++] = 0;
-                }
+    
+    // Build the partial match table
+    vector<int> kmpProcess(string& needle) {
+        int n = needle.length();
+        vector<int> lps(n, 0);
+        for (int i = 1, len = 0; i < n; ) {
+            if (needle[i] == needle[len]) {
+                lps[i++] = ++len;
+            } else if (len) {
+                len = lps[len - 1];
+            } else {
+                lps[i++] = 0;
             }
-            return lps;
         }
+        return lps;
+    }
 };

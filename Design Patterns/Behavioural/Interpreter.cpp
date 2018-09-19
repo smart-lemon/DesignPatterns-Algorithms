@@ -2,10 +2,6 @@
 
 using namespace std;
 
-#include <sstream>
-#include <vector>
-#include <iterator>
-
 // Declerations
 std::vector<string> split(const string &s, char delim);
 

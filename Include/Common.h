@@ -6,6 +6,9 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <queue>
+#include <list>
+#include <iterator>
+#include <sstream>
 
 using namespace std;
 

@@ -1,9 +1,5 @@
 #include "./../../Include/Common.h"
 
-using namespace std;
-
-
-
 class Singleton {
     
     private: 
@@ -16,7 +12,7 @@ class Singleton {
     public:
     
     static Singleton *getInstance(){
-        if(uniqueInstance == 0){
+        if(uniqueInstance == nullptr){
             uniqueInstance = new Singleton();
         }
         return uniqueInstance;

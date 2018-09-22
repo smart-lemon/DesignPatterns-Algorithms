@@ -20,6 +20,14 @@
 
 */
 
+
+string lookup[] = { "",    "", 
+                    "abc", "def",
+                    "ghi", "jkl",
+                    "mno", "pqrs",
+                    "tuv", "wxyz" };
+
+
 vector<string> get_strings_from_nums(string digits) 
 {
     

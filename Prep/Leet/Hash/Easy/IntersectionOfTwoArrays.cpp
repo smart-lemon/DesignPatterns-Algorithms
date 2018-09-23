@@ -13,6 +13,7 @@ public:
         int n2 = nums2.size(); 
         vector<int> ans;
         unordered_set<int> hashset; 
+
         if(!n1 || !n2)
             return ans;
         
@@ -24,10 +25,9 @@ public:
             if(nums1[i] == nums2[j]){
                 hashset.insert(nums1[i]);
                 i++; j++;
-                cout << nums1[i] << " ";
-            } else if(nums1[i] < nums2[j]){
+            } else if(nums1[i] < nums2[j]) {
                 i++;
-            } else{
+            } else {
                 j++;
             }
         }

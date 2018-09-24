@@ -20,7 +20,6 @@ public:
             while(number) {
                 int res = number % 10;
                 number = number / 10;
-                
                 sum += (res * res);
             }
             
@@ -32,7 +31,6 @@ public:
 
             number = sum;
         }
-        
         return false;
     }
 

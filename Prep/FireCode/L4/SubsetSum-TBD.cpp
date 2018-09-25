@@ -40,11 +40,12 @@ bool group_sum_with_num_nonnegative(int arr[], int sz, int must_have, int target
     bubble_sort(arr, sz);
     bool **DP;
     DP = new bool*[sz];
-    for(int i = 0; i < sz; i++)
-        DP[i] = new bool[target + 1];
+    for(int i = 0; i < sz; i++){
+        DP[i] = new bool[target + 1]{false};
+    }
         
     for(int i = 0; i < sz; i++)
-        DP[i][0] = false;
+        DP[i][0] = true;
         
     for(int i = 0; i < sz; i++){
         for(int j = 1; j <= target; j++){
@@ -52,7 +53,7 @@ bool group_sum_with_num_nonnegative(int arr[], int sz, int must_have, int target
                 if(DP[i - 1][j])
                     DP[i][j] = true;
             }
-            if( !DP[i][j] && DP[i][j - arr[i]])
+            if( !DP[i][j] && DP[i - 1][j - arr[i]])
                  DP[i][j] = true;
             else
                 DP[i][j] = false;

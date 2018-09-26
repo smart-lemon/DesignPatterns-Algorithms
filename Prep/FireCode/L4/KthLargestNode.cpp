@@ -26,6 +26,7 @@ void kthLargestUtil(treeNode* root, const int k, int &c) {
 
 treeNode* find_kth_largest(treeNode* root, int k) {
     int c = 0;
+    kthLargest = nullptr;
     kthLargestUtil(root, k, c);
     return kthLargest;
 }

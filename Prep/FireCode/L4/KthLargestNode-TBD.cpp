@@ -6,8 +6,26 @@ struct treeNode{
     struct treeNode *right; /* pointer to the right child node */
 };
 
+static treeNode *kthLargest = nullptr; 
+/*
+    Reversed inorder traversal
+*/
+void kthLargestUtil(treeNode* root, const int k, int &c) {
+    if(root == nullptr)
+        return;
+    kthLargestUtil(root->right, k, c);
 
-treeNode* find_kth_largest(treeNode* root, int k) {}
-    
-    
+    c++;
+    if(c == k){
+        kthLargest = root;
+        return;
+    }
+
+    kthLargestUtil(root->left, k, c);
+}
+
+treeNode* find_kth_largest(treeNode* root, int k) {
+    int c = 0;
+    kthLargestUtil(root, k, c);
+    return kthLargest;
 }

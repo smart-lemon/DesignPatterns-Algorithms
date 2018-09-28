@@ -4,6 +4,8 @@ using namespace std;
 
 /*
     Given a number N, find all factors of N.
+
+    https://www.interviewbit.com/problems/all-factors/
 */
 
 vector<int> Solution :: allFactorsTle(int A) {
@@ -24,11 +26,11 @@ vector<int> Solution :: allFactorsTle(int A) {
 
 
 
-vector<int> Solution :: allFactors(int A) {
+vector<int> Solution :: allFactors(int n) {
 
     vector<int> result;
-    int n = A; 
-    for (int i=1; i <= sqrt(n); i++) 
+    int sqrt_of_n = sqrt(n);
+    for (int i = 1; i <= sqrt_of_n; i++) 
     { 
         if (n % i == 0) 
         { 
@@ -38,7 +40,7 @@ vector<int> Solution :: allFactors(int A) {
   
             else {
                 result.push_back(i);
-                result.push_back((int) A/i);
+                result.push_back((int) n/i);
             } 
         } 
     } 

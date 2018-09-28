@@ -55,7 +55,6 @@ void testQuickSelect();
 // Hashing
 void testHashing();
 
-
 void testPriorityQueues();
 
 /* ####### Misc ####### */
@@ -66,6 +65,12 @@ void print1DArray(int *arr, int low, int high);
 
 void swap(int *numbers, int a, int b);
 
+// Class for InterviewBit 
+
+class Solution {
+    int allFactors(int A);
+};
 
 // For the template 
 int  tmain();
+

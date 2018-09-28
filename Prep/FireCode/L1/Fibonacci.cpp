@@ -1,5 +1,4 @@
 #include "./../../../Include/Common.h"
-using namespace std;
 
 // Add any helper functions(if needed) above.
 int fib(int n)

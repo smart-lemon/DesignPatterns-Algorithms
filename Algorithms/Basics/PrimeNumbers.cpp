@@ -8,22 +8,17 @@ using namespace std;
 */ 
 
 // Sieve of Eratosthenes
-bool findPrimes(int N){
-    if(N < 2)
-        return false;
-    if (N <= 3)  
-        return true;
-
-    for(int i = 4; i * i <= N; i++)
-    {
-        if(i % N == 0)
-            return false;
-    }
-    return true;
+bool isPrime(int n){
+    if (n < 2) return 0;
+        int upperLimit = (int)(sqrt(n));
+        for (int i = 2; i <= upperLimit; i++) {
+            if (n % i == 0) return 0;
+        }
+     return 1;
 }
 
 // AKS 
-bool isPrime(int n)
+bool isPrimeAks(int n)
 {
     // Corner cases
     if (n <= 1)  return false;

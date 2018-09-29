@@ -10,6 +10,7 @@ using namespace std;
 // Sieve of Eratosthenes
 bool isPrime(int n){
     if (n < 2) return 0;
+        // Calculate the sqrt
         int upperLimit = (int)(sqrt(n));
         for (int i = 2; i <= upperLimit; i++) {
             if (n % i == 0) return 0;
@@ -37,10 +38,5 @@ bool isPrimeAks(int n)
 
 //  Coprime integers are a set of integers that have no common divisor other than 1 or -1.
 void areCoPrimes(){
-
-}
-
-
-void testPrimeNumbers(int N){
 
 }

@@ -29,3 +29,30 @@ vector<int> Solution :: primesum(int n) {
     }
     return vector<int>{};
 }
+
+vector<int> Solution :: primesum(int N) {
+
+    vector<bool> is_prime(N + 1, true);
+    is_prime[0] = false;
+    is_prime[1] = false;
+    
+    // Sieve of Erastothenes
+    for(int i = 2; i <= N; i++) {
+        if (!is_prime[i]) continue;
+        if (i > N / i) break;
+        for (int j = i * i; j <= N; j += i) 
+            is_prime[j] = false;
+    }
+    
+    for(int i = 2; i <= N; ++i) {
+        if(is_prime[i] && is_prime[N - i]) {
+            vector<int> ans;
+            ans.push_back(i);
+            ans.push_back(N - i);
+            return ans;
+        }
+    } 
+
+    vector<int> ans; 
+    return ans;
+}

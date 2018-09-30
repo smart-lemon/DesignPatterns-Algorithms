@@ -2,9 +2,6 @@
 
 using namespace std;
 
-#include <list>
-#include <iterator>
-
 /* 
     ######## Command pattern ########
     

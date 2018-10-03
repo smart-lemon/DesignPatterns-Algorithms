@@ -32,13 +32,15 @@ Interval merge_intervals(Interval &iv1, Interval &iv2){
 // Add any helper functions(if needed) above.
 vector<Interval> insert_range(vector<Interval> intervals_list, Interval insert) {
     vector<Interval> res; 
+    // There are three cases, 
+    // (1) overlap where you merge intervals, or strictly no overlap (2 cases)
     for(auto currIntvl : intervals_list){
         if(currIntvl.end < insert.start) {
-            // --- ___
+            // --- ___  no overlap
             res.push_back(currIntvl);
 
         } else if(insert.end < currIntvl.start){
-            // ___ ----
+            // ___ ---- no overlap
             res.push_back(insert);
             insert = currIntvl;
 

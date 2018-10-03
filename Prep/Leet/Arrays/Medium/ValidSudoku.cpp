@@ -2,7 +2,11 @@
 #include "./../../../../Include/Common.h"
 using namespace std;
 
-// https://leetcode.com/problems/valid-sudoku
+/*
+    Valid Sudoku - There is an easier hashing solution 
+
+    https://leetcode.com/problems/valid-sudoku
+*/
 
 class Solution {
     
@@ -10,10 +14,8 @@ class Solution {
         if(list.size() == 0)
             return true;
         sort (list.begin(), list.end());
-        cout << endl << list[0] << " ";
         if(list.size() >= 1){
             for(int i = 1; i < list.size(); i++){
-                cout << list[i] << " ";
                 if(list[i - 1] == list[i])
                     return false;
             }

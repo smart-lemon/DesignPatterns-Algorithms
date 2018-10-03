@@ -1,7 +1,7 @@
 #include "./../../Include/Common.h"
 
 /*
-    . Design HashMap
+    Design HashMap
 */
 
 class MyHashMap {

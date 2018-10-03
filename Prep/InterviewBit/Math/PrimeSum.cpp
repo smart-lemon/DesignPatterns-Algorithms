@@ -1,5 +1,6 @@
 #include "./../H/InterviewBit.h"
-#include <math.h>       /* sqrt */
+
+#include <math.h>       /* for sqrt */
 using namespace std;
 
 /*

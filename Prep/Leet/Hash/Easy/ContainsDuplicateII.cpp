@@ -10,7 +10,7 @@
 
 class Solution {
 public:
-    // TLE 
+    // TLE -> O(n*k)
     bool containsNearbyDuplicateTle(vector<int>& nums, int k) {
         for(int i = 0; i < nums.size(); i++)
         {

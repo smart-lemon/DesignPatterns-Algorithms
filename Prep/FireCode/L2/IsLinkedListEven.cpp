@@ -7,7 +7,6 @@ typedef struct listNode{
       struct listNode* next;   /* points to the next linked-list node */
 };
 
-// Add any helper functions(if needed) above.
 bool is_list_even(listNode* head)
 {
     if(head == nullptr)

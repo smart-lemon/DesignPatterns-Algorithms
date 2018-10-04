@@ -27,26 +27,35 @@ int find_max_sum_level(treeNode* root){
     q.push(root);
     q.push(nullptr);
     
-    int max_sum = 0;
+    vector<int> res; 
     int sum = 0;
     while(!q.empty()){
         treeNode* node = q.front();
         q.pop();
         if(node == nullptr){
-            if(max_sum > sum)
-                max_sum = sum;
+            res.push_back(sum);
             sum = 0;
-            q.push(nullptr);
-
+            if(q.size()) // Important. Dont add null markers if the queue is empty 
+                q.push(nullptr);
+            continue;
         } else {
             sum += node->value;
         }
         
-        if(node->left)
+        if(node && node->left)
             q.push(node->left);
         
-        if(node->right)
+        if(node && node->right)
             q.push(node->right);
     };
-    return max_sum;     
+
+    // Detemine the max level
+    int level = -1, max = 0; 
+    for(int i = 0; i < res.size(); i++){
+        if(max < res[i]){
+            level = i;
+            max = res[i];
+        }
+    }
+    return level; 
 }

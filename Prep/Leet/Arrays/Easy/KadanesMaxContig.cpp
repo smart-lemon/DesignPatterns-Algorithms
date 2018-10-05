@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// https://leetcode.com/problems/maximum-subarray/description/ 
+// https://leetcode.com/problems/maximum-subarray/
 
 class Solution {
 public:
@@ -14,6 +14,9 @@ public:
     
     int maxSubArray(vector<int>& nums) {
         int max_current, max_overall;
+        
+        if(nums.size() == 0)
+            return 0;
 
         // 1. Define max_current and max_overall as the first element
         max_current = max_overall = nums[0];

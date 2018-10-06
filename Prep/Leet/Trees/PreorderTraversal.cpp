@@ -79,12 +79,11 @@ public:
     }
 
     void preorderHelper (Node* root, vector<int>& result) {
-        if (!root) {
-            return ;
-        }
+        if (!root)
+            return;
 
         result.push_back(root->val);
-        
+
         for (const auto& child : root->children) {
             preorderHelper(child, result);
         }

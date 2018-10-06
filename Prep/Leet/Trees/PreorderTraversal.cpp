@@ -15,18 +15,19 @@ struct TreeNode {
 };
 
 // 
+vector<int> concatenate(vector<int> & a, vector<int> & b){
+    vector<int> ab;
+    ab.reserve( a.size() + b.size() );
+    // Add a then add b 
+    ab.insert( ab.end(), a.begin(), a.end());
+    ab.insert( ab.end(), b.begin(), b.end());
+    return ab; 
+}
 
 class Solution {
 public:
     
-     vector<int> contatenate(vector<int> a, vector<int> b){
-        vector<int> ab;
-        ab.reserve( a.size() + b.size() );
-        // Add a then add b 
-        ab.insert( ab.end(), a.begin(), a.end());
-        ab.insert( ab.end(), b.begin(), b.end());
-        return ab; 
-    }
+   
     
     vector<int> preorderTraversal(TreeNode* root) {
         // Output
@@ -43,12 +44,12 @@ public:
         // Left 
         left = preorderTraversal(root->left);
         if(left.size() > 0)
-            out = contatenate(out, left);
+            out = concatenate(out, left);
 
         // Right 
         right = preorderTraversal(root->right);
         if(right.size() > 0)
-            out = contatenate(out, right);
+            out = concatenate(out, right);
 
         return out;
     }
@@ -76,6 +77,19 @@ public:
 class Solution {
 public:
     vector<int> preorder(Node* root) {
-        
+        vector<int> out, res; 
+        if(root == nullptr) {
+            return out;
+        }
+
+        out.push_back(root->val);
+
+        for(int i = 0; i < root->children.size(); i++){
+            res = preorder(root->children[i]);
+            if(res.size() > 0){
+                out = concatenate(out, res);
+            }
+        }
+        return out; 
     }
 };

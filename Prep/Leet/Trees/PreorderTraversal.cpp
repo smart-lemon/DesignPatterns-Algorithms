@@ -14,14 +14,11 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-// 
-vector<int> concatenate(vector<int> & a, vector<int> & b){
-    vector<int> ab;
-    ab.reserve( a.size() + b.size() );
-    // Add a then add b 
-    ab.insert( ab.end(), a.begin(), a.end());
-    ab.insert( ab.end(), b.begin(), b.end());
-    return ab; 
+// Combines two vectors
+vector<int>& concatenate(vector<int> & a, vector<int> & b){
+    // Add b to the end of  
+    a.insert( a.end(), b.begin(), b.end());
+    return a; 
 }
 
 class Solution {
@@ -73,23 +70,23 @@ public:
     }
 };
 
-
 class Solution {
 public:
     vector<int> preorder(Node* root) {
-        vector<int> out, res; 
-        if(root == nullptr) {
-            return out;
+        vector<int> result;
+        preorderHelper(root, result);
+        return result;
+    }
+
+    void preorderHelper (Node* root, vector<int>& result) {
+        if (!root) {
+            return ;
         }
 
-        out.push_back(root->val);
-
-        for(int i = 0; i < root->children.size(); i++){
-            res = preorder(root->children[i]);
-            if(res.size() > 0){
-                out = concatenate(out, res);
-            }
+        result.push_back(root->val);
+        
+        for (const auto& child : root->children) {
+            preorderHelper(child, result);
         }
-        return out; 
     }
 };

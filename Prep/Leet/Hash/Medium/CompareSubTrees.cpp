@@ -35,12 +35,21 @@ class Solution {
         inorderTraversal(root->left);
         
         // Insert into hashmap and check
+        if(hashmap.find(root->val) == hashmap.end()){
+            hashmap[root->val] = root; 
+        } else {
 
+            if(compareTrees(root, hashmap.find(root->val)))
+                result.push_back(root);
+        }
+        
         // Right 
         inorderTraversal(root->right);
     }
 public:
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        
+        result.clear();
+        inorderTraversal(root);
+        return result; 
     }
 };

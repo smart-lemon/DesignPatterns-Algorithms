@@ -15,14 +15,28 @@ public:
         for(int right = 0; right < s.length(); right++){
             if(hashmap.find(s[right]) != hashmap.end()) {
                 hashmap[s[right]] = right; 
-            } else {
                 if(right - left > max)
                     max = right - left;
+            } else {
                 // Remove key from map
-                hashmap.erase(s[left]); 
                 left++;
             }
+            hashmap[s[right]] = right;
         }
         return max;
     }
 };
+
+int result(0),current(0);
+            unordered_map<char,int> hash;
+            for(int i=0;i<s.size();i++){
+                if(hash.find(s[i]) != hash.end()){
+                    result = max(result,current);
+                    current = min(i-hash[s[i]],current+1);
+                }
+                else{
+                    current++;
+                }
+                hash[s[i]] = i;
+            }
+            return max(result,current);

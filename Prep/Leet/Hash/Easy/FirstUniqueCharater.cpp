@@ -16,7 +16,7 @@ public:
             hashmap[c]++; 
         }
        
-        
+        // First occurence of the char with one occurence
         for(int i = 0; i < s.length(); i++){
             if(hashmap[s[i]] == 1){
                 return i;

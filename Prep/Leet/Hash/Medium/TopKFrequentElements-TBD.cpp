@@ -21,12 +21,15 @@ public:
 
         vector<pair<int, int>> list; 
 
+        // O(n)
         for(auto item : hashmap){
             list.push_back(make_pair(item.first, item.second));
         }
 
+        // O(n log(n))
         sort(list.begin(), list.end(), compare);
-
+        
+        // O(n)
         int top_k = k, i = 0;
         vector<int> result; 
         while(top_k){

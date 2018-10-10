@@ -31,6 +31,9 @@ public:
         vector<int> result; 
         while(top_k){
             result.push_back(list[i++].first);
+            if(i - 1 > 0 && i < list.size() && list[i - 1] != list[i]){
+                top_k--;
+            }
         }
         return result;
 };

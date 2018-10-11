@@ -6,9 +6,7 @@
     
     https://leetcode.com/problems/top-k-frequent-elements
 */
- bool compare(pair<int , int> & a, pair<int, int> & b) {
-        return a.second > b.second? true : false;
-}
+
 class Solution {
    
 public:
@@ -19,25 +17,23 @@ public:
             hashmap[item]++; 
         }
 
-        vector<pair<int, int>> list; 
-
-        // O(n)
-        for(auto item : hashmap){
-            list.push_back(make_pair(item.first, item.second));
-        }
-
-        // O(n log(n))
-        sort(list.begin(), list.end(), compare);
-        
-        // O(n)
-        int top_k = k, i = 0;
         vector<int> result; 
-        while(top_k){
-            result.push_back(list[i++].first);
-            if(i - 1 >= 0 && i < list.size() && list[i - 1] != list[i]){
-                top_k--;
-            }
+        priority_queue<int, vector<int>, greater<int>> max_k;
+
+        for(auto & items : hashmap) {
+            // Add the frequencies to the queue
+            max_k.push(items.second);
+            // Size of the min heap is maintained at equal to or below k
+            while(max_k.size() > k) 
+                max_k.pop();
         }
+
+        // Only if the item in hashmap has a frequency that is >= that  of the smallest in the k-min heap
+        for(auto & item : hashmap) {
+            if(item.second >= max_k.top()) 
+                result.push_back(item.first);
+        }
+       
         return result;
     }
 };

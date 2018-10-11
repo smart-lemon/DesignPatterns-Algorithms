@@ -6,11 +6,11 @@
     
     https://leetcode.com/problems/top-k-frequent-elements
 */
-
-class Solution {
-    bool compare(pair<int , int> & a, pair<int, int> & b) {
+ bool compare(pair<int , int> & a, pair<int, int> & b) {
         return a.second > b.second? true : false;
-    }
+}
+class Solution {
+   
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> hashmap; 
@@ -34,9 +34,10 @@ public:
         vector<int> result; 
         while(top_k){
             result.push_back(list[i++].first);
-            if(i - 1 > 0 && i < list.size() && list[i - 1] != list[i]){
+            if(i - 1 >= 0 && i < list.size() && list[i - 1] != list[i]){
                 top_k--;
             }
         }
         return result;
+    }
 };

@@ -1,6 +1,8 @@
+#include "./../../Include/Common.h"
 
 /*
-    Design a data structure that supports all insert, remove adn getRandom operations in average O(1) time.
+    Design a data structure that supports all insert(), remove() 
+    and getRandom() operations in average O(1) time.
 
     https://leetcode.com/problems/insert-delete-getrandom-o1
 */
@@ -17,8 +19,8 @@ public:
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
         if(hashmap.find(val) == hashmap.end()){
-            hashmap[val] = nums.size() - 1;
             nums.push_back(val);
+            hashmap[val] = nums.size() - 1;
             return true;
         } else {
             return false; 
@@ -29,8 +31,8 @@ public:
     bool remove(int val) {
          if(hashmap.find(val) != hashmap.end()){
             int last = nums.back();
-            hashmap[last] = hashmap[val];
-            nums[hashmap[val]] = last;
+            nums[hashmap[val]] = last; // Put last element where val used to be
+            hashmap[last] = hashmap[val]; 
             nums.pop_back();
             hashmap.erase(val);
             return true;
@@ -44,11 +46,3 @@ public:
        return nums[rand() % nums.size()];
     }
 };
-
-/**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet obj = new RandomizedSet();
- * bool param_1 = obj.insert(val);
- * bool param_2 = obj.remove(val);
- * int param_3 = obj.getRandom();
- */

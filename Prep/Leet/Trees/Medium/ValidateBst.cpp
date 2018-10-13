@@ -27,7 +27,10 @@ bool do_validate_bst( TreeNode* root,
         return true; // leaf
     }
     
-    // The root should be lesser than it's right inorder ancestor. 
+    // The root should be lesser than it's right inorder ancestor.
+    //    o    or   o              <- The right ancestor
+    //   /            > o
+    // o          o 
     if(right_ancestor && root->val >= right_ancestor->val){
         return false; 
     }
@@ -39,7 +42,6 @@ bool do_validate_bst( TreeNode* root,
     return do_validate_bst(root->left, left_ancestor, root) && 
            do_validate_bst(root->right, root, right_ancestor); 
 }
-
 
 public:
     bool isValidBST(TreeNode* root) {

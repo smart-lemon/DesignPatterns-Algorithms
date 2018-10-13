@@ -12,7 +12,6 @@ class RandomizedSet {
     unordered_map<int, int> hashmap; 
     vector<int> nums;
 public:
-    /** Initialize your data structure here. */
     RandomizedSet() {
     }
     
@@ -31,8 +30,8 @@ public:
     bool remove(int val) {
          if(hashmap.find(val) != hashmap.end()){
             int last = nums.back();
-            nums[hashmap[val]] = last; // Put last element where val used to be
-            hashmap[last] = hashmap[val]; 
+            nums[hashmap[val]] = last;     // Put last element where val used to be
+            hashmap[last] = hashmap[val];  // The address of the last element should be updated too
             nums.pop_back();
             hashmap.erase(val);
             return true;
@@ -41,7 +40,7 @@ public:
         }
     }
     
-    /** Get a random element from the set. */
+    /** Get a random element from the set. With equal probability*/
     int getRandom() {
        return nums[rand() % nums.size()];
     }

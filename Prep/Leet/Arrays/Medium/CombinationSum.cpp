@@ -2,7 +2,7 @@
 #include "./../../../../Include/Common.h"
 
 // 39. Combination Sum
-// https://leetcode.com/problems/combination-sum/description/
+// https://leetcode.com/problems/combination-sum/
 
 class Solution {
     vector<vector<int>> output;

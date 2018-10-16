@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/add-digits/description/ 
+// https://leetcode.com/problems/add-digits/ 
 
 class Solution {
 public:

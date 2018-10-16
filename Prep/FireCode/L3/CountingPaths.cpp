@@ -1,7 +1,7 @@
 #include "./../../../Include/Common.h"
 
 // 62. Unique Paths
-// https://leetcode.com/problems/unique-paths/description/ 
+// https://leetcode.com/problems/unique-paths/ 
 
 int count_paths(int rows, int cols)
 {

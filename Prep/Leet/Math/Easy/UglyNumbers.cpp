@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/ugly-number/description/
+// https://leetcode.com/problems/ugly-number/
 
 class Solution {
 public:

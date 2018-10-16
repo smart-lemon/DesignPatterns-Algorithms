@@ -1,7 +1,7 @@
 
 /*
     876.
-    https://leetcode.com/problems/middle-of-the-linked-list/description/
+    https://leetcode.com/problems/middle-of-the-linked-list/
 */
 
 struct ListNode {

@@ -1,6 +1,6 @@
 #include "./../../../../Include/Common.h"
 
-// 26: https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+// 26: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 class Solution {
 public:

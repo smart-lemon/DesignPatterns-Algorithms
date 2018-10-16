@@ -7,7 +7,7 @@ struct ListNode {
 
 /*
     206.
-    https://leetcode.com/problems/reverse-linked-list/description/
+    https://leetcode.com/problems/reverse-linked-list/
 */
 class Solution {
 public:

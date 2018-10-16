@@ -3,7 +3,7 @@
 /*
     387. First Unique Character in a String
 
-    https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/
+    https://leetcode.com/problems/minimum-index-sum-of-two-lists/
 */
 
 class Solution {

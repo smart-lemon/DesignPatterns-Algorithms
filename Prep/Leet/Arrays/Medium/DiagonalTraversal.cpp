@@ -2,7 +2,7 @@
 
 /* 
     498. Diagonal traversal 
-    https://leetcode.com/problems/diagonal-traverse/description/ 
+    https://leetcode.com/problems/diagonal-traverse/ 
 */
 
 

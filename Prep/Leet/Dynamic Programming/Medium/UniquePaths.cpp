@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 
 /*
-    https://leetcode.com/problems/unique-paths/description/
+    https://leetcode.com/problems/unique-paths/
 */
 
 class Solution {

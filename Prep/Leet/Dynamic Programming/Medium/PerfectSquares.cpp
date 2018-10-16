@@ -1,6 +1,6 @@
 #include "./../../../../Include/Common.h"
 
-// https://leetcode.com/problems/perfect-squares/description/
+// https://leetcode.com/problems/perfect-squares/
 
 
 class Solution {

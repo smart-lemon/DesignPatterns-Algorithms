@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 
 /*
-    https://leetcode.com/problems/longest-valid-parentheses/description/
+    https://leetcode.com/problems/longest-valid-parentheses/
 */
 
 class Solution {

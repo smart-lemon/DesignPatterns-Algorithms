@@ -1,6 +1,6 @@
 /*
     237. 
-     https://leetcode.com/problems/delete-node-in-a-linked-list/description/
+     https://leetcode.com/problems/delete-node-in-a-linked-list/
 */
 struct ListNode {
     int val;

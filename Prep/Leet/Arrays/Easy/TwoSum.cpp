@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-// https://leetcode.com/problems/two-sum/description/
+// https://leetcode.com/problems/two-sum/
 
 using namespace std;
 

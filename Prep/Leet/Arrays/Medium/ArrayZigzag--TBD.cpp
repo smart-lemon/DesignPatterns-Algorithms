@@ -1,6 +1,6 @@
 #include "./../../../../Include/Common.h"
 
-// https://leetcode.com/problems/zigzag-conversion/description/
+// https://leetcode.com/problems/zigzag-conversion/
 class Solution {
 public:
     string convert(string s, int numRows) {

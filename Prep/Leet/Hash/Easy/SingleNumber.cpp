@@ -4,7 +4,7 @@
     136. Single Number : Every element appears twice except for one. 
     Find that single one.
 
-    https://leetcode.com/problems/single-number/description/    
+    https://leetcode.com/problems/single-number/    
 */
 
 class Solution {

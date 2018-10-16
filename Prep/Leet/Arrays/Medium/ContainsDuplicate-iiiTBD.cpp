@@ -1,6 +1,6 @@
 #include "./../../../../Include/Common.h"
 
-// https://leetcode.com/problems/contains-duplicate-iii/description/
+// https://leetcode.com/problems/contains-duplicate-iii/
 
 class Solution {
     

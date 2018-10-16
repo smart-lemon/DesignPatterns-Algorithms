@@ -19,40 +19,36 @@ struct TreeNode {
 
 class Solution {
     TreeNode *findInorderSuccessor(TreeNode *node) {
-        while(node->right){
-            node = node->right;
+        while(node->left){
+            node = node->left;
         } 
         return node;
     }
-
-    void deleteUtil(TreeNode *root, int key) {
-        if(!root)
-            return;
-        if(root->val == key){
-            if(root->left == nullptr && root->right == nullptr) {
-                root = nullptr;
-                return;
-            } else if(root->left && root->right) {
-                TreeNode *successor = findInorderSuccessor(root->right);
-                if(successor != nullptr){
-                    root->val = successor->val;
-                    successor = nullptr;
-                }
-            } else {
-                 if(root->left){
-                    root = root->left;
-                    root->left = nullptr;
-                }  else {
-                    root = root->right;
-                    root->right = nullptr;
-                }
+    TreeNode* deleteUtil(TreeNode* root, int key) {
+        if (!root) return root;    
+        if (root->val > key)
+            root->left = deleteUtil(root->left, key);
+        else if (root->val < key)
+            root->right = deleteUtil(root->right, key);
+        else {
+            if (!root->left) {
+                TreeNode* right = root->right;
+                delete root;
+                return right;
             }
-        } else {
-            deleteUtil(root->right, key);
-            deleteUtil(root->left, key);
+            else if (!root->right) {
+                TreeNode* left = root->left;
+                delete root;
+                return left;
+            }
+            else {
+                TreeNode* successor = findInorderSuccessor(root->right); // find the inorder successor (the minimal node in right subtree)
+                root->val = successor->val;
+                root->right = deleteNode(root->right, successor->val);
+            }
         }
+        return root;
     }
-
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
         deleteUtil(root, key);

@@ -18,8 +18,44 @@ struct TreeNode {
 
 
 class Solution {
+    TreeNode *findInorderSuccessor(TreeNode *node) {
+        while(node->right){
+            node = node->right;
+        } 
+        return node;
+    }
+
+    void deleteUtil(TreeNode *root, int key) {
+        if(!root)
+            return;
+        if(root->val == key){
+            if(root->left == nullptr && root->right == nullptr) {
+                root = nullptr;
+                return;
+            } else if(root->left && root->right) {
+                TreeNode *successor = findInorderSuccessor(root->right);
+                if(successor != nullptr){
+                    root->val = successor->val;
+                    successor = nullptr;
+                }
+            } else {
+                 if(root->left){
+                    root = root->left;
+                    root->left = nullptr;
+                }  else {
+                    root = root->right;
+                    root->right = nullptr;
+                }
+            }
+        } else {
+            deleteUtil(root->right, key);
+            deleteUtil(root->left, key);
+        }
+    }
+
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
-        
+        deleteUtil(root, key);
+        return root;
     }
 };

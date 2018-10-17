@@ -24,6 +24,7 @@ class Solution {
         } 
         return node;
     }
+    
     TreeNode* deleteUtil(TreeNode* root, int key) {
         if (!root) return root;    
         if (root->val > key)
@@ -42,7 +43,8 @@ class Solution {
                 return left;
             }
             else {
-                TreeNode* successor = findInorderSuccessor(root->right); // find the inorder successor (the minimal node in right subtree)
+                // Find the inorder successor (the minimal node in right subtree)
+                TreeNode* successor = findInorderSuccessor(root->right); 
                 root->val = successor->val;
                 root->right = deleteNode(root->right, successor->val);
             }

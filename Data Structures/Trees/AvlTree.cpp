@@ -38,10 +38,9 @@ AvlNode *singleRotateRight(AvlNode *X) {
     X->left = newX->right;
     newX->right = X;
 
-    // Reconfigure the heights
-    
+    // Reconfigure the heights (first X then newX)    
     X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
-    newX->height = max(getHeight(newX->left), getHeight(X->height)) + 1;
+    newX->height = max(getHeight(newX->left), getHeight(X)) + 1;
     return newX;
 }
 
@@ -80,6 +79,19 @@ AvlNode *singleRotateRight(AvlNode *X) {
                   40    <- Newly added
 */ 
 
+
+
+
+AvlNode *singleRotateLeft(AvlNode *X) {
+    AvlNode *newX = X->right;
+    X->right = newX->left;
+    newX->left = X;
+
+    // Reconfigure the heights (first X then newX)    
+    X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
+    newX->height = max(getHeight(newX->right), getHeight(X)) + 1;
+    return newX;
+}
 
 
 /*

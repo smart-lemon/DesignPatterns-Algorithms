@@ -1,5 +1,12 @@
 #include "./../../Include/CommonInc.h"
 
+#include<iostream> 
+using namespace std;
+
+/*
+    Note: This code isnt working yet. Debug tomorrow
+*/
+
 class AvlNode {
     
     public:
@@ -16,14 +23,6 @@ int getHeight(AvlNode *node) {
         node->height;
     }
 }
-
-
-int getBalance(AvlNode * root){
-    if (root == nullptr) 
-        return 0; 
-    return getHeight(root->left) - getHeight(root->right);
-}
-
 
 AvlNode* newNode(int key) 
 { 
@@ -97,7 +96,7 @@ struct AvlNode *singleRotateRight(AvlNode *y)
                 30                                      20  40
                   \
                   40    <- Newly added
-
+    Generically :
        x                               y
      /  \                            /   \ 
     T1   y     Left Rotate(x)       x      z
@@ -164,6 +163,15 @@ AvlNode *doubleRotateLeftThenRight(AvlNode *Z) {
                /                                             \  
               30      <- Newly added                          40
 */ 
+
+
+
+
+int getBalance(AvlNode * root){
+    if (root == nullptr) 
+        return 0; 
+    return getHeight(root->left) - getHeight(root->right);
+}
 
 
 AvlNode *doubleRotateRightThenLeft(AvlNode *Z) {

@@ -9,13 +9,33 @@ class AvlNode {
         int height;
 };
 
-int getHeight(AvlTree *node) {
+int getHeight(AvlNode *node) {
     if(!node) {
-        return -1;
+        return 0;
     } else {
         node->height;
     }
 }
+
+
+int getBalance(AvlNode * root){
+    if (root == nullptr) 
+        return 0; 
+    return getHeight(root->left) - getHeight(root->right);
+}
+
+
+AvlNode* newNode(int key) 
+{ 
+    AvlNode* node = new AvlNode; 
+    node->data   = key; 
+    node->left   = nullptr; 
+    node->right  = nullptr; 
+    node->height = 1;  // new node is initially added at leaf 
+
+    return(node); 
+} 
+
 
 /*
     Left Left case
@@ -27,25 +47,40 @@ int getHeight(AvlTree *node) {
              /                                           /
             20                                          15 
            /  \                                       /    \
-          15   25          Right Rotate at 15        10     20
+          15   25          Right Rotate at 20        10     20
          /  \                      ->               /  \   /  \
         10  18                                    -10   5 18  25
        /
     -10  <- Newly added
+
+    Generically : T1, T2, T3 and T4 are subtrees.
+           y                                      x 
+          / \                                   /   \
+         x   T4      Right Rotate (z)          z      y
+        / \          - - - - - - - - ->      /  \    /  \ 
+       z   T3                               T1  T2  T3  T4
+      / \
+    T1   T2
+
 */ 
 
 
-AvlNode *singleRotateRight(AvlNode *X) {
-    AvlNode *newX = X->left;
-    X->left = newX->right;
-    newX->right = X;
-
-    // Reconfigure the heights (first X then newX)    
-    X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
-    newX->height = max(getHeight(newX->left), getHeight(X)) + 1;
-    return newX;
-}
-
+struct AvlNode *singleRotateRight(AvlNode *y) 
+{ 
+    AvlNode *x = y->left; 
+    AvlNode *T2 = x->right; 
+  
+    // Perform rotation 
+    x->right = y; 
+    y->left = T2; 
+  
+    // Update heights 
+    y->height = max(getHeight(y->left), getHeight(y->right)) + 1; 
+    x->height = max(getHeight(x->left), getHeight(x->right)) + 1; 
+  
+    // Return new root 
+    return x; 
+} 
 
 
 /*
@@ -62,21 +97,35 @@ AvlNode *singleRotateRight(AvlNode *X) {
                 30                                      20  40
                   \
                   40    <- Newly added
+
+       x                               y
+     /  \                            /   \ 
+    T1   y     Left Rotate(x)       x      z
+        /  \   - - - - - - - ->    / \    / \
+       T2   z                     T1  T2 T3  T4
+           / \
+          T3  T4
+
 */ 
 
 
 
-
-AvlNode *singleRotateLeft(AvlNode *X) {
-    AvlNode *newX = X->right;
-    X->right = newX->left;
-    newX->left = X;
-
-    // Reconfigure the heights (first X then newX)    
-    X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
-    newX->height = max(getHeight(newX->right), getHeight(X)) + 1;
-    return newX;
-}
+AvlNode *singleRotateLeft(AvlNode *x) 
+{ 
+    AvlNode *y = x->right; 
+    AvlNode *T2 = y->left; 
+  
+    // Perform rotation 
+    y->left = x; 
+    x->right = T2; 
+  
+    //  Update heights 
+    x->height = max(getHeight(x->left), getHeight(x->right)) + 1; 
+    y->height = max(getHeight(y->left), getHeight(y->right)) + 1; 
+  
+    // Return new root 
+    return y; 
+} 
 
 /*
     Left Right case
@@ -95,7 +144,7 @@ AvlNode *singleRotateLeft(AvlNode *X) {
 */ 
 
 AvlNode *doubleRotateLeftThenRight(AvlNode *Z) {
-    Z->left = singleRotateLeft(Z->left)
+    Z->left = singleRotateLeft(Z->left);
 
     return singleRotateRight(Z);
 }
@@ -118,45 +167,60 @@ AvlNode *doubleRotateLeftThenRight(AvlNode *Z) {
 
 
 AvlNode *doubleRotateRightThenLeft(AvlNode *Z) {
-    Z->right = singleRotateRight(Z->left)
-
+    Z->right = singleRotateRight(Z->left);
     return singleRotateLeft(Z);
 }
 
-
-AvlNode *avlInsert(AvlNode *root, int data){
-    if(!root) {
-        root = new AvlNode;
-        root->left = root->right = nullptr;
-        root->data = data; 
-        root->height = 0;
-    } else {
-        if(data < root->data) {
-            root->left = avlInsert(root->left, data);
-
-            // Inserted in the left subtree. Check for imbalance
-            if(getHeight(root->left) - getHeight(root->right) == 2){
-                if(data < root->left->data)
-                    root = singleRotateRight(root);
-                else 
-                    root = doubleRotateLeftThenRight(root);
-            }
-        } else if(data > root->data){
-            root->right = avlInsert(root->right, data);
-            
-            // Inserted in the right subtree. Check for imbalance
-            if(getHeight(root->right) - getHeight(root->left) == 2){
-                if(data > root->right->data)
-                    root = singleRotateLeft(root);
-                else 
-                    root = doubleRotateRightThenLeft(root);
-            }
-        }
-        // Else the number is already on the tree. Now update the root's height 
-        root->height = max(getHeight(root->left), getHeight(root->right)) + 1;
-    }
-    return root;
-}
+AvlNode* avlInsert(AvlNode* node, int key) { 
+    /* 1.  Perform the normal BST insertion */
+    if (node == nullptr) 
+        return(newNode(key)); 
+  
+    if (key < node->data) 
+        node->left  = avlInsert(node->left, key); 
+    else if (key > node->data) 
+        node->right = avlInsert(node->right, key); 
+    else // Equal keys are not allowed in BST 
+        return node; 
+  
+    /* 2. Update height of this ancestor node */
+    node->height = 1 + max(getHeight(node->left), 
+                           getHeight(node->right)); 
+  
+    /* 3. Get the balance factor of this ancestor 
+          node to check whether this node became 
+          unbalanced 
+    */
+    int balance = getBalance(node); 
+  
+    // If this node becomes unbalanced, then 
+    // there are 4 cases 
+  
+    // Left Left Case 
+    if (balance > 1 && key < node->left->data) 
+        return singleRotateRight(node); 
+  
+    // Right Right Case 
+    if (balance < -1 && key > node->right->data) 
+        return singleRotateLeft(node); 
+  
+    // Left Right Case 
+    if (balance > 1 && key > node->left->data) 
+    { 
+        node->left =  singleRotateLeft(node->left); 
+        return singleRotateRight(node); 
+    } 
+  
+    // Right Left Case 
+    if (balance < -1 && key < node->right->data) 
+    { 
+        node->right = singleRotateRight(node->right); 
+        return singleRotateLeft(node); 
+    } 
+  
+    /* return the (unchanged) node pointer */
+    return node; 
+} 
 
 void printAvlTree(AvlNode *root, int level) {
     if(root == nullptr)
@@ -175,24 +239,47 @@ void printAvlTree(AvlNode *root, int level) {
 
 }
 
-int testAvl() 
-{
-    AvlNode *root = avlInsert(nullptr, 20);
 
-    root = avlInsert(root, 15);
-    printAvlTree(root, 0);
+void preOrder(AvlNode *root) 
+{ 
+    if(root != nullptr) 
+    { 
+        cout <<  root->data << " "; 
+        preOrder(root->left); 
+        preOrder(root->right); 
+    } 
+} 
+  
 
-    root = avlInsert(root, 25);    
-    printAvlTree(root, 0);
 
-    root = avlInsert(root, 10);    
-    printAvlTree(root, 0);
+int testAvl() {
+    AvlNode *root = nullptr;
 
-    root = avlInsert(root, 18);    
-    printAvlTree(root, 0);
+    root = avlInsert(root, 10); preOrder(root);
+    cout << endl;
+    root = avlInsert(root, 20);  preOrder(root);
+    cout << endl;
+    root = avlInsert(root, 30);  preOrder(root);
+    cout << endl;
+    root = avlInsert(root, 40);  preOrder(root);
+    cout << endl;
+    root = avlInsert(root, 50);  preOrder(root);
+    cout << endl;
+    root = avlInsert(root, 25);  preOrder(root);
+    cout << endl;
 
-    root = avlInsert(root, -10);    
-    printAvlTree(root, 0);
+  /* 
+    The constructed AVL Tree would be 
+            30 
+           /  \ 
+         20   40 
+        /  \     \ 
+       10  25    50 
+
+
+    Preorder 30 20 10 25 40 50 
+
+  */
 
     return 0;
 }

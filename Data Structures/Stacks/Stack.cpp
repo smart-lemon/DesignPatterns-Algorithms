@@ -54,6 +54,5 @@ int testStacks()
 {
     Stack stack;
 
-
     return 0;
 }

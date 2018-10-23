@@ -1,13 +1,12 @@
 #include "./../../../../Include/Common.h"
-#include <iostream>
 
-using namespace std;
 
-// https://leetcode.com/problems/minimum-depth-of-binary-tree/
 
-/**
- * Find minimum depth of a subtree
- */
+/*
+    Find minimum depth of a Binary Tree
+
+    // https://leetcode.com/problems/minimum-depth-of-binary-tree/
+*/
 
 struct TreeNode {
     int val;
@@ -41,9 +40,10 @@ class Solution {
     }
 public:
     int minDepth(TreeNode* root) {
-        int left = 0; int right = 0;
+
         if(root == nullptr)
            return 0;
+        
         return minDepthUtil(root);
     }
 };

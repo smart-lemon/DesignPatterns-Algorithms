@@ -39,10 +39,13 @@ public:
     }
     
     TreeNode* invertTree(TreeNode* root) {
-        if(root == nullptr)
+        if(!root)
             return nullptr;
+            
         TreeNode *replica = createNode(root->val);
+
         invertTreeUtil(root, replica);
+
         return replica;
     }
 };

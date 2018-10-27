@@ -21,6 +21,10 @@ int isPrime(int n) {
      return 1;
 }
 
+/*
+
+*/
+
 
 vector<int> Solution :: primesum(int n) {
     for(int i = 1; i < n; i++ ){

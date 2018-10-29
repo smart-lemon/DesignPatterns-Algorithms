@@ -1,11 +1,9 @@
 #include "./../../../../Include/Common.h"
 
-
-
 /*
     Find minimum depth of a Binary Tree
 
-    // https://leetcode.com/problems/minimum-depth-of-binary-tree/
+    https://leetcode.com/problems/minimum-depth-of-binary-tree/
 */
 
 struct TreeNode {

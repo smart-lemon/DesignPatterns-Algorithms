@@ -7,30 +7,25 @@ typedef struct TreeNode;
     https://leetcode.com/problems/balanced-binary-tree
 */
 
+typedef struct TreeNode;
+
 class Solution {
-    int isBalancedUtil(TreeNode* root, int min, int max) {
+    int isBalancedUtil(TreeNode* root) {
         if(root == nullptr)
             return 0;
 
-        if(root->val < min || root->val > max)
-            return -1;
-
-        int leftHt = isBalancedUtil(root->left, min, root->val);
-        int rightHt = isBalancedUtil(root->right, root->val, max);
-       
-
+        int leftHt = isBalancedUtil(root->left);
+        int rightHt = isBalancedUtil(root->right);
         if(leftHt == -1 || rightHt == -1)
-            return  -1; 
-        else {
-            if(abs(leftHt - rightHt) <= 1)
+            return -1;
+        if(abs(leftHt - rightHt) <= 1)
                 return leftHt > rightHt? leftHt + 1: rightHt + 1;
             else 
                 return -1;
-        }
     }
 public:
     bool isBalanced(TreeNode* root) {
-        return isBalancedUtil(root, INT_MIN, INT_MAX) != -1;
+        return isBalancedUtil(root) != -1;
     }
 };
 

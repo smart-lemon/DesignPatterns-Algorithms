@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int testNaryTree() 
-{
+int testBst(){
    
    return 0;
 }

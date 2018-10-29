@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int testBst() 
-{
+int testBinaryTree() {
    
    return 0;
 }

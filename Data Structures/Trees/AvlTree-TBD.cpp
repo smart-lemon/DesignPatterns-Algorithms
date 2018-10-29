@@ -191,13 +191,16 @@ AvlNode* avlInsert(AvlNode* node, int key) {
     else // Equal keys are not allowed in BST 
         return node; 
   
-    /* 2. Update height of this ancestor node */
+    /* 
+        2. Update height of this ancestor node 
+    */
     node->height = 1 + max(getHeight(node->left), 
                            getHeight(node->right)); 
   
-    /* 3. Get the balance factor of this ancestor 
-          node to check whether this node became 
-          unbalanced 
+    /* 
+        3. Get the balance factor of this ancestor 
+           node to check whether this node became 
+           unbalanced 
     */
     int balance = getBalance(node); 
   

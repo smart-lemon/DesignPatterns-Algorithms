@@ -16,10 +16,10 @@ class Solution {
         if(low < high){
             int mid = (low + high)/2;
             TreeNode * midNode = new TreeNode(nums[mid]);
-            if(low < mid - 1){
+            if(low <= mid - 1){
                 midNode->left = createSubTree(nums, low, mid - 1);
             } 
-            if(mid + 1 > high){
+            if(mid + 1 <= high){
                 midNode->right = createSubTree(nums, mid + 1, high);
             }
             return midNode;
@@ -36,8 +36,6 @@ public:
         return dummy->left;
     }
 };
-
-
 
 struct TreeNode {
     int val;

@@ -19,9 +19,9 @@ public:
             return "";
         
         for(int list = 0; list < number_of_words; list++){
-            mini = min(mini, (int)strs[list].size());
+            mini = min(mini, (int) strs[list].size());
         }
-        
+
         string res = "";
         // Compare the prefixes
         for(int i = 0; i < mini; i++){

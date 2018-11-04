@@ -53,8 +53,7 @@ public:
             if ((i < m) && (haystack[i] != needle[j])) {
                 if (j) {
                     j = lps[j - 1];
-                }
-                else {
+                } else {
                     i++;
                 }
             }

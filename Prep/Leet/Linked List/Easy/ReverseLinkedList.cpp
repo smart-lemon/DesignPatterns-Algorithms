@@ -1,12 +1,8 @@
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
- };
+struct ListNode;
 
 /*
-    206.
+    206. Revese a linked list
+
     https://leetcode.com/problems/reverse-linked-list/
 */
 class Solution {
@@ -38,3 +34,10 @@ public:
         return node;
     }
 };
+
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+ };

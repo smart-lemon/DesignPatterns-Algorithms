@@ -5,9 +5,9 @@
 #include <iostream>
 
 using namespace std;
-
-// https://leetcode.com/problems/set-mismatch/
-
+/*
+    https://leetcode.com/problems/set-mismatch/
+*/
 bool comparator (int i,int j) { return (i < j); }
 
 class Solution {
@@ -43,8 +43,7 @@ class Solution {
                 output.push_back(missing); // Missing number was at the start 
         } else {
              output.push_back(missing);
-        }
-            
+        }  
         return output;
     }
 };

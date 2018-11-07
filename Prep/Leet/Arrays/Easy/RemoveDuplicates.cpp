@@ -1,7 +1,9 @@
 #include "./../../../../Include/Common.h"
 
-// 26: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-
+/* 
+    26:  Remove duplicates
+    https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+*/
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {

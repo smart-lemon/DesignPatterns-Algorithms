@@ -1,8 +1,4 @@
 #include "./../../../Include/Common.h"
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <vector>
 
 /*
     https://leetcode.com/problems/two-sum/
@@ -17,7 +13,6 @@ public:
         for(int i = 0; i < nums.size(); i++){
             for(int j = i + 1; j < nums.size(); j++){
                 if(nums[i] + nums[j] == target){
-                    cout << nums[i] << " " << nums[j];
                     ret[0] = i;
                     ret[1] = j;
                     return ret;

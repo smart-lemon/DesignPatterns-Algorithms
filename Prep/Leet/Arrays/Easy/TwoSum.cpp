@@ -3,7 +3,6 @@
 /*
     https://leetcode.com/problems/two-sum/
 */
-using namespace std;
 
 class Solution {
 public:

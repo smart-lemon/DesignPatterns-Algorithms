@@ -2,8 +2,10 @@
 
 /*
     Contains Duplicate - II
+    
     https://leetcode.com/problems/contains-duplicate-ii/
 */
+
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
@@ -18,7 +20,7 @@ public:
 
     bool containsNearbyDuplicateFaster(vector<int>& nums, int k)
     {
-       unordered_set<int> s;
+       std::unordered_set<int> s;
        
        if (k <= 0) return 
             false;

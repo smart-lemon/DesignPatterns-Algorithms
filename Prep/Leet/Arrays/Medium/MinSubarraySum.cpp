@@ -9,8 +9,7 @@
 class Solution {
 public:
     
-    int minSubArrayLen(int s, vector<int>& nums)
-    {
+    int minSubArrayLen(int s, vector<int>& nums) {
         int n = nums.size();
         int ans = INT_MAX;
         int left = 0;
@@ -24,4 +23,4 @@ public:
         }
         return (ans != INT_MAX) ? ans : 0;
     }
-};
+}

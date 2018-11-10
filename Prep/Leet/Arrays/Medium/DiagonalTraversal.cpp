@@ -1,7 +1,8 @@
 #include "./../../../../Include/Common.h"
 
 /* 
-    498. Diagonal traversal 
+    498. Diagonal traversal
+
     https://leetcode.com/problems/diagonal-traverse/ 
 */
 
@@ -49,7 +50,7 @@ public:
                     r++;
                     c--;
                 }
-                r--; c++; // // Compenstaion for overshooting
+                r--; c++; // Compenstaion for overshooting
 
                 // Move down if r < R - 1 else move right 
                 (r < R - 1) ? r++ : c++;

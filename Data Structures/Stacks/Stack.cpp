@@ -50,8 +50,7 @@ class Stack {
     }
 };
 
-int testStacks() 
-{
+int testStacks() {
     Stack stack;
 
     return 0;

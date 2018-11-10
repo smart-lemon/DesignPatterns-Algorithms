@@ -7,7 +7,7 @@
 
 class Solution {
     
-    int partition(vector<int> & nums, int l, int h, int & ans, int k){
+    int partition(vector<int> & nums, int l, int h, int & ans, int k) {
         int partition_by = nums[l], p_index = l; 
         int left = l, right = h;
         
@@ -17,16 +17,16 @@ class Solution {
             while(right >= l && nums[right] > partition_by)
                 right++; 
             
-            swap(nums[left], nums[right]); 
+            swap(nums[left], nums[right]);
         }
-        swap(nums[p_index], nums[right]); 
+        swap(nums[p_index], nums[right]);
         
         if(right == k)
             ans = nums[k];
         return right; 
     }
     
-    void kthSort(vector<int>& nums, int l, int h, int & ans, int k){
+    void kthSort(vector<int>& nums, int l, int h, int & ans, int k) {
         while(l < h) {
             int index = partition(nums, l, h, ans, k);
             if(ans != -1)
@@ -41,6 +41,5 @@ public:
         int ans = -1;
         kthSort(nums, 0, nums.size() - 1, ans, k);
         return ans; 
-        
     }
 };

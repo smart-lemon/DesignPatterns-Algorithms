@@ -23,7 +23,7 @@ public:
 
             while(low < high) {
                 
-                mid = (low + high)/2; 
+                mid = (low + high) / 2; 
 
                 if(target == matrix[i][mid]){
                     // found

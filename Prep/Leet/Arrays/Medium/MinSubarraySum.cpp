@@ -5,7 +5,8 @@
     Find the minimal length of a contiguous subarray of which the sum ≥ s. 
 
     https://leetcode.com/problems/minimum-size-subarray-sum
-*/ 
+*/
+
 class Solution {
 public:
     

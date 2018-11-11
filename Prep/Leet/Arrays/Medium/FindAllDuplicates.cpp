@@ -1,5 +1,6 @@
 #include "./../../../../Include/Common.h"
 
+using namespace std;
 
 class Solution {
 public:

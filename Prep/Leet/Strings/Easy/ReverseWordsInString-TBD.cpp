@@ -9,29 +9,18 @@
 class Solution {
 public:
     void reverseWords(string &s) {
-        int n = s.length(); 
-        int right = n - 1, left = n - 2;
-
-        // Handle corner cases 
-
-        if(left < 0)
-            return;
-
-        string res = "";
-        while(left >= 0){
-            
-            while(left > 0 && s[left] != ' ')
-                left--;
-            
-            if(left >= 0) {
-                res += s.substr(left + 1, right - left); 
-                res += " ";
+        string result;
+        int left = 0;
+        for (int right = 0; right < s.size(); right++){
+            if (s[right] == ' ') {
+                if (right > left )
+                    result = s.substr(left, right - left) + " " + result ;
+                left = right + 1;
+            } else if (right == s.size() - 1) {
+                result = s.substr(left, s.size() - left) + " " + result;
             }
-
-            left -= 2;
-            right = left + 1;
         }
-        
-        s = res;
+        // To avoid the " " at the end
+        s = result.substr(0, result.size() - 1) ;
     }
 };

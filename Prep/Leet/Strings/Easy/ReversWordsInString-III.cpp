@@ -1,10 +1,11 @@
 #include "./../../../../Include/Common.h"
 
 /*
-      Reverse Words in a String III:
-      Reverse the characters in a word within a sentence while still preserving whitespace 
-      and initial word 
+    557. Reverse Words in a String III:
+    Reverse the characters in a word within a sentence while still preserving whitespace 
+    and initial word 
 
+    https://leetcode.com/problems/reverse-words-in-a-string-iii/
 */
 class Solution {
 public:
@@ -18,7 +19,8 @@ public:
 
             while(right < sz && s[right] != ' ')
                 right++;
-                
+
+            // [left, right)  -> Not including right!
             reverse(s.begin() + left, s.begin() + right);
             
             right++;
@@ -30,7 +32,6 @@ public:
         return s;
     }
 };
-
 
 
 /*

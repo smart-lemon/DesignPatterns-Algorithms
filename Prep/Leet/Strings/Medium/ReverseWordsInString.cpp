@@ -24,9 +24,9 @@ public:
         s = result.substr(0, result.size() - 1) ;
     }
 
-    /////////////////////////////////////////////////////////
-    // Alternate solution 
-    /////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    // Alternatively : reverse words one by one and reverse the whole string in the end
+    ///////////////////////////////////////////////////////////////////////////////////
 
     // function to reverse any part of string from i to j (just one word or entire string)
     void reverseStr(string &s, int i, int j){
@@ -38,29 +38,19 @@ public:
     }
     
     void reverseWords(string &s) {
-        
         int i = 0, j = 0;
-        int l = 0;
-        int len = s.length();
-        int wordcount = 0;
-        
-        while(true){
-            while(i < len && s[i] == ' ') 
-                i++;  // skip spaces in front of the word
-            if(i == len) 
-                break;
-            if(wordcount) 
+        int sz = s.size();
+        while (i < sz) {
+            while (i < sz && s[i] == ' ') 
+                i++; // i is the start of the word
+            if (i < sz && j > 0)
                 s[j++] = ' ';
-            l = j;
-            while(i < len && s[i] != ' ') 
-            {
-                s[j] = s[i]; 
-                j++; i++;
-            } 
-            reverseStr(s, l, j - 1);                // reverse word in place
-            wordcount++;            
-        }        
-        s.resize(j); // resize result string
-        reverseStr(s, 0, j - 1); // reverse whole string
+            int start = j;
+            while (i < sz && s[i] != ' ')
+                s[j++] = s[i++];
+            reverse(s.begin() + start, s.begin() + j);
+        }
+        s.resize(j);
+        reverse(s.begin(), s.end());
     }
 };

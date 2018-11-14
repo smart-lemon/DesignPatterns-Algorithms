@@ -10,24 +10,29 @@
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int zeroCnt = 0;
         int left = 0, right = 0, sz = nums.size();
 
         while(true) {
+            // left points to next occurance of zero
             while(left < sz && nums[left] != 0){
                 left++;
             }
 
+            // right points to next occurance of non-zero
             while(right < sz && nums[right] == 0){
                 right++;
             }
 
-            nums[left] = nums[right];
-            nums[right] = 0;
-            left++;
-
-            if(right == sz -1)
+            if(right >= sz || left >= sz)
                 break;
+
+            if( left <= right ){
+                nums[left] = nums[right];
+                nums[right] = 0;
+                left++;
+            } else {
+                right = left;
+            }
         }
     }
 };

@@ -1,5 +1,9 @@
-// https://leetcode.com/problems/ugly-number/
 
+/*
+    Ugly Number :
+    
+    https://leetcode.com/problems/ugly-number/
+*/
 class Solution {
 public:
     bool isUgly(int num) {

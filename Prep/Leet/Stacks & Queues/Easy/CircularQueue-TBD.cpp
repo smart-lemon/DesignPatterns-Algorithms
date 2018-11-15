@@ -46,7 +46,6 @@ public:
     int Front() {
         if(isEmpty())
             return -1;
-        
         return queue[front];
     }
     
@@ -68,7 +67,7 @@ public:
     
     /** Checks whether the circular queue is full or not. */
     bool isFull() {
-        if(!isEmpty() && ((front + 1) % k) == rear)
+        if(!isEmpty() && ((rear + 1) % k) == front)
             return true;
         return false;
     }

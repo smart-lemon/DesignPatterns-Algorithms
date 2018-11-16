@@ -4,26 +4,25 @@
 class MyCircularQueue {
     vector<int> queue;
     int front, rear;
-    int k;
+    int size;
 
 public:
     /** Initialize your data structure here. Set the size of the queue to be k. */
     MyCircularQueue(int k) {
         queue.resize(k);
         front = rear = -1; 
-        this->k = k;
+        size = k;
     }
     
     /** Insert an element into the circular queue. Return true if the operation is successful. */
     bool enQueue(int value) {
-        cout << "enque() " << front << " " << rear << endl;
 
         if(isEmpty()){
             front = rear = 0;
         } else {
             if(isFull())
                 return false;
-            rear = (rear + 1) % k;
+            rear = (rear + 1) % size;
         }
         queue[rear] = value;
         return true;
@@ -38,7 +37,7 @@ public:
             if(front == rear){
                 front = rear = -1; 
             } else {
-                 front = (front + 1) % k;
+                 front = (front + 1) % size;
             }           
         }
         return true;
@@ -70,7 +69,7 @@ public:
     
     /** Checks whether the circular queue is full or not. */
     bool isFull() {
-        if(!isEmpty() && ((rear + 1) % k) == front)
+        if(!isEmpty() && ((rear + 1) % size) == front)
             return true;
         return false;
     }

@@ -16,6 +16,8 @@ public:
     
     /** Insert an element into the circular queue. Return true if the operation is successful. */
     bool enQueue(int value) {
+        cout << "enque() " << front << " " << rear << endl;
+
         if(isEmpty()){
             front = rear = 0;
         } else {
@@ -28,16 +30,16 @@ public:
     }
     
     /** Delete an element from the circular queue. Return true if the operation is successful. */
-    bool deQueue() {
-        int value;
+   bool deQueue() {
+
         if(isEmpty()){
             return false;
-        } else {            
-            value = queue[front];
-            front = (front + 1) % k;
+        } else {
             if(front == rear){
                 front = rear = -1; 
-            }
+            } else {
+                 front = (front + 1) % k;
+            }           
         }
         return true;
     }
@@ -46,6 +48,7 @@ public:
     int Front() {
         if(isEmpty())
             return -1;
+        
         return queue[front];
     }
     

@@ -12,9 +12,9 @@ void print1DArray(int *arr, int n){
 }
 
 
-void print1DArray(int *arr, int low, int high){
+void print1DArray(int *arr, int from, int to){
 
-	for(int i = low; i <= high; i++) {
+	for(int i = from; i <= to; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;

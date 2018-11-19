@@ -22,17 +22,18 @@ public:
         
         int r = grid.size();
         islands = 0;
-        if(r == 0)
-            return r;
 
+        if(r == 0)
+            return islands;
         int c = grid[0].size();
 
         // Allocate visited
         visited.resize(r, vector<int>(c, 0));
 
+        // For every unvisited pixel in the map do a bfs
         for(int i = 0; i < r; i++) {
             for(int j = 0; j < c; j++){
-                if(!visited[i][j] && grid[i][j]){
+                if(grid[i][j] && !visited[i][j]){
                     bfs(grid, i, j, r, c);
                 }
             }
@@ -47,6 +48,7 @@ public:
             {-1, 0}, 
             {0, -1}
         };
+        cout << "Called at  " << i << "," << j << endl;
         islands++;
         queue<pair<int, int>> q;
         q.push(make_pair(i, j));
@@ -54,10 +56,10 @@ public:
         while(q.size()){
             pair<int, int> location = q.front();
             visited[location.first][location.second] = 1; 
-            q.pop();            
+            q.pop();
             int new_r = 0, new_c = 0;
             for(int k = 0; k < 4; k++){
-                new_r = location.first + dirs[k][0];
+                new_r = location.first  + dirs[k][0];
                 new_c = location.second + dirs[k][1];
                 if( check_boundary(new_r, new_c, r, c) && 
                     grid[new_r][new_c] && !visited[new_r][new_c]){
@@ -86,5 +88,12 @@ Input:
     00011
 
 Output: 3
+
+[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+
+[["1","1","0","0","0"],
+ ["1","1","0","0","0"],
+ ["0","0","1","0","0"],
+ ["0","0","0","1","1"]]
 
 */

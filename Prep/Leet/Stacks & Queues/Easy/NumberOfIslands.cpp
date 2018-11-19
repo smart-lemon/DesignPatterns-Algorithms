@@ -6,14 +6,19 @@
 
     
 */
-
-
+nt dirs [][2] = {
+            {0,  1},
+            {1,  0},
+            {-1, 0}, 
+            {0, -1}
+        };
 class Solution {
-    vector<vector<int>> visited;
+    vector<vector<char>> visited;
     int islands;
-
-public:
-
+    queue<pair<int, int>> q;
+        
+       
+    public:
     bool check_boundary(int i, int j, int r, int c){
         return i >= 0 && j >= 0 && i < r && j < c;
     }
@@ -28,12 +33,12 @@ public:
         int c = grid[0].size();
 
         // Allocate visited
-        visited.resize(r, vector<int>(c, 0));
+        visited.resize(r, vector<char>(c, 0));
 
         // For every unvisited pixel in the map do a bfs
         for(int i = 0; i < r; i++) {
             for(int j = 0; j < c; j++){
-                if(grid[i][j] && !visited[i][j]){
+                if(grid[i][j] == '1' && !visited[i][j]){
                     bfs(grid, i, j, r, c);
                 }
             }
@@ -41,16 +46,9 @@ public:
         return islands;
     }
     
-    void bfs(vector<vector<char>>& grid, int i, int j, int r, int c){
-        int dirs [][2] = {
-            {0,  1},
-            {1,  0},
-            {-1, 0}, 
-            {0, -1}
-        };
-        cout << "Called at  " << i << "," << j << endl;
+    void bfs(vector<vector<char>>& grid, int i, int j, int r, int c){        
+        
         islands++;
-        queue<pair<int, int>> q;
         q.push(make_pair(i, j));
 
         while(q.size()){
@@ -62,13 +60,14 @@ public:
                 new_r = location.first  + dirs[k][0];
                 new_c = location.second + dirs[k][1];
                 if( check_boundary(new_r, new_c, r, c) && 
-                    grid[new_r][new_c] && !visited[new_r][new_c]){
+                    grid[new_r][new_c] == '1' && !visited[new_r][new_c]){
                     q.push(make_pair(new_r, new_c));
                 }
             }
         }
     }
 };
+
 
 
 /*
@@ -88,12 +87,5 @@ Input:
     00011
 
 Output: 3
-
-[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
-
-[["1","1","0","0","0"],
- ["1","1","0","0","0"],
- ["0","0","1","0","0"],
- ["0","0","0","1","1"]]
 
 */

@@ -8,22 +8,19 @@
 
 
 // Template for generic types
-class HashNode
-{
+class HashNode {
     public:
   
     int key;
     int value;
 
     // This constructor is only for the root node of each bucket
-    HashNode()
-    {
+    HashNode() {
         // Dont store any key-value
     }
 
     // Actual constructor of hashnode 
-    HashNode(int k, int v)
-    {
+    HashNode(int k, int v) {
         value = v;
         key = k;
     }   
@@ -44,7 +41,7 @@ class HashMap {
 
     private:
 
-    void deleteTable(HashNode **toBeDeleted){
+    void deleteTable(HashNode **toBeDeleted) {
         
         // Destroy all buckets one by one
         for (int i = 0; i < noOfBuckets; i++) {
@@ -77,8 +74,7 @@ class HashMap {
 
     public:
   
-    int hashCode(int key)
-    {
+    int hashCode(int key) {
         // cout << "Hash Func "<< key << " " << noOfBuckets << endl;      
         // Re interpret 'key' as int
         return reinterpret_cast<int>(key) % noOfBuckets;

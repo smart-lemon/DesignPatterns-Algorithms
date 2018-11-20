@@ -6,20 +6,19 @@
 
     
 */
-nt dirs [][2] = {
+
+int dirs [][2] = {
             {0,  1},
             {1,  0},
             {-1, 0}, 
             {0, -1}
         };
+
 class Solution {
-    vector<vector<char>> visited;
-    int islands;
-    queue<pair<int, int>> q;
-        
+    int islands; 
        
     public:
-    bool check_boundary(int i, int j, int r, int c){
+    inline bool check_boundary(int i, int j, int r, int c){
         return i >= 0 && j >= 0 && i < r && j < c;
     }
 
@@ -32,28 +31,42 @@ class Solution {
             return islands;
         int c = grid[0].size();
 
-        // Allocate visited
-        visited.resize(r, vector<char>(c, 0));
+        bool doBfs = false;
+        vector<vector<bool>> visited(r, vector<bool> (c, false));
+        if(doBfs) {
 
-        // For every unvisited pixel in the map do a bfs
-        for(int i = 0; i < r; i++) {
-            for(int j = 0; j < c; j++){
-                if(grid[i][j] == '1' && !visited[i][j]){
-                    bfs(grid, i, j, r, c);
+            // For every unvisited pixel in the map do a bfs
+            for(int i = 0; i < r; i++) {
+                for(int j = 0; j < c; j++){
+                    if(grid[i][j] == '1' && !visited[i][j]){
+                        islands++;
+                        bfs(grid, visited, i, j, r, c);
+                    }
+                }
+            }
+        } else {
+            // Do DFS
+              for (int i = 0; i < r; i++) {
+                for (int j = 0; j < c; j++) {
+                    if (grid[i][j] == '1' && !visited[i][j]) {
+                        islands++;
+                        dfs(grid, visited, i, j, r, c);
+                    }
                 }
             }
         }
+        
         return islands;
     }
     
-    void bfs(vector<vector<char>>& grid, int i, int j, int r, int c){        
+    void bfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int i, int j, int r, int c){        
         
-        islands++;
+        queue<pair<int, int>> q;       
         q.push(make_pair(i, j));
 
         while(q.size()){
             pair<int, int> location = q.front();
-            visited[location.first][location.second] = 1; 
+            visited[location.first][location.second] = true; 
             q.pop();
             int new_r = 0, new_c = 0;
             for(int k = 0; k < 4; k++){
@@ -64,6 +77,18 @@ class Solution {
                     q.push(make_pair(new_r, new_c));
                 }
             }
+        }
+    }
+
+    void dfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int i, int j, int r, int c) {
+        visited[i][j] = true;
+        int new_r = 0, new_c = 0;
+        for(int k = 0; k < 4; k++){
+            new_r = i + dirs[k][0];
+            new_c = j + dirs[k][1];
+
+            if ( check_boundary(new_r, new_c, r, c) && grid[new_r][new_c] == '1' && !visited[new_r][new_c])
+                dfs(grid, visited, new_r, new_c, r, c);
         }
     }
 };

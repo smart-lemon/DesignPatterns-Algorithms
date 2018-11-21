@@ -73,7 +73,7 @@ class Solution {
                 new_r = location.first  + dirs[k][0];
                 new_c = location.second + dirs[k][1];
                 if( check_boundary(new_r, new_c, r, c) && 
-                    grid[new_r][new_c] == '1' ){                    
+                    grid[new_r][new_c] == '1' ){           
                     // Instead of visited, modify the grid
                     grid[new_r][new_c] = '0';
                     q.push(make_pair(new_r, new_c));

@@ -1,7 +1,9 @@
 #include "./../../../../Include/Common.h"
 
-// https://leetcode.com/problems/perfect-squares/
-
+/*
+    
+     https://leetcode.com/problems/perfect-squares/
+*/
 
 class Solution {
     
@@ -14,17 +16,13 @@ public:
         
         if(n <= 1)
             return n;
-        int cnt = 0;
         for(int i = 1; i < n; i++) {
             if(i*i > n)
                 break;
             else {                
                 squares.push_back(i*i);
-                cout << squares[cnt] << " "; 
-                cnt++;
             }
         }
-        cout << endl;
         
         vector<int> DP(n + 1, 0);
         DP[0] = 0; 
@@ -32,7 +30,7 @@ public:
         
         for(int i = 2; i <= n; i++) {
             int minOf = INT_MAX; 
-            for(int j = 0; j < cnt; j++) {
+            for(int j = 0; j < squares.size(); j++) {
                 if(i - squares[j] >= 0){
                     minOf = min(DP[i - squares[j]] + 1, minOf); 
                 }

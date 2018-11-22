@@ -1,15 +1,13 @@
 #include "./../../../../Include/Common.h"
 
 /*
-    
-     https://leetcode.com/problems/perfect-squares/
+    Perfect squares 
+
+    https://leetcode.com/problems/perfect-squares/
 */
 
 class Solution {
     
-    int min(int a, int b){
-        return a < b? a : b;
-    }
 public:
     int numSquares(int n) {
         vector<int> squares;

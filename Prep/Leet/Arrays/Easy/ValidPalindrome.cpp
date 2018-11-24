@@ -4,16 +4,15 @@
     Determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
 */
-inline bool isEqual(char a, char b) {
-    cout <<  a << " "  << (char)(b -'A') << (char)(a - 'A') << endl;
-    if(a == b || a == (char)('A' - b) || b == (char)('A' - a))
-        return true;
-    return false;
+
+int toUpperChar(int ch){
+    if(ch >= 'a' && ch <= 'z')
+        return ('A' + ch - 'a');
+    else
+        return ch;
 }
 
-
-
-bool isAlphanumeric(char thing) {
+bool isNotAlphanumeric(char thing) {
     if((thing == ' ') || (thing == '\'') || (thing == ',') ||
        (thing == ':') || (thing == '.')  || (thing == '?') ||
        (thing == '@') || (thing == '#')  || (thing == '-') ||
@@ -33,17 +32,17 @@ public:
         int low = 0; 
         int high = str.length() - 1; 
         
-        while(low != high){
+        while(low < high){
             // cout << str[low] << " " << str[high] << "."; 
-            if(isEqual(str[low], str[high])){
+            if(toUpperChar(str[low]) == toUpperChar(str[high])){
                 low++; 
                 high--;            
             } else {
-                if(isAlphanumeric(str[low])){
+                if(isNotAlphanumeric(str[low])){
                     low++;
                     continue;
                 }
-                if(isAlphanumeric(str[high])){
+                if(isNotAlphanumeric(str[high])){
                     high--;
                     continue;
                 }
@@ -52,6 +51,7 @@ public:
         }
         return true;  
     }
+};
 
     bool isPalindrome(string s) {
         for (int left = 0, right = s.size() - 1; left < right; left++, right--) { // Move 2 pointers from each end until they collide

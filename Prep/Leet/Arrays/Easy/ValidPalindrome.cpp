@@ -12,9 +12,13 @@ inline bool isEqual(char a, char b) {
 }
 
 
-bool isNotAlphanumeric(char thing) {
+
+bool isAlphanumeric(char thing) {
     if((thing == ' ') || (thing == '\'') || (thing == ',') ||
-       (thing == ':') || (thing == '.')  || (thing == '?')){
+       (thing == ':') || (thing == '.')  || (thing == '?') ||
+       (thing == '@') || (thing == '#')  || (thing == '-') ||
+       (thing == '\"')|| (thing == ';')  || (thing == ')') ||
+       (thing == '!') || (thing == '(')  || (thing == '`')){
         return true;
     }
     return false;
@@ -35,11 +39,11 @@ public:
                 low++; 
                 high--;            
             } else {
-                if(isNotAlphanumeric(str[low])){
+                if(isAlphanumeric(str[low])){
                     low++;
                     continue;
                 }
-                if(isNotAlphanumeric(str[high])){
+                if(isAlphanumeric(str[high])){
                     high--;
                     continue;
                 }
@@ -48,4 +52,15 @@ public:
         }
         return true;  
     }
+
+    bool isPalindrome(string s) {
+        for (int left = 0, right = s.size() - 1; left < right; left++, right--) { // Move 2 pointers from each end until they collide
+            while (isalnum(s[left]) == false &&  left < right) 
+                left++; // Increment left pointer if not alphanumeric
+            while (isalnum(s[right]) == false &&  left < right) 
+                right--; // Decrement right pointer if no alphanumeric
+            if (toupper(s[left]) != toupper(s[right])) 
+                return false;
+        }
+    }    
 };

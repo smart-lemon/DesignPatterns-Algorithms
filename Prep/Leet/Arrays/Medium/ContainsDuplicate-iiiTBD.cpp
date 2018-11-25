@@ -7,6 +7,7 @@ class Solution {
     long difference(long a, long b){
         return a > b? (a - b) : (b - a);
     }
+    
 public:
     // 40/41 sets - then TLE 
     bool containsNearbyAlmostDuplicateTle(vector<int>& nums, int k, int t) {

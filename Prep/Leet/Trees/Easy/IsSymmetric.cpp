@@ -8,6 +8,7 @@ typedef struct TreeNode;
 
     
 */
+
 class Solution {
 public:
     bool isSymmetricUtil(TreeNode* rootLeft, TreeNode* rootRight){

@@ -18,7 +18,7 @@ public:
             } else if (numbers[front] + numbers[back] < target){
                 front++;
             } else {
-                vector <int> res {numbers[front], numbers[back]};
+                vector <int> res {front + 1, back + 1};
                 return res;
             }
         }

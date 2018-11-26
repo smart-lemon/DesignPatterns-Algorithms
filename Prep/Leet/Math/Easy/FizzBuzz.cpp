@@ -1,7 +1,7 @@
 #include "./../../../../Include/Common.h"
 /*
     Fizz Buzz 
-
+    
 */
 class Solution {
 public:
@@ -15,7 +15,7 @@ public:
             } else if(i % 5 == 0) {
                 res.push_back("Buzz");
             } else {
-               res.push_back(std::to_string(i));
+               res.push_back(to_string(i));
             }
         }
         return res;

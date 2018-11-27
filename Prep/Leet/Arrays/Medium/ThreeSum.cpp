@@ -1,8 +1,9 @@
 #include "./../../../../Include/Common.h"
-using namespace std;
+/*  
+    3 sum
 
-// https://leetcode.com/problems/3sum/
-
+    https://leetcode.com/problems/3sum/
+*/
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -22,10 +23,7 @@ public:
                 if(!(hashmap.find(-sum) == hashmap.end()))
                 {                       
                     if(hashmap[-sum] != i && hashmap[-sum] != j){
-                        vector<int> line; 
-                        line.push_back(nums[i]);
-                        line.push_back(nums[j]);
-                        line.push_back(-sum);
+                        vector<int> line { nums[i], nums[j], -sum };
                         sort(line.begin(), line.end());
                         outputSet.insert(line);
                     }

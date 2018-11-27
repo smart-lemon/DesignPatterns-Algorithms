@@ -14,11 +14,7 @@ struct TreeNode {
 };
 
 class Solution {
-    
-    int min(int a, int b){
-        return a < b? a : b;
-    }
-    
+        
     int minDepthUtil(TreeNode *root){
         // Corner case which should not be called ever
         if(root == nullptr) {
@@ -43,5 +39,39 @@ public:
            return 0;
         
         return minDepthUtil(root);
+    }
+};
+
+/*
+    Max Depth of a binary tree
+*/
+
+
+class Solution {
+public:   
+    
+    int maxDepthUtil(TreeNode *root){
+        // Corner case which should not be called ever
+        if(root == nullptr) {
+            return 0;
+        }
+        
+        if(root->left == nullptr && root->right == nullptr){
+              return  1;
+        } 
+        if(root->right && root->left == nullptr) {
+            return maxDepthUtil(root->right) + 1;
+        } 
+        if(root->left && root->right == nullptr) {
+            return maxDepthUtil(root->left) + 1;
+        } 
+        return  max(maxDepthUtil(root->left), maxDepthUtil(root->right)) + 1;
+    }
+    
+    int maxDepth(TreeNode* root) {
+       if(root == nullptr)
+           return 0;
+        
+        return maxDepthUtil(root);
     }
 };

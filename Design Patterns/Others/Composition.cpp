@@ -3,6 +3,12 @@
 #include <stdio.h>
 using namespace std;
 
+/*
+    An example of composition. 
+    Meal Combo has an Entree, Drink and  a Side dish.
+*/
+
+
 // Base Entree class
 class Entree {
 protected:

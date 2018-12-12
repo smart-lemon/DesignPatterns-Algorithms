@@ -15,11 +15,11 @@ private :
 
 public: 
 
-    Animal(){
+    Animal() {
         // Base constructor
     }
 
-	string getName(){ 
+	string getName() { 
 		return name;
 	}
 

@@ -1,6 +1,17 @@
 #include "./../../Include/Common.h"
 
 using namespace std;
+
+// -----------------------------------------------
+
+
+// -----------------------------------------------
+    // Example - A knife factory 
+    // Manufacturing various grades of knives
+// -----------------------------------------------
+
+
+
 // -----------------------------------------------
 // Products of the factory
 // -----------------------------------------------
@@ -9,12 +20,15 @@ class Knife {
         inline void sharpen() {
              cout << "Sharpening" << endl;
         }
+
         inline void polish() {
              cout << "Polishing" << endl;
         }
+
         inline void package() {
              cout << "Packaging" << endl;
         }
+
         virtual void design() = 0;
 };
 
@@ -34,7 +48,6 @@ class BudgetSteakKnife : public Knife {
     }
 };
 
-
 class LuxuryChefsKnife : public Knife {
     public:
     void design() {
@@ -48,6 +61,7 @@ class LuxuryBreadKnife : public Knife {
         cout << "Designing premium bread knife" << endl;
     }
 };
+
 // -----------------------------------------------
 // Factories
 // -----------------------------------------------
@@ -55,14 +69,12 @@ class KnifeFactory {
     public:
 
     Knife *orderKnife(string knifeType) {
-        Knife *knife;
-        knife = createKnife(knifeType);
 
+        Knife *knife = createKnife(knifeType);
         knife->design();
         knife->sharpen();
         knife->polish();
         knife->package();
-
         return knife;
     }
 
@@ -167,10 +179,10 @@ public:
 	}
 };
 
-int test_factory_method() {
+int testFactoryMethod() {
 	CoffeeMakerFactory coffeeMachine;
 	Coffee *cup;
 	cup = coffeeMachine.GetCoffee();
 
-	cout << endl << "You had asked for a(n)" << cup->getType() << endl;
+	cout << endl << "You had asked for a(n) " << cup->getType() << endl;
 }

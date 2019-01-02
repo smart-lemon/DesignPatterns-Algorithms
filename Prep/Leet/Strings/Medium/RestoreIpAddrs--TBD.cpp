@@ -11,10 +11,10 @@ class Solution {
 public:
     int stringToNum(string ip){
         int num = 0;
-        int idx =  1;
+        int tens =  1;
         for(int i = 0; i < ip.length(); i++){
-            num += ('0' - ip[i]) * idx;
-            idx *= 10;
+            num += (ip[i] - '0') * tens;
+            tens *= 10;
 
             // Too big to be an IP. Minor prune here
             if(num > 255)
@@ -33,8 +33,23 @@ public:
     }
 
     vector <string> result; 
-    void combinatoricsIpAddr(string raw, string partial, int idx){
 
+    void combinatoricsIpAddr(const string raw, string partial, int idx, int subIdx, int slot){
+        if(idx > raw.length() || idx + subIdx >= raw.length()){
+            return;
+        }
+
+        if(idx + subIdx == raw.length() - 1){
+            // A proper IP address
+            partial.append(".");
+            partial.append(raw.substr(idx, idx + subIdx));
+            result.push_back(partial);
+            return;
+        }
+
+        for(; slot <= 4; slot++){
+            combinatoricsIpAddr(raw, partial);
+        }
     }
 
     vector<string> restoreIpAddresses(string s) {
@@ -50,6 +65,38 @@ public:
 };
 
 
+
 /*
-    For example, given "2542540123", you should return ['254.25.40.123', '254.254.0.123'].
+
+For example, given "2542540123", you should return ['254.25.40.123', '254.254.0.123'].
+
+
+Each part of an IP address can be one, two, or three digits long. 
+A valid part can be either a single digit, a two-digit number between 10 and 99, 
+or a three-digit number between 100 and 255. For the input "2542540123", 
+for example, we can either begin with "2", "25", or "254". Once we choose one of these, 
+we can have up to three valid options for the second part. For example, 
+if we started with "2", our next part could either be "5" or "54".
+
+These choices can be represented in a tree, as follows:
+
+               /            |         \
+             /              |           \
+           2                25          254
+        /  |             /   |           |
+      /    |           /     |           |
+    5     54         4      40           0
+  / | \  / | \     / | \   / | \       / | \
+
+At each level of the tree, we find the valid parts that start with the first one, 
+two, or three digits of our string. For each of these parts, we add it to our 
+potential solution and recursively find the next valid parts in the remainder 
+of the string. Once we reach the fourth level of the tree (meaning we have 
+generated four valid parts to our IP address), and we have used all the characters 
+in our input, we have found a solution. This kind of algorithm is called iterative
+deepening depth-first search (IDS).
+
+The time complexity of IDS is O(bd), where b is the branching factor
+and d is the tree depth. Here b = 3 and d = 4.
+
 */

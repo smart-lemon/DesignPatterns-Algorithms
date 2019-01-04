@@ -9,7 +9,10 @@
 
 class Solution {
 public:
-    int stringToNum(string ip){
+
+    vector <string> result; 
+
+    int stringToNum(string ip) {
         int num = 0;
         int tens =  1;
         for(int i = 0; i < ip.length(); i++){
@@ -23,7 +26,7 @@ public:
         return num;
     }
 
-    bool isValidIpSub(string sub){
+    bool isValidIpSub(string sub) {
         if(sub.length() > 1 && sub[0] == '0')
             return false;
         if(stringToNum(sub) <= 255)
@@ -32,9 +35,7 @@ public:
             return false;
     }
 
-    vector <string> result; 
-
-    void combinatoricsIpAddr(const string raw, string partial, int idx, int subIdx, int slot){
+    void combinatoricsIpAddr(const string raw, string partial, int idx, int subIdx, int step){
         if(idx > raw.length() || idx + subIdx >= raw.length()){
             return;
         }
@@ -47,7 +48,7 @@ public:
             return;
         }
 
-        for(; slot <= 4; slot++){
+        for(; step <= 4; step++){
             combinatoricsIpAddr(raw, partial);
         }
     }

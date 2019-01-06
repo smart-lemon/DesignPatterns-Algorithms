@@ -60,7 +60,6 @@ public:
         if(s.length()/3 > 4 || s.length() < 4)
             return result;
 
-
         return result;
     }
 };

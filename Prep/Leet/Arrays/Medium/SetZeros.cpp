@@ -29,6 +29,7 @@ public:
             }
         }
 
+        // Here is the main logic. If the rows or columns are marked as zero make i,j as zero 
         for(int i = 1; i < r; i++){
             for(int j = 1; j < c; j++){
                 if(matrix[0][j] == 0 || matrix[i][0] == 0) 

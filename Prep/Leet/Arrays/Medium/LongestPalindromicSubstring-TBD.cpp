@@ -7,6 +7,7 @@
 */
 
 
+
 class Solution {
 public:
 
@@ -34,19 +35,19 @@ public:
             return s;
 
         int longestSubstring = 1;
-        string ans;
+        string ans(1, s[0]);
 
         for(int center = 1; center < len - 1; center++) {            
             int offset = 1;
             int currentSubLen = 1;
             int left = 0, right = 0;
             if(isPalindromeSeed(s, center, left, right)){
-                while(left >= 0 && right < len && 
-                    s[left] == s[right] ){
-                    currentSubLen = right - left;
+                while(left >= 0 && right < len && s[left] == s[right] ){
+                  //  cout << s[left] << " " << s[right] << endl;
+                    currentSubLen = right - left + 1;
                     if(currentSubLen > longestSubstring) {
                         longestSubstring = currentSubLen; 
-                        ans = s.substr(left, currentSubLen + 1);                    
+                        ans = s.substr(left, currentSubLen);                    
                     }
                     left--; right++;
                 }

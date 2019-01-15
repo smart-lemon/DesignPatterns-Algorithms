@@ -20,9 +20,7 @@ public:
         ListNode *fast = dummy; 
         
         for(int i = 0; i < n;  i++ )
-        {   
             fast = fast->next;
-        }
 
         ListNode *slow = dummy;
         

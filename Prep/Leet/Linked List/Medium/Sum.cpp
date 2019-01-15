@@ -30,9 +30,7 @@ public:
         while(l1runner != NULL && l2runner != NULL) {
             output->val = l1runner->val + l2runner->val + carry; 
             carry =  output->val / 10; 
-            output->val = output->val % 10;              
-            cout << " Adding " << l1runner->val << " + " << l2runner->val << " Carry " << carry <<  endl;
-            
+            output->val = output->val % 10;                        
             output->next = createNode();
             prevOutput = output;
             l1runner = l1runner->next;
@@ -44,7 +42,6 @@ public:
             output->val = l1runner->val + carry; 
             carry =  output->val / 10; 
             output->val = output->val % 10; 
-            cout << " Adding " << l1runner->val << " Carry " << carry <<  endl;
             output->next = createNode();
             l1runner = l1runner->next;
             prevOutput = output;
@@ -55,7 +52,6 @@ public:
             output->val = l2runner->val + carry; 
             carry =  output->val / 10; 
             output->val = output->val % 10; 
-            cout << " Adding " << l2runner->val << " Carry " << carry <<  endl;
             output->next = createNode();
             l2runner = l2runner->next; 
             prevOutput = output;

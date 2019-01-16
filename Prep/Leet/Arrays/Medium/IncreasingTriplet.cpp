@@ -23,3 +23,7 @@ public:
         return false;
     }
 };
+
+/*
+    Clever use of conditional statement
+*/

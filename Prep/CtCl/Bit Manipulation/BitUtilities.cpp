@@ -39,7 +39,26 @@ int clearBitFromMsbToI(int num, int i){
 /*
     Clears i to LSB (including i)
 */
-int clearBitFromIToILsb(int num, int i){
+int clearBitFromIToLsb(int num, int i){
     int mask = (-1 << (i + 1));
     return num & mask;
+}
+
+
+
+/*
+    Returns the position of the rightmost '1' bit 
+    00101100 -> 00000100
+*/
+unsigned int valueOfRightmostBit(unsigned int x) {
+    return x & ~(x - 1);
+}
+
+
+/*
+    Clears the rightmost '1' bit 
+    00101100 -> 00101000
+*/
+unsigned int clearTheRightmostBit(unsigned int x) {
+    return x ^ valueOfRightmostBit(x);
 }

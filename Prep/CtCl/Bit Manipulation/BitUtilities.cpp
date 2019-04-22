@@ -45,7 +45,6 @@ int clearBitFromIToLsb(int num, int i){
 }
 
 
-
 /*
     Returns the position of the rightmost '1' bit 
     00101100 -> 00000100
@@ -61,4 +60,16 @@ unsigned int valueOfRightmostBit(unsigned int x) {
 */
 unsigned int clearTheRightmostBit(unsigned int x) {
     return x ^ valueOfRightmostBit(x);
+}
+
+/*
+    Binary printing helper
+*/
+
+void printBinary(int number) {
+    if (number) {
+        printBinary(number >> 1);
+        (number & 1) ? cout << '1' : cout << '0';
+    }
+    cout << endl;
 }

@@ -38,8 +38,7 @@ public:
             int incr = numRows - 2;
             column++;
             
-            for(int i = incr; i >= 0; i--)
-            {
+            for(int i = incr; i >= 0; i--) {
                 matrix[i][column] = s[count];
                 column++;
 

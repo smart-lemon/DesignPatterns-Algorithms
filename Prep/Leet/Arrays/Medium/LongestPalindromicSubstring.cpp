@@ -3,10 +3,7 @@
 /*
     Find the longest palindromic substring in s 
 
-
 */
-
-
 
 class Solution {
 public:

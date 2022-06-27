@@ -28,6 +28,6 @@ class Solution:
         i = 0
         for item in non_unique_map:
             if non_unique_map[item] == 1:
-                i = i +  1
+                i = i + 1
 
         return result

@@ -1,7 +1,14 @@
 from collections import OrderedDict
 
+'''
+
+2053. Kth Distinct String 
+https://leetcode.com/problems/kth-distinct-string-in-an-array/
+
+'''
+
 class Solution:
-    
+
     def kthDistinct(self, arr, k) -> str:
         non_unique_map = OrderedDict()
         result = ""
@@ -22,6 +29,5 @@ class Solution:
         for item in non_unique_map:
             if non_unique_map[item] == 1:
                 i = i +  1
-                print(item + " " + str(non_unique_map[item]) + " " + str(i))
 
         return result
